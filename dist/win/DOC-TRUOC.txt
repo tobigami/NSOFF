@@ -1,0 +1,59 @@
+CHẠY NSO TRÊN WINDOWS
+=====================
+
+1. Giải nén cả thư mục này ra Desktop hoặc ổ D.
+   Đừng để trong "Program Files" -- Windows chặn ghi ở đó, emulator lưu tài
+   khoản không được.
+
+2. Mở CHAY.bat bằng Notepad, sửa dòng
+
+       set "TEN=ban-be"
+
+   thành tên nhân vật của bạn (chỉ chữ và số, không dấu). Log gửi về sẽ mang
+   tên đó, để người sửa game biết log của ai.
+
+3. Nếu máy đã có sẵn thư mục Micro_AngelChip thì đặt thư mục này NẰM CẠNH nó,
+   script sẽ tự mượn Java bên trong đó. Chưa có cũng không sao, miễn là máy đã
+   cài Java.
+
+4. Bấm đúp CHAY.bat. Một cửa sổ đen hiện ra rồi cửa sổ game hiện lên sau vài
+   giây. Cửa sổ đen phải để nguyên, đóng nó là game tắt theo.
+
+CHẠY BẢN NÀO
+============
+
+Script tự chọn file NSO-*.jar mới nhất trong thư mục. Tải bản mới về để cạnh
+là xong, không cần sửa gì. Bản cũ để lại cũng được, nó không đụng tới.
+
+LOG
+===
+
+Mọi thứ game in ra đều vào log.txt. Chạy xong, script tự gửi log.txt về máy
+chủ qua Tailscale -- bạn không phải đi tìm file hay gửi thủ công.
+
+Trong log.txt không có mật khẩu hay thông tin cá nhân, chỉ là những dòng game
+tự in ra. Không muốn gửi thì mở CHAY.bat xoá đoạn "Gui log ve may chu" đi,
+game vẫn chạy bình thường.
+
+Gửi không được cũng không sao -- file log.txt vẫn nằm trong thư mục này.
+
+KHI GAME BỊ TREO
+================
+
+Bấm chuột vào cửa sổ đen, rồi nhấn Ctrl+Break.
+Bàn phím không có phím Break thì thử Ctrl+Pause, hoặc Ctrl+Fn+B.
+
+Màn hình sẽ không đổi gì cả -- đó là bình thường. Java lặng lẽ ghi vào log.txt
+đúng vị trí mà game đang kẹt, từng luồng một. Nhấn thêm vài lần cách nhau
+mươi giây càng tốt: so hai lần chụp là biết game đang quay vòng ở một chỗ hay
+đang đứng chờ.
+
+Sau đó đóng cửa sổ đen -- script sẽ gửi log đi.
+
+CÁI NÀY KHÁC GÌ AngelChipEmulator.exe
+=====================================
+
+Không khác gì về phần chạy game -- vẫn cùng một MicroEmulator, chỉ là gọi
+thẳng bằng dòng lệnh thay vì qua file .exe. Khác ba chỗ có ích lúc này: mọi
+lỗi đều được ghi ra log.txt, Ctrl+Break lấy được chỗ kẹt, và log tự gửi về.
+Bản .exe nuốt hết những thứ đó nên treo là chịu, không biết vì sao.

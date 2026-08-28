@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quản lý nhân vật</title>
+<style>
+:root{
+  --nen:#f6f7f9; --the:#fff; --vien:#e3e6ea; --chu:#1d2129; --nhat:#6b7280;
+  --xanh:#0b57d0; --xanhnen:#e8f0fe; --do:#c5221f; --donen:#fce8e6;
+  --luc:#137333; --lucnen:#e6f4ea; --vang:#b06000; --vangnen:#fef7e0;
+  --bong:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  --bongto:0 4px 16px rgba(16,24,40,.10);
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --nen:#15171c; --the:#1d2025; --vien:#2f333b; --chu:#e6e8eb; --nhat:#9aa0a6;
+    --xanh:#8ab4f8; --xanhnen:#1e2a3d; --do:#f28b82; --donen:#3a2321;
+    --luc:#81c995; --lucnen:#1e2f24; --vang:#fdd663; --vangnen:#332b16;
+    --bong:0 1px 2px rgba(0,0,0,.3); --bongto:0 4px 18px rgba(0,0,0,.45);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--nen);color:var(--chu)}
+h1{font-size:16px;margin:0;font-weight:650;letter-spacing:-.01em}
+h2{font-size:13px;margin:0 0 10px;font-weight:600;color:var(--nhat);text-transform:uppercase;letter-spacing:.04em}
+header{display:flex;align-items:center;gap:12px;padding:12px 18px;background:var(--the);
+  border-bottom:1px solid var(--vien);position:sticky;top:0;z-index:5;flex-wrap:wrap;
+  box-shadow:var(--bong)}
+#tinhtrang{font-size:12px;color:var(--nhat);margin-left:auto}
+#khung{display:flex;align-items:flex-start;gap:18px;padding:18px;max-width:1440px;margin:0 auto}
+@media(max-width:900px){#khung{flex-direction:column;padding:12px}#ben-trai{width:100%;position:static}}
+#ben-trai{width:250px;flex:none;position:sticky;top:57px}
+#ben-phai{flex:1;min-width:0}
+.the{background:var(--the);border:1px solid var(--vien);border-radius:12px;padding:16px;
+  margin-bottom:14px;box-shadow:var(--bong)}
+input:not([type=checkbox]):not([type=radio]):not([type=button]){
+  padding:7px 9px;border:1px solid var(--vien);border-radius:7px;
+  background:var(--nen);color:var(--chu);font:inherit;font-size:13px}
+input:not([type=checkbox]):not([type=radio]):focus{
+  outline:none;border-color:var(--nhat)}
+input[type=search]::-webkit-search-cancel-button{filter:invert(.5)}
+#tim{width:100%;margin-bottom:8px}
+.nv{display:block;width:100%;text-align:left;padding:8px 10px;border:1px solid transparent;border-radius:7px;background:none;color:var(--chu);cursor:pointer;font:inherit}
+.nv{transition:background .12s,border-color .12s}
+.nv:hover{background:var(--nen)}
+.nv.chon{background:var(--xanhnen);border-color:var(--xanh);box-shadow:inset 3px 0 0 var(--xanh)}
+.nv b{font-weight:600}
+.nv span{display:block;font-size:12px;color:var(--nhat)}
+.cham{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--vien);margin-right:6px;vertical-align:middle}
+.cham.on{background:var(--luc)}
+.tab{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.tab{position:sticky;top:57px;z-index:4;background:var(--nen);padding:8px 0;margin-top:-8px}
+.tab button{padding:7px 15px;border:1px solid var(--vien);background:var(--the);color:var(--chu);
+  border-radius:8px;cursor:pointer;font:inherit;transition:all .12s;box-shadow:var(--bong)}
+.tab button:hover{border-color:var(--xanh);color:var(--xanh)}
+.tab button.chon{background:var(--xanh);border-color:var(--xanh);color:#fff}
+.tab button.chon:hover{color:#fff}
+button.nut{padding:6px 12px;border:1px solid var(--vien);background:var(--the);color:var(--chu);
+  border-radius:8px;cursor:pointer;font:inherit;font-size:13px;transition:all .12s}
+button.nut:hover:not(:disabled){border-color:var(--xanh);color:var(--xanh)}
+button.nut:disabled{opacity:.45;cursor:not-allowed}
+button.nut.canh{border-color:var(--do);color:var(--do)}
+button.nut.chinh{border-color:var(--xanh);background:var(--xanhnen);color:var(--xanh);font-weight:600}
+select[id^="bk-sodong"]{padding:6px 8px;border:1px solid var(--vien);border-radius:6px;
+  background:var(--the);color:var(--chu);font:inherit}
+.oso{width:74px;padding:5px 7px;border:1px solid var(--vien);border-radius:6px;background:var(--nen);color:var(--chu);font:inherit;font-size:13px}
+.luoi{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.mon{border:1px solid var(--vien);border-radius:10px;padding:11px;background:var(--nen);
+  transition:border-color .12s,box-shadow .12s}
+.mon:hover{border-color:var(--nhat);box-shadow:var(--bong)}
+.mon .ten{font-weight:600;margin-bottom:2px}
+.mon.chon{border-color:var(--do);box-shadow:0 0 0 2px var(--donen)}
+.mon .dau{display:flex;gap:9px;align-items:flex-start;margin-bottom:6px}
+.mon .anh{width:36px;height:36px;flex:0 0 36px;image-rendering:pixelated;
+  border:1px solid var(--vien);border-radius:6px;background:var(--nen);object-fit:contain}
+.mon .anh.trong{display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--nhat)}
+.mon .dau .no{flex:1;min-width:0}
+.mon .tick{flex:0 0 auto;margin:2px 0 0 0;width:16px;height:16px;cursor:pointer}
+.mon .mota{font-size:12px;color:var(--nhat);margin:4px 0 6px;font-style:italic}
+.mon .nut{padding:3px 9px;font-size:12px}
+.manh{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;
+  justify-content:center;z-index:50;padding:16px}
+.hop{background:var(--the);border:1px solid var(--vien);border-radius:14px;box-shadow:var(--bongto);
+  width:min(680px,100%);max-height:min(78vh,700px);display:flex;flex-direction:column;overflow:hidden}
+.hop .dinh{display:flex;gap:10px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--vien)}
+.hop .than{overflow:auto;padding:6px 14px}
+.hop .day{display:flex;gap:10px;align-items:center;padding:12px 14px;border-top:1px solid var(--vien)}
+.hop input[type=search]{flex:1}
+.dong{display:flex;gap:10px;align-items:center;padding:7px 6px;border-bottom:1px solid var(--vien);cursor:pointer}
+.dong:hover{background:var(--nen)}
+.dong.chon{background:var(--donen)}
+.dong img{width:28px;height:28px;image-rendering:pixelated;object-fit:contain;flex:0 0 28px}
+.noi{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;gap:8px;align-items:center;
+  padding:10px 12px;border:1px solid var(--vien);border-radius:10px;background:var(--the);
+  box-shadow:0 6px 22px rgba(0,0,0,.22)}
+.kn-anh{width:26px;height:26px;image-rendering:pixelated;object-fit:contain;flex:0 0 26px;
+  border:1px solid var(--vien);border-radius:5px;vertical-align:middle}
+.thanhchon{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px;
+  padding:8px 10px;border:1px solid var(--vien);border-radius:8px;background:var(--nen)}
+.mon .phu{font-size:12px;color:var(--nhat);margin-bottom:6px}
+.mon ul{margin:0;padding-left:16px;font-size:12.5px}
+.mon li{color:var(--nhat)}
+.mon li.tot{color:var(--chu)}
+.the-nho{display:inline-block;padding:1px 7px;border-radius:20px;font-size:11px;font-weight:600;vertical-align:middle}
+.the-nho.on{background:var(--lucnen);color:var(--luc)}
+.the-nho.off{background:var(--nen);color:var(--nhat);border:1px solid var(--vien)}
+.the-nho.he{background:var(--vangnen);color:var(--vang)}
+.the-nho.khoa{background:var(--donen);color:var(--do)}
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px 9px;text-align:left;border-bottom:1px solid var(--vien);font-size:13px}
+tbody tr{transition:background .1s}
+tbody tr:hover{background:var(--nen)}
+tbody tr:last-child td{border-bottom:none}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--nhat);font-weight:600}
+td.p{text-align:right;white-space:nowrap}
+.ct{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.tt{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.tt div{background:var(--nen);border:1px solid var(--vien);border-radius:10px;padding:10px 12px}
+.tt span{display:block;font-size:11px;color:var(--nhat);text-transform:uppercase;letter-spacing:.03em}
+.tt b{font-size:17px;font-weight:600}
+#bao{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;padding:10px 18px;border-radius:9px;font-size:13px;box-shadow:0 6px 22px rgba(0,0,0,.18);display:none;z-index:20;max-width:80vw}
+#bao.ok{background:var(--lucnen);color:var(--luc);border:1px solid var(--luc)}
+#bao.loi{background:var(--donen);color:var(--do);border:1px solid var(--do)}
+.canhbao{background:var(--vangnen);color:var(--vang);border:1px solid var(--vang);border-radius:9px;padding:9px 12px;margin-bottom:14px;font-size:13px}
+.trong{color:var(--nhat);font-size:13px;padding:6px 0}
+
+/* Chú thích nổi. Dùng thay thuộc tính title: title chờ khoảng một giây mới hiện, không xuống dòng
+   được và không tô đậm được -- mà thứ cần đọc ở đây là một danh sách chỉ số, không phải một câu. */
+#tip{position:fixed;z-index:99;max-width:340px;padding:9px 11px;border-radius:9px;
+  background:var(--the);border:1px solid var(--vien);box-shadow:0 8px 26px rgba(0,0,0,.25);
+  font-size:12.5px;line-height:1.5;pointer-events:none;display:none}
+#tip .t{font-weight:600;font-size:13px;margin-bottom:3px}
+#tip .m{color:var(--nhat);font-style:italic;margin-bottom:5px}
+#tip ul{margin:4px 0 0;padding-left:15px}
+#tip li{color:var(--chu)}
+#tip .k{color:var(--nhat);font-size:11.5px;margin-top:5px}
+
+/* Chip lọc nhanh trong hộp chọn món. */
+.loc{display:flex;gap:5px;flex-wrap:wrap;padding:9px 14px 0}
+.loc button{padding:4px 10px;border:1px solid var(--vien);border-radius:20px;background:var(--the);
+  color:var(--nhat);cursor:pointer;font:inherit;font-size:12px}
+.loc button:hover{border-color:var(--xanh);color:var(--xanh)}
+.loc button.chon{background:var(--xanh);border-color:var(--xanh);color:#fff}
+
+/* Tab con, nhẹ hơn tab chính để nhìn ra ngay đâu là cấp trên đâu là cấp dưới. */
+.tabcon{display:flex;gap:4px;margin:0 0 12px;flex-wrap:wrap;border-bottom:1px solid var(--vien);padding-bottom:8px}
+.tabcon button{padding:5px 12px;border:1px solid transparent;background:none;color:var(--nhat);
+  border-radius:7px;cursor:pointer;font:inherit;font-size:13px}
+.tabcon button:hover{background:var(--nen);color:var(--chu)}
+.tabcon button.chon{background:var(--xanhnen);color:var(--xanh);font-weight:600}
+
+/* Ô đếm điểm dạng x/y -- nhìn cái là biết còn bao nhiêu, không phải tự trừ trong đầu. */
+.dem{display:inline-flex;align-items:baseline;gap:3px;padding:3px 10px;border-radius:8px;
+  background:var(--nen);border:1px solid var(--vien);vertical-align:middle;margin-left:8px}
+.dem b{font-size:16px;font-weight:600;color:var(--chu)}
+.dem s{text-decoration:none;color:var(--nhat);font-size:13px}
+.dem .con{color:var(--luc);font-weight:600}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Quản lý nhân vật</h1>
+  <span id="che-do" class="the-nho off">…</span>
+  <span id="tinhtrang"></span>
+</header>
+
+<div id="khung">
+  <aside id="ben-trai">
+    <div class="the">
+      <input id="tim" placeholder="Tìm theo tên hoặc id" autocomplete="off">
+      <div id="danh-sach"></div>
+    </div>
+  </aside>
+
+  <main id="ben-phai">
+    <div id="noi-dung"><div class="the"><div class="trong">Chọn một nhân vật ở cột bên trái.</div></div></div>
+  </main>
+</div>
+
+<div id="bao"></div>
+
+<script>
+"use strict";
+
+let META = null;      // tên ô tiềm năng, tên ô trang bị, chế độ chạy
+let DS = [];          // danh sách nhân vật
+let NV = null;        // nhân vật đang xem
+const DANHDAU = new Set();
+let TAB = "tong-quan";
+let TABKN = "chinh";     // tab con trong thẻ Kỹ năng: chinh | phanthan
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const so = n => Number(n || 0).toLocaleString("vi-VN");
+
+// ---------------------------------------------------------------- chú thích nổi
+// Một hộp duy nhất dùng lại cho mọi chỗ, bám theo con trỏ. Nội dung để trong data-tip dạng HTML
+// đã escape sẵn ở nơi dựng ra nó.
+function tipGan() {
+  const el = document.createElement("div");
+  el.id = "tip";
+  document.body.appendChild(el);
+  let dang = null;
+  document.addEventListener("mouseover", ev => {
+    const t = ev.target.closest("[data-tip]");
+    if (t === dang) return;
+    dang = t;
+    if (!t) { el.style.display = "none"; return; }
+    el.innerHTML = t.dataset.tip;
+    el.style.display = "block";
+    tipDat(ev);
+  });
+  document.addEventListener("mousemove", ev => { if (dang) tipDat(ev); });
+  document.addEventListener("mouseout", ev => {
+    if (dang && !ev.relatedTarget?.closest?.("[data-tip]")) { dang = null; el.style.display = "none"; }
+  });
+  function tipDat(ev) {
+    const r = el.getBoundingClientRect();
+    // Lật sang trái / lên trên khi sát mép, không thì hộp bị cắt mất nửa.
+    const x = ev.clientX + 16 + r.width > innerWidth ? ev.clientX - r.width - 12 : ev.clientX + 16;
+    const y = ev.clientY + 14 + r.height > innerHeight ? ev.clientY - r.height - 10 : ev.clientY + 14;
+    el.style.left = Math.max(6, x) + "px";
+    el.style.top = Math.max(6, y) + "px";
+  }
+}
+
+function bao(text, loi) {
+  const el = $("#bao");
+  el.textContent = text;
+  el.className = loi ? "loi" : "ok";
+  el.style.display = "block";
+  clearTimeout(bao.t);
+  bao.t = setTimeout(() => { el.style.display = "none"; }, loi ? 6000 : 2600);
+}
+
+async function api(duong, tuychon) {
+  const r = await fetch(duong, tuychon);
+  const j = await r.json();
+  if (!r.ok || j.ok === false) throw new Error(j.message || "Lỗi không rõ");
+  return j;
+}
+
+// Mọi thao tác ghi đi qua đây: máy chủ trả về luôn bản mới của nhân vật nên không cần
+// tải lại riêng, và không có cửa sổ nào để màn hình hiện số cũ.
+async function lam(op, them) {
+  if (!NV) return;
+  try {
+    const j = await api("/api/do", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.assign({ id: NV.id, op }, them || {}))
+    });
+    NV = j.char;
+    ve();
+    taiDanhSach();
+    bao(j.message, false);
+  } catch (e) {
+    bao(e.message, true);
+  }
+}
+
+/**
+ * Bỏ dấu tiếng Việt để tìm cho dễ.
+ *
+ * Gõ đúng dấu mới ra thì gần như không dùng được: "Mặt nạ" phải gõ đủ hai dấu nặng, mà bàn phím
+ * đang ở chế độ nào thì tuỳ lúc. Bỏ dấu cả hai vế rồi mới so, nên "mat na" hay "MAT NA" đều ra.
+ *
+ * NFD tách nguyên âm khỏi dấu rồi xoá dấu; riêng đ/Đ không phải nguyên âm có dấu nên phải thay tay.
+ */
+function khongDau(t) {
+  return (t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
+}
+
+
+// ------------------------------------------------------------------ thêm món
+
+let DANHMUC = null;      // danh mục vật phẩm, tải một lần rồi giữ lại
+let MONCHON = null;      // món đang chọn trong hộp
+let LOCMON = "";         // nhóm loại đang lọc, rỗng là tất cả
+
+// Nhóm loại vật phẩm, theo hằng số trong ItemTemplate. Gom lại theo cách người ta đi tìm đồ chứ
+// không theo đúng từng mã loại -- ai cũng nghĩ "tìm cái nón" chứ không nghĩ "tìm loại 0".
+const NHOMMON = [
+  ["", "Tất cả", null],
+  ["vukhi", "Vũ khí", [1]],
+  ["trangbi", "Trang bị", [0, 2, 3, 4, 5, 6, 7, 8, 9]],
+  ["tb2", "Trang bị 2", [11, 12, 13, 14, 15]],
+  ["matna", "Mặt nạ", [11]],
+  ["thu", "Thú cưỡi & nuôi", [10, 29, 30, 31, 32, 33]],
+  ["sach", "Sách & lệnh", [27]],
+  ["ngoc", "Ngọc & huyền tinh", [26, 34]],
+  ["binh", "Bình & thức ăn", [16, 17, 18, 21]],
+  ["nhiemvu", "Nhiệm vụ", [23, 24, 25]],
+];
+
+async function moHopThemMon() {
+  if (!DANHMUC) {
+    try {
+      DANHMUC = await api("/api/items");
+    } catch (e) {
+      bao(e.message, true);
+      return;
+    }
+  }
+  MONCHON = null;
+  LOCMON = "";
+  const h = document.createElement("div");
+  h.className = "manh";
+  h.id = "hop-them";
+  h.innerHTML = `<div class="hop">
+    <div class="dinh">
+      <input type="search" id="tim-mon" placeholder="Tìm theo tên hoặc mã..." autocomplete="off">
+      <button class="nut" data-dong="1">Đóng</button>
+    </div>
+    <div class="loc" id="loc-mon">${NHOMMON.map(([k, t]) =>
+      `<button data-loc="${k}" class="${k === "" ? "chon" : ""}">${t}</button>`).join("")}</div>
+    <div class="than" id="ds-mon"></div>
+    <div class="day">
+      <label style="font-size:13px;color:var(--nhat)">Số lượng</label>
+      <input class="oso" type="number" id="sl-mon" value="1" min="1" max="9999">
+      <span style="flex:1"></span>
+      <span id="da-chon" style="font-size:13px;color:var(--nhat)">chưa chọn món nào</span>
+      <button class="nut canh" id="nut-them" disabled>Thêm vào hành trang</button>
+    </div>
+  </div>`;
+  document.body.appendChild(h);
+  veDanhMuc("");
+  $("#tim-mon").focus();
+  // Lọc lúc gõ. Danh mục hơn nghìn dòng nên chỉ vẽ 200 dòng đầu, đủ để chọn mà không giật.
+  $("#tim-mon").addEventListener("input", ev => veDanhMuc(ev.target.value));
+}
+
+function veDanhMuc(tu) {
+  const q = khongDau(tu.trim());
+  const nhom = NHOMMON.find(n => n[0] === LOCMON);
+  const loai = nhom && nhom[2] ? new Set(nhom[2]) : null;
+  const loc = DANHMUC.filter(m =>
+    (!loai || loai.has(m.type))
+    && (!q || khongDau(m.name).includes(q) || String(m.id).includes(q)));
+  const cat = loc.slice(0, 200);
+  $("#ds-mon").innerHTML = cat.length
+    ? cat.map(m => `<div class="dong ${MONCHON === m.id ? "chon" : ""}" data-mon="${m.id}"
+          data-tip="${esc(tipMon(m))}">
+        ${m.icon >= 0 ? `<img src="/anh?icon=${m.icon}&co=2" alt="" onerror="this.style.visibility='hidden'">`
+                      : '<span style="width:28px"></span>'}
+        <span style="flex:1"><b>${esc(m.name)}</b>
+          <span style="color:var(--nhat);font-size:12px"> · mã ${m.id} · cấp ${m.level}</span></span>
+      </div>`).join("")
+      + (loc.length > cat.length
+         ? `<div class="trong">còn ${loc.length - cat.length} món nữa, gõ thêm để thu hẹp</div>` : "")
+    : '<div class="trong">Không tìm thấy món nào.</div>';
+}
+
+/** Nội dung chú thích cho một dòng trong danh mục. */
+function tipMon(m) {
+  const nhom = NHOMMON.find(n => n[2] && n[2].includes(m.type));
+  return `<div class="t">${esc(m.name)}</div>`
+    + (m.mota ? `<div class="m">${esc(m.mota)}</div>` : "")
+    + `<div class="k">mã ${m.id} · cấp ${m.level} · loại ${m.type}${nhom ? " · " + nhom[1] : ""}</div>`;
+}
+
+function dongHopThemMon() {
+  const h = $("#hop-them");
+  if (h) h.remove();
+}
+
+
+// ------------------------------------------------------------------ danh sách
+
+async function taiDanhSach() {
+  const j = await api("/api/meta");
+  META = j;
+  DS = j.danhSach || [];
+  const el = $("#che-do");
+  el.textContent = j.inServer ? "chạy trong máy chủ" : "chạy độc lập";
+  el.className = "the-nho " + (j.inServer ? "on" : "off");
+  el.title = j.inServer
+    ? "Sửa được cả nhân vật đang online (qua bộ nhớ máy chủ)."
+    : "Chỉ sửa được nhân vật offline. Nhân vật đang online sẽ bị từ chối ghi.";
+  $("#tinhtrang").textContent = DS.length + " nhân vật · "
+    + DS.filter(c => c.online).length + " đang online";
+  veDanhSach();
+}
+
+function veDanhSach() {
+  const loc = khongDau($("#tim").value.trim());
+  const html = DS
+    .filter(c => !loc || khongDau(c.name).includes(loc) || String(c.id) === loc)
+    .map(c => `<button class="nv ${NV && NV.id === c.id ? "chon" : ""}" data-id="${c.id}">
+        <b><i class="cham ${c.online ? "on" : ""}"></i>${esc(c.name)}</b>
+        <span>#${c.id} · cấp ${c.level} · ${esc(c.className)}</span>
+      </button>`).join("");
+  $("#danh-sach").innerHTML = html || '<div class="trong">Không có ai khớp.</div>';
+}
+
+async function chon(id) {
+  DANHDAU.clear();
+  try {
+    NV = await api("/api/char?id=" + id);
+    veDanhSach();
+    ve();
+  } catch (e) {
+    bao(e.message, true);
+  }
+}
+
+// -------------------------------------------------------------------- vẽ trang
+
+// Địa chỉ mang theo nhân vật và thẻ đang xem: đánh dấu trang được, F5 quay lại đúng chỗ, và
+// gửi cho người khác một liên kết trỏ thẳng vào cái cần nhìn.
+function ghiDiaChi() {
+  const moi = "#" + NV.id + "/" + TAB;
+  if (location.hash !== moi) history.replaceState(null, "", moi);
+}
+
+function ve() {
+  if (!NV) return;
+  ghiDiaChi();
+  const khoa = NV.online && !META.inServer;
+  const tabs = [
+    ["tong-quan", "Tổng quan"],
+    ["tiem-nang", `Tiềm năng (${so(NV.point)})`],
+    ["trang-bi", `Trang bị (${NV.equip.length})`],
+    ["hanh-trang", `Hành trang (${NV.bag.length}/${NV.numberCellBag})`],
+    ["ky-nang", `Kỹ năng (${NV.skill.length})`],
+    ["tinh-luyen", `Tinh luyện (${TL().mon.length + (TL().biKip ? 1 : 0) + (TL().biKipPt ? 1 : 0)})`],
+    ["nhiem-vu", `Nhiệm vụ${NV.task ? " (" + so(NV.task.id) + ")" : ""}`]
+  ];
+  $("#noi-dung").innerHTML =
+    `<div class="tab">${tabs.map(([k, t]) =>
+        `<button class="${TAB === k ? "chon" : ""}" data-tab="${k}">${t}</button>`).join("")}</div>`
+    + (khoa ? `<div class="canhbao"><b>${esc(NV.name)} đang online.</b> Bảng điều khiển đang chạy
+         ngoài máy chủ nên không sửa được bản trong bộ nhớ; ghi thẳng vào CSDL thì lần máy chủ lưu
+         tiếp theo sẽ xoá mất. Xem thì vẫn xem được (số dưới đây là ảnh từ lần lưu gần nhất).</div>` : "")
+    + `<div class="the">${veTab(khoa)}</div>`;
+}
+
+function veTab(khoa) {
+  switch (TAB) {
+    case "tiem-nang": return veTiemNang(khoa);
+    case "trang-bi": return veChiSo() + veMon(NV.equip, true) + veThoiTrang();
+    case "tinh-luyen": return veTheTinhLuyen(khoa);
+    case "hanh-trang": return veMon(NV.bag, false, "bag");
+    case "ky-nang": return veKyNang(khoa);
+    case "nhiem-vu": return veNhiemVu();
+    default: return veTongQuan(khoa);
+  }
+}
+
+function veTongQuan(khoa) {
+  const d = khoa ? "disabled" : "";
+  const oTiemNang = META.potential.map(p => {
+    const v = NV.potential[p.index];
+    return `<tr>
+      <td><b>${esc(p.name)}</b><br><span style="font-size:12px;color:var(--nhat)">${esc(p.note)}</span></td>
+      <td class="p"><b style="font-size:16px">${so(v)}</b></td>
+      <td class="p"><div class="ct" style="justify-content:flex-end">
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="-10">−10</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="-1">−1</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="1">+1</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="10">+10</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="het">Dồn hết</button>
+      </div></td></tr>`;
+  }).join("");
+
+  return `
+  <div class="tt">
+    <div><span>Cấp độ</span><b>${so(NV.level)}</b></div>
+    <div><span>Kinh nghiệm</span><b>${so(NV.exp)}</b></div>
+    <div><span>Phái</span><b style="font-size:14px">${esc(NV.className)}</b></div>
+    <div><span>Giới tính</span><b style="font-size:14px">${NV.gender === 0 ? "Nữ" : NV.gender === 1 ? "Nam" : "Khác"}</b></div>
+    <div><span>Điểm tiềm năng</span><b>${so(NV.point)}</b></div>
+    <div><span>Điểm kỹ năng</span><b>${so(NV.spoint)}</b></div>
+    <div><span>Xu</span><b style="font-size:15px">${so(NV.xu)}</b></div>
+    <div><span>Yên</span><b style="font-size:15px">${so(NV.yen)}</b></div>
+    <div><span>Lượng</span><b style="font-size:15px">${so(NV.luong)}</b></div>
+    <div><span>Nguồn số liệu</span><b style="font-size:14px">${esc(NV.nguon)}</b></div>
+  </div>
+
+  ${veViTri(khoa)}
+
+  <h2 style="margin-top:20px">Lượt tẩy ở NPC — tiềm năng ${so(NV.tayTiemNang)}, kỹ năng ${so(NV.tayKyNang)}</h2>
+  <div class="ct">
+    <button class="nut" ${d} data-luot="1">Cấp thêm 1 lượt mỗi loại</button>
+    <button class="nut" ${d} data-luot="5">Cấp thêm 5 lượt mỗi loại</button>
+  </div>`;
+}
+
+/**
+ * Toạ độ: gỡ người kẹt trong hang, trong phó bản, hoặc rơi vào bản đồ không còn khu nào.
+ *
+ * Đi đúng đường đổi khu của máy chủ (rời khu -> đặt toạ độ -> vào khu mới), y như cửa sổ "Đi tới"
+ * bên công cụ. Gán thẳng mapId/x/y thì máy khách không nhận gói đổi bản đồ, người chơi trông như
+ * đã đi mà thật ra vẫn treo ở khu cũ.
+ */
+function veViTri(khoa) {
+  const v = NV.viTri;
+  if (!v) {
+    return `<h2 style="margin-top:20px">Toạ độ</h2>
+      <div class="the" style="margin:0;background:var(--nen);color:var(--nhat);font-size:13px">
+        <b>${esc(NV.name)} đang offline.</b> Việc này phải đi qua đường đổi khu của máy chủ, người
+        offline thì chưa có khu nào để rời. Hãy bảo họ vào game rồi thử lại.</div>`;
+  }
+  const d = khoa ? "disabled" : "";
+  return `<h2 style="margin-top:20px">Toạ độ — đang ở bản đồ ${v.map} (${v.x}, ${v.y}),
+      điểm lưu ${v.diemLuu}</h2>
+    <div class="the" style="margin:0;background:var(--nen)">
+      <div class="ct" style="gap:8px;flex-wrap:wrap">
+        <label>Bản đồ <input class="oso" id="vt-map" value="${v.map}"></label>
+        <label>x <input class="oso" id="vt-x" value="${v.x}"></label>
+        <label>y <input class="oso" id="vt-y" value="${v.y}"></label>
+        <button class="nut chinh" ${d} data-ditoi="1">Đưa tới đây</button>
+        <button class="nut" ${d} data-ditoi="macdinh">Điểm vào mặc định của bản đồ</button>
+      </div>
+      <div class="ct" style="gap:8px;margin-top:9px;flex-wrap:wrap">
+        <button class="nut" ${d} data-vetone="1">Về làng Tone</button>
+        <button class="nut" ${d} data-diemluu="1">Đặt điểm lưu = bản đồ trên</button>
+      </div>
+      <div style="font-size:12px;color:var(--nhat);margin-top:8px">
+        Điểm lưu là nơi hiện ra sau khi chết hoặc thoát vào lại — ba trường là 1 Hirosaki,
+        27 Haruna, 72 Ookaza. Phó bản, đấu trường, hang động chỉ sinh khu lúc chạy nên không đưa
+        vào bằng đường này được.</div>
+    </div>`;
+}
+
+/** Thẻ Tiềm năng: bốn ô của nhân vật chính, rồi tới phân thân. */
+function veTiemNang(khoa) {
+  const d = khoa ? "disabled" : "";
+  const hang = META.potential.map(p => {
+    const v = NV.potential[p.index];
+    return `<tr>
+      <td><b>${esc(p.name)}</b><br><span style="font-size:12px;color:var(--nhat)">${esc(p.note)}</span></td>
+      <td class="p"><b style="font-size:16px">${so(v)}</b></td>
+      <td class="p"><div class="ct" style="justify-content:flex-end">
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="-10">−10</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="-1">−1</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="1">+1</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="10">+10</button>
+        <button class="nut" ${d} data-chia="${p.index}" data-buoc="het">Dồn hết</button>
+      </div></td></tr>`;
+  }).join("");
+  return `<h2>Tiềm năng ${oDem(NV.potentialTong - NV.point, NV.potentialTran, NV.point)}</h2>
+    <table><tbody>${hang}</tbody></table>
+
+    <h2 style="margin-top:20px">Đặt thẳng bốn ô</h2>
+    <div class="ct">
+      ${META.potential.map(p => `<label style="font-size:12px;color:var(--nhat)">${esc(p.name)}
+        <input class="oso" id="dat-${p.index}" type="number" value="${NV.potential[p.index]}"></label>`).join("")}
+      <button class="nut" ${d} data-dat="1">Áp dụng</button>
+      <span style="font-size:12px;color:var(--nhat)">điểm chưa dùng được tính lại theo trần của cấp</span>
+    </div>
+
+    <div class="ct" style="margin-top:16px">
+      <button class="nut canh" ${d} data-op="tayTiemNang">Tẩy điểm tiềm năng</button>
+    </div>
+    ${veTiemNangPhanThan(khoa)}`;
+}
+
+/**
+ * Ô đếm dạng "đã dùng / tổng · còn N".
+ *
+ * Trước đây ba con số nằm rải trong một câu dài, muốn biết còn bao nhiêu phải tự trừ. Gom lại một
+ * ô thì liếc cái là ra.
+ */
+function oDem(daDung, tong, con) {
+  return `<span class="dem"><b>${so(daDung)}</b><s>/</s><s>${so(tong)}</s>`
+    + (con > 0 ? ` <span class="con">· còn ${so(con)}</span>` : "") + `</span>`;
+}
+
+let SO_DONG_BK = 0;
+
+/** Cụm dữ liệu tinh luyện của nhân vật đang xem; luôn trả về một đối tượng để khỏi phải chống null. */
+function TL() {
+  return NV && NV.tinhLuyen ? NV.tinhLuyen : { mon: [], tran: 9, tranBiKip: 9 };
+}
+
+/**
+ * Thẻ Tinh luyện: bí kíp của chủ thân và phân thân, rồi tới mọi món đang mang luyện được.
+ *
+ * Bấm phát nào ăn phát đó -- không tốn yên, không tốn tử tinh thạch, không hỏng. Mức cộng thì lấy
+ * đúng bảng của NPC trong game (com.nsoz.item.TinhLuyen), nên món luyện ở đây mạnh yếu giống hệt
+ * món luyện ngoài kia.
+ */
+function veTheTinhLuyen(khoa) {
+  // Dữ liệu tinh luyện chỉ dựng được từ bản trong bộ nhớ máy chủ, nên nhân vật offline không có
+  // gì để hiện. Nói thẳng ra, đừng để trang trông như "không có món nào luyện được".
+  if (!NV.tinhLuyen) {
+    return `<h2>Tinh luyện</h2><div class="the" style="margin:0;background:var(--nen);font-size:13px">
+      <b>${esc(NV.name)} đang offline.</b> Chỉ số và trang bị của người offline nằm dưới cơ sở dữ
+      liệu chứ không ở trong bộ nhớ máy chủ; sửa ở đó thì lần họ đăng nhập rồi thoát ra sẽ bị đè
+      mất. Hãy bảo họ vào game rồi mở lại thẻ này.</div>`;
+  }
+  const t = TL();
+  let h = veBiKip(khoa, t.biKip, "chu", t.tranBiKip);
+  if (t.coPhanThan) h += veBiKip(khoa, t.biKipPt, "pt", t.tranBiKip);
+  else h += `<h2>Bí kíp phân thân</h2><div class="the" style="margin:0 0 14px;background:var(--nen);
+      color:var(--nhat);font-size:13px">Chưa triệu hồi phân thân, hoặc phân thân đã hết hạn.</div>`;
+
+  const mon = t.mon || [];
+  h += `<h2>Trang bị tinh luyện được (${mon.length})</h2>`;
+  if (!mon.length) {
+    h += `<div class="the" style="margin:0;background:var(--nen);color:var(--nhat);font-size:13px">
+      Không có món nào mang dòng "Độ tinh luyện". Trong game phải qua bước <b>Dịch chuyển trang bị</b>
+      (trang bị +12 trở lên, 20 chuyển tinh thạch) thì món mới có chỗ để luyện.</div>`;
+    return h;
+  }
+  h += `<div class="luoi">` + mon.map(m => veMonTinhLuyen(khoa, m, t.tran)).join("") + `</div>`;
+  return h;
+}
+
+function veBiKip(khoa, b, ai, tran) {
+  const ten = ai === "pt" ? "Bí kíp phân thân" : "Bí kíp chủ thân";
+  if (!b) {
+    return `<h2>${ten}</h2><div class="the" style="margin:0 0 14px;background:var(--nen);
+      color:var(--nhat);font-size:13px">Thân này chưa mặc bí kíp nào.</div>`;
+  }
+  const d = khoa ? "disabled" : "";
+  const het = b.cap >= tran ? "disabled" : "";
+  const anh = b.icon >= 0
+    ? `<img class="kn-anh" src="/anh?icon=${b.icon}&co=2" alt="" onerror="this.style.visibility='hidden'">` : "";
+  const cs = (b.chiSo || []).map(x =>
+    `<li${x.ma === 85 ? ' style="color:var(--xanh);font-weight:600"' : ""}>${esc(x.text)}</li>`).join("")
+    || `<li style="color:var(--nhat)">chưa có dòng chỉ số nào</li>`;
+  const chon = [["0", "ngẫu nhiên 1-5"], ["1", "1 dòng"], ["2", "2 dòng"], ["3", "3 dòng"],
+                ["4", "4 dòng"], ["5", "5 dòng"]]
+    .map(([v, x]) => `<option value="${v}"${v === String(SO_DONG_BK) ? " selected" : ""}>${x}</option>`).join("");
+  return `<h2>${ten}</h2>
+    <div class="the" style="margin:0 0 14px;background:var(--nen)">
+      <div class="ct" style="gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        ${anh}<span><b>${esc(b.name)}</b>
+          <span class="the-nho he">độ tinh luyện ${b.cap}/${tran}</span></span>
+      </div>
+      <ul style="margin:0;padding-left:18px;font-size:13px">${cs}</ul>
+      <div class="ct" style="gap:8px;margin-top:10px;flex-wrap:wrap">
+        <select id="bk-sodong-${ai}" ${d}>${chon}</select>
+        <button class="nut chinh" ${d} data-doibk="${ai}">Đổi chỉ số</button>
+        <span style="flex:1"></span>
+        <button class="nut" ${d || het} data-luyenbk="${ai}" data-lan="1">Tinh luyện</button>
+        <button class="nut" ${d || het} data-luyenbk="${ai}" data-lan="3">×3</button>
+        <button class="nut" ${d || het} data-luyenbk="${ai}" data-lan="${tran}">kịch trần</button>
+      </div>
+      <div style="font-size:12px;color:var(--nhat);margin-top:8px">
+        <b>Đổi chỉ số</b> quay lại dàn chỉ số như NPC Tashino, độ tinh luyện về 0.
+        <b>Tinh luyện</b> cộng 1/20 giá trị đang có mỗi lần (chí mạng, chính xác, né đòn, phản đòn
+        là 1/15), thấp nhất +1, dừng ở ${tran}/${tran}.<br>
+        Tác dụng ăn ngay, nhưng chữ trong game phải thoát ra vào lại mới đổi.</div>
+    </div>`;
+}
+
+function veMonTinhLuyen(khoa, m, tran) {
+  const d = khoa || m.cap >= tran ? "disabled" : "";
+  const anh = m.icon >= 0
+    ? `<img class="anh" src="/anh?icon=${m.icon}&co=2" alt="" onerror="this.style.visibility='hidden'">`
+    : `<div class="anh trong">?</div>`;
+  const cs = (m.chiSo || []).map(x =>
+    `<li>${esc(x.text)}${x.them > 0 ? ` <span style="color:var(--xanh)">+${x.them}</span>` : ""}</li>`).join("")
+    || `<li style="color:var(--nhat)">không có chỉ số nào</li>`;
+  const noi = m.ai === "pt" ? "phân thân" : (m.kho === "equip" ? "đang mặc" : "trong túi");
+  const khoaTL = `${m.ai}|${m.kho}|${m.slot}`;
+  return `<div class="mon">
+    <div class="dau">
+      ${anh}
+      <div class="no">
+        <div class="ten">${esc(m.name)}</div>
+        <div><span class="the-nho">${noi}</span>
+          <span class="the-nho he">tinh luyện ${m.cap}/${tran}</span></div>
+      </div>
+    </div>
+    <ul style="margin:0;padding-left:18px;font-size:12px">${cs}</ul>
+    <div class="ct" style="gap:6px;margin-top:9px">
+      <button class="nut" ${d} data-luyenmon="${khoaTL}" data-lan="1">Luyện</button>
+      <button class="nut" ${d} data-luyenmon="${khoaTL}" data-lan="3">×3</button>
+      <button class="nut" ${d} data-luyenmon="${khoaTL}" data-lan="${tran}">kịch trần</button>
+    </div>
+  </div>`;
+}
+
+function veMon(ds, laTrangBi, kho) {
+  if (!ds.length) return '<div class="trong">Không có gì.</div>';
+  const luoi = '<div class="luoi">' + ds.map(m => {
+    const cs = m.options.map(o =>
+      `<li class="${o.param ? "tot" : ""}">${esc(o.text)}</li>`).join("");
+    const ngoc = m.gems.length
+      ? `<div class="phu">Ngọc: ${m.gems.map(g => esc(g.name) + " +" + g.upgrade).join(", ")}</div>` : "";
+    // Biểu tượng lấy thẳng từ kho ảnh máy chủ. Không có tệp thì thẻ img báo lỗi và ta thay bằng
+    // ô vuông rỗng, chứ không để cái ảnh vỡ.
+    const anh = m.icon >= 0
+      ? `<img class="anh" src="/anh?icon=${m.icon}&co=2" alt=""
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),
+                      {className:'anh trong',textContent:'?'}))">`
+      : '<div class="anh trong">?</div>';
+    const tick = kho
+      ? `<input class="tick" type="checkbox" data-tick="${m.slot}" ${DANHDAU.has(m.slot) ? "checked" : ""}>`
+      : "";
+    const nut = kho ? `<div class="ct" style="margin-top:8px">
+        <button class="nut canh" data-xoa="${m.slot}">Xoá${m.quantity > 1 ? " cả " + so(m.quantity) : ""}</button>
+        ${m.quantity > 1 ? `<button class="nut" data-xoa1="${m.slot}">Xoá 1</button>` : ""}
+      </div>` : "";
+    return `<div class="mon ${DANHDAU.has(m.slot) ? "chon" : ""}">
+      <div class="dau">
+        ${anh}
+        <div class="no">
+          <div class="ten">${esc(m.name)}${m.upgrade ? " +" + m.upgrade : ""}</div>
+          <div class="phu" style="margin-bottom:0">
+            ${laTrangBi ? esc(m.slotName) : "ô " + m.slot} · mã ${m.id} · cấp ${m.level}
+            ${m.quantity > 1 ? " · x" + so(m.quantity) : ""}
+            ${m.sys ? ` <span class="the-nho he">hệ ${m.sys}</span>` : ""}
+            ${m.lock ? ' <span class="the-nho khoa">khoá</span>' : ""}
+          </div>
+        </div>
+        ${tick}
+      </div>
+      ${m.moTa ? `<div class="mota">${esc(m.moTa)}</div>` : ""}
+      ${ngoc}
+      ${cs ? "<ul>" + cs + "</ul>" : '<div class="trong">không có chỉ số</div>'}
+      ${nut}
+    </div>`;
+  }).join("") + "</div>";
+  return kho ? thanhChon(ds, kho) + luoi : luoi;
+}
+
+/**
+ * Thanh chọn hàng loạt, ghim cố định góc dưới bên phải.
+ *
+ * Để nó nổi thay vì nằm trên đầu danh sách: túi có tới sáu bảy chục ô, chọn xong ở cuối trang mà
+ * nút xoá nằm tít trên đầu thì phải cuộn ngược lên mới bấm được.
+ */
+function thanhChon(ds, kho) {
+  const n = DANHDAU.size;
+  return `<div class="noi">
+    <button class="nut" data-themmon="1">+ Thêm món</button>
+    <button class="nut" data-tickall="1">${n === ds.length && n ? "Bỏ chọn hết" : "Chọn hết"}</button>
+    <span style="font-size:13px;color:var(--nhat)">đã chọn <b style="color:var(--chu)">${n}</b>/${ds.length}</span>
+    <button class="nut canh" data-xoachon="${kho}" ${n ? "" : "disabled"}>Xoá ${n} ô</button>
+  </div>`;
+}
+
+/**
+ * Kho đang xem. Tab Rương đã bỏ khỏi giao diện vì gần như không dùng tới; phía máy chủ vẫn nhận
+ * kho "box" nếu sau này cần bật lại.
+ */
+function khoDangXem() {
+  return "bag";
+}
+
+/**
+ * Bảng chỉ số như phần xem thông tin trong game.
+ *
+ * Chỉ có với nhân vật đang online: mấy số này máy chủ tính trong bộ nhớ theo công thức nằm ở
+ * AbilityFromEquip -- máu tối đa còn nhân theo tiềm năng, cộng phần trăm, cộng chỉ số hỗ trợ của
+ * kỹ năng. Chép lại công thức ấy ra đây là chép sai sớm muộn, mà sai thì bảng nói một đằng game
+ * một nẻo, tệ hơn hẳn việc không hiện gì.
+ */
+function veChiSo() {
+  const c = NV.chiSo;
+  if (!c) {
+    return `<div class="canhbao">Chỉ số chỉ hiện được khi nhân vật đang online — máy chủ tính
+      chúng trong bộ nhớ chứ không lưu xuống cơ sở dữ liệu.</div>`;
+  }
+  const o = [
+    ["HP", so(c.hp) + " / " + so(c.maxHP)],
+    ["MP", so(c.mp) + " / " + so(c.maxMP)],
+    ["Sát thương", so(c.damage)],
+    ["Giảm sát thương", so(c.dameDown)],
+    ["Chính xác", so(c.exactly)],
+    // Né đòn không quy ra % cố định được: máy chủ so hai lần quay,
+    // nextInt(né + 100) của bên đỡ với nextInt(chính xác + 100) của bên đánh. Và khi đánh QUÁI
+    // thì nó không đọc chỉ số này -- né chỉ có tác dụng với người.
+    ["Né đòn (chỉ khi đánh người)", so(c.miss)],
+    // Chí mạng: máy chủ quay `fatal > nextInt(1000)`, nên phần trăm là fatal/10 -- hiển thị
+    // thẳng con số rồi gắn "%" như trước là sai gấp mười lần.
+    ["Chí mạng", (c.fatal / 10).toFixed(1) + "%  (" + so(c.fatal) + ")"],
+    ["Kháng hoả", so(c.resFire)],
+    ["Kháng băng", so(c.resIce)],
+    ["Kháng phong", so(c.resWind)]
+  ];
+  return `<h2>Chỉ số nhân vật</h2><div class="tt" style="margin-bottom:16px">`
+    + o.map(([k, v]) => `<div><span>${k}</span><b style="font-size:15px">${v}</b></div>`).join("")
+    + `</div>`;
+}
+
+function veThoiTrang() {
+  if (!NV.fashion.length) return "";
+  return '<h2 style="margin-top:20px">Thời trang đang mặc</h2>' + veMon(NV.fashion, true);
+}
+
+function veKyNang(khoa) {
+  const p = NV.phanThan;
+  const coPt = !!(p && p.co);
+  const tabs = [["chinh", `Nhân vật (${NV.skill.filter(s => !s.clone).length})`]]
+    .concat(coPt ? [["phanthan", "Phân thân"]] : []);
+  const dau = tabs.length > 1
+    ? `<div class="tabcon">${tabs.map(([k, t]) =>
+        `<button class="${TABKN === k ? "chon" : ""}" data-tabkn="${k}">${t}</button>`).join("")}</div>` : "";
+
+  if (TABKN === "phanthan" && coPt) {
+    return dau + veKyNangPhanThan(khoa);
+  }
+  const thuong = NV.skill.filter(s => !s.clone);
+  const trieu = NV.skill.filter(s => s.clone);
+  return dau
+    + `<h2>Điểm kỹ năng ${oDem(NV.spointTran - NV.spoint, NV.spointTran, NV.spoint)}</h2>`
+    + bangKyNang(thuong, khoa)
+    + (trieu.length ? `<h2 style="margin-top:22px">Kỹ năng triệu hồi phân thân</h2>${bangKyNang(trieu, khoa)}` : "")
+    + `<div class="ct" style="margin-top:16px">
+         <button class="nut canh" ${khoa ? "disabled" : ""} data-op="tayKyNang">Tẩy điểm kỹ năng</button>
+         <button class="nut" ${khoa ? "disabled" : ""} data-op="toiDaKyNang">Nâng hết lên tối đa</button>
+       </div>`;
+}
+
+/**
+ * Kỹ năng CỦA phân thân -- đừng lẫn với kỹ năng triệu hồi phân thân ở bảng trên.
+ *
+ * Phân thân là một nhân vật riêng: có hàng riêng trong bảng clone_char, phái riêng, điểm kỹ năng
+ * riêng, bộ kỹ năng riêng. Nên nó có bảng riêng và cột điểm riêng.
+ */
+/** Tiềm năng của phân thân, cùng bố cục với tiềm năng nhân vật chính. */
+function veTiemNangPhanThan(khoa) {
+  const p = NV.phanThan;
+  if (!p || !p.co || !p.potential) return "";
+  const d = khoa ? "disabled" : "";
+  const hang = META.potential.map(q => {
+    const v = p.potential[q.index];
+    return `<tr>
+      <td><b>${esc(q.name)}</b></td>
+      <td class="p"><b style="font-size:16px">${so(v)}</b></td>
+      <td class="p"><div class="ct" style="justify-content:flex-end">
+        <button class="nut" ${d} data-chiapt="${q.index}" data-buoc="-10">−10</button>
+        <button class="nut" ${d} data-chiapt="${q.index}" data-buoc="-1">−1</button>
+        <button class="nut" ${d} data-chiapt="${q.index}" data-buoc="1">+1</button>
+        <button class="nut" ${d} data-chiapt="${q.index}" data-buoc="10">+10</button>
+        <button class="nut" ${d} data-chiapt="${q.index}" data-buoc="het">Dồn hết</button>
+      </div></td></tr>`;
+  }).join("");
+  return `<h2 style="margin-top:26px">Tiềm năng của phân thân
+      <span style="font-weight:400;font-size:13px;color:var(--nhat)">· còn ${so(p.point)} điểm chưa dùng</span></h2>
+    <table><tbody>${hang}</tbody></table>`;
+}
+
+function veKyNangPhanThan(khoa) {
+  const p = NV.phanThan;
+  if (!p || !p.co) return "";
+  const ds = p.skill || [];
+  return `<h2>Kỹ năng của phân thân
+      <span style="font-weight:400;font-size:13px;color:var(--nhat);text-transform:none">
+        · ${esc(p.className)} · ${p.gender === 0 ? "nữ" : p.gender === 1 ? "nam" : "theo chủ"}</span>
+      <span class="dem"><span class="con">còn ${so(p.spoint)} điểm</span></span></h2>
+    ${bangKyNang(ds, khoa, true)}`;
+}
+
+/**
+ * Nội dung chú thích cho một kỹ năng.
+ *
+ * Mô tả trong bảng chỉ nói chung chung ("nâng cao khả năng tấn công"), nhìn vào không biết cấp
+ * đang có mạnh cỡ nào. Nên kèm đúng chỉ số của cấp hiện tại, cùng MP và thời gian chờ -- ba thứ
+ * quyết định có nên nâng tiếp hay không.
+ */
+function tipKyNang(s) {
+  const cs = (s.chiSo || []).map(x => `<li>${esc(x)}</li>`).join("");
+  const k = [];
+  if (s.mp) k.push("MP " + so(s.mp));
+  if (s.cho) k.push("chờ " + (s.cho / 1000).toFixed(2).replace(/0$/, "") + "s");
+  if (s.tamDanh) k.push("ảnh hưởng " + s.tamDanh);
+  if (s.levelRequire) k.push("cần cấp " + s.levelRequire);
+  if (s.toiDaPha) {
+    k.push(`phá trần ${s.daPha}/${s.toiDaPha} · trần cao nhất ${s.tranCao}`);
+  }
+  return `<div class="t">${esc(s.name)} <span style="color:var(--nhat);font-weight:400">#${s.id}</span></div>`
+    + (s.description ? `<div class="m">${esc(s.description)}</div>` : "")
+    + (cs ? `<ul>${cs}</ul>` : '<div class="k">cấp này chưa có chỉ số nào</div>')
+    + (k.length ? `<div class="k">${esc(k.join(" · "))}</div>` : "");
+}
+
+function bangKyNang(ds, khoa, laPhanThan) {
+  if (!ds.length) return '<div class="trong">Không có.</div>';
+  const hang = ds.map(s => {
+    // Đã kịch trần thì chặn nút +1, hết trần thì chặn −1. Bấm vào cũng chỉ nhận báo lỗi từ máy
+    // chủ, chặn sẵn ở đây thì nhìn bảng là biết còn nâng được cái nào.
+    const het = s.maxPoint > 0 && s.point >= s.maxPoint;
+    const day = s.point <= 1;
+    const anh = s.icon >= 0
+      ? `<img class="kn-anh" src="/anh?icon=${s.icon}&co=2" alt=""
+             onerror="this.style.visibility='hidden'">` : "";
+    return `<tr>
+      <td><div class="ct" style="gap:8px" data-tip="${esc(tipKyNang(s))}">
+        ${anh}
+        <span><b>${esc(s.name)}</b> <span style="color:var(--nhat);font-size:12px">#${s.id}</span>
+        ${het ? ' <span class="the-nho on">tối đa</span>' : ""}
+        ${s.toiDaPha ? ` <span class="the-nho he">phá trần ${s.daPha}/${s.toiDaPha}</span>` : ""}</span>
+      </div></td>
+      <td class="p">${s.point}${s.maxPoint ? " / " + s.maxPoint : ""}${
+        s.tranCao && s.maxPoint < s.tranCao
+          ? `<span style="color:var(--nhat)"> (trần ${s.tranCao})</span>` : ""}</td>
+      <td class="p">${s.levelRequire ? "cấp " + s.levelRequire : ""}</td>
+      <td class="p"><div class="ct" style="justify-content:flex-end">
+        <button class="nut" ${khoa || day ? "disabled" : ""}
+          data-${laPhanThan ? "knpt" : "kn"}="${s.id}" data-buoc="-1">−1</button>
+        <button class="nut" ${khoa || het ? "disabled" : ""}
+          data-${laPhanThan ? "knpt" : "kn"}="${s.id}" data-buoc="1">+1</button>
+        ${laPhanThan ? "" : `<button class="nut canh" ${khoa ? "disabled" : ""}
+          data-quenkn="${s.id}" data-ten="${esc(s.name)}"
+          data-tip="Xoá hẳn kỹ năng khỏi bảng, coi như chưa từng học. Hoàn lại số điểm đã nâng.">Quên</button>`}
+      </div></td></tr>`;
+  }).join("");
+  return `<table><thead><tr><th>Kỹ năng</th><th class="p">Cấp</th><th class="p">Yêu cầu</th><th></th></tr></thead>
+    <tbody>${hang}</tbody></table>`;
+}
+
+// ------------------------------------------------------------------ sự kiện
+
+// Một trình bắt sự kiện duy nhất ở gốc: cả trang được vẽ lại sau mỗi thao tác, nên gắn
+// trình bắt vào từng nút là gắn lại liên tục và dễ sót.
+function veNhiemVu() {
+  const t = NV.task;
+  if (!t) return '<div class="trong">Không đọc được nhiệm vụ của nhân vật này.</div>';
+
+  // Ngược với mọi thao tác khác trong bảng: chỗ này đòi nhân vật ĐANG online. Bỏ qua nhiệm vụ
+  // phải chạy qua đúng đường của game để phát thưởng và vật phẩm mở đầu, mà đường ấy chỉ có
+  // trong bộ nhớ máy chủ.
+  const chay = NV.online && META.inServer;
+  const d = chay ? "" : "disabled";
+  const ly = !NV.online
+    ? `<b>${esc(NV.name)} đang offline.</b> Bỏ qua nhiệm vụ phải đi qua đúng đường của game để
+       phát thưởng và vật phẩm mở đầu, mà đường ấy chỉ có khi người chơi đang trong game. Sửa
+       thẳng số nhiệm vụ trong cơ sở dữ liệu thì nhiệm vụ nhảy nhưng người chơi mất phần thưởng
+       và mất luôn vật phẩm mở đầu, kẹt nặng hơn lúc đầu.`
+    : (!META.inServer
+       ? `<b>Bảng điều khiển đang chạy ngoài máy chủ</b> nên không với tới được bản trong bộ nhớ.`
+       : "");
+
+  return `
+  <div class="tt">
+    <div><span>Nhiệm vụ số</span><b>${so(t.id)}</b></div>
+    <div><span>Tên</span><b style="font-size:14px">${esc(t.ten || "-")}</b></div>
+    <div><span>Bước</span><b style="font-size:15px">${t.buoc ? so(t.buoc) + "/" + so(t.soBuoc) : "-"}</b></div>
+    <div><span>Tiến độ</span><b style="font-size:15px">${esc(t.tienDo || "-")}</b></div>
+  </div>
+
+  ${t.viec ? `<h2>Việc phải làm</h2><div style="padding:4px 2px">${esc(t.viec)}</div>` : ""}
+  ${t.trangThai ? `<div class="canhbao">${esc(t.trangThai)}</div>` : ""}
+  ${ly ? `<div class="canhbao">${ly}</div>` : ""}
+
+  <h2 style="margin-top:20px">Bỏ qua</h2>
+  <div class="ct">
+    <button class="nut" ${d} data-op="boQuaBuoc">Bỏ qua một bước</button>
+    <button class="nut canh" ${d} data-op="boQuaNhiemVu">Bỏ qua cả nhiệm vụ</button>
+  </div>
+
+  <h2 style="margin-top:20px">Nhảy tới nhiệm vụ</h2>
+  <div class="ct">
+    <input class="oso" id="nhay-toi" type="number" value="${so(t.id) + 1}" min="0">
+    <button class="nut canh" ${d} data-nhay="1">Nhảy tới</button>
+    <span style="font-size:12px;color:var(--nhat)">đi lần lượt từng nhiệm vụ, tối đa 200 nhiệm vụ mỗi lần</span>
+  </div>`;
+}
+
+document.addEventListener("click", ev => {
+  const o = ev.target.closest("input.tick");
+  if (o) {
+    const slot = Number(o.dataset.tick);
+    if (o.checked) DANHDAU.add(slot); else DANHDAU.delete(slot);
+    ve();
+    return;
+  }
+  // Dòng trong hộp chọn món không phải nút, bắt riêng trước.
+  const dong = ev.target.closest(".dong[data-mon]");
+  if (dong) {
+    MONCHON = Number(dong.dataset.mon);
+    const m = DANHMUC.find(x => x.id === MONCHON);
+    $("#da-chon").textContent = m ? m.name + " (mã " + m.id + ")" : "";
+    $("#nut-them").disabled = false;
+    veDanhMuc($("#tim-mon").value);
+    return;
+  }
+  const t = ev.target.closest("button");
+  if (!t) return;
+
+  if (t.id === "nut-them") {
+    // KHÔNG đóng hộp: phát đồ hầu như luôn là phát nhiều món một lượt, đóng lại rồi bắt mở và gõ
+    // tìm lại từ đầu cho mỗi món là cực hình. Đóng bằng nút Đóng hoặc phím Esc.
+    const sl = Math.max(1, Number($("#sl-mon").value) || 1);
+    lam("themMon", { idMon: MONCHON, soLuong: sl }).then(() => {
+      const o = $("#tim-mon");
+      if (o) { o.select(); o.focus(); }
+    });
+    return;
+  }
+  if (t.dataset.loc !== undefined) {
+    LOCMON = t.dataset.loc;
+    $("#loc-mon").querySelectorAll("button").forEach(b =>
+      b.classList.toggle("chon", b.dataset.loc === LOCMON));
+    veDanhMuc($("#tim-mon").value);
+    return;
+  }
+  if (t.dataset.dong) { dongHopThemMon(); return; }
+  if (t.dataset.themmon) { moHopThemMon(); return; }
+
+  if (t.dataset.id) { chon(Number(t.dataset.id)); return; }
+  if (t.dataset.tab) { TAB = t.dataset.tab; DANHDAU.clear(); ghiDiaChi(); ve(); return; }
+  if (t.dataset.xoa !== undefined) {
+    const slot = Number(t.dataset.xoa);
+    if (!confirm("Xoá cả ô " + slot + " của " + NV.name + "?")) return;
+    DANHDAU.delete(slot);
+    lam("xoaMon", { kho: khoDangXem(), slot, soLuong: 0 });
+    return;
+  }
+  if (t.dataset.xoa1 !== undefined) {
+    lam("xoaMon", { kho: khoDangXem(), slot: Number(t.dataset.xoa1), soLuong: 1 });
+    return;
+  }
+  if (t.dataset.xoachon) {
+    const slots = [...DANHDAU];
+    if (!slots.length) return;
+    if (!confirm("Xoá " + slots.length + " ô đã chọn của " + NV.name + "?")) return;
+    DANHDAU.clear();
+    lam("xoaNhieuMon", { kho: t.dataset.xoachon, slots });
+    return;
+  }
+  if (t.dataset.tickall) {
+    const ds = khoDangXem() === "bag" ? NV.bag : NV.box;
+    if (DANHDAU.size === ds.length) DANHDAU.clear();
+    else ds.forEach(m => DANHDAU.add(m.slot));
+    ve();
+    return;
+  }
+  if (t.dataset.op) {
+    const ten = t.textContent.trim();
+    if (t.classList.contains("canh") && !confirm(ten + " của " + NV.name + "?")) return;
+    lam(t.dataset.op);
+    return;
+  }
+  if (t.dataset.chia !== undefined) {
+    const i = Number(t.dataset.chia);
+    const buoc = t.dataset.buoc === "het" ? NV.point : Number(t.dataset.buoc);
+    if (!buoc) { bao("Không còn điểm chưa dùng.", true); return; }
+    lam("chiaTiemNang", { index: i, value: buoc });
+    return;
+  }
+  if (t.dataset.them) {
+    const v = Number($(t.dataset.them === "tiemnang" ? "#them-tn" : "#them-kn").value);
+    lam(t.dataset.them === "tiemnang" ? "themDiemTiemNang" : "themDiemKyNang", { value: v });
+    return;
+  }
+  if (t.dataset.dat) {
+    lam("datTiemNang", { value: META.potential.map(p => Number($("#dat-" + p.index).value)) });
+    return;
+  }
+  if (t.dataset.luot) {
+    const n = Number(t.dataset.luot);
+    lam("themLuotTay", { tiemNang: n, kyNang: n });
+    return;
+  }
+  if (t.dataset.nhay) {
+    const v = Number($("#nhay-toi").value);
+    if (!confirm("Nhảy tới nhiệm vụ " + v + " cho " + NV.name + "?")) return;
+    lam("nhayToiNhiemVu", { value: v });
+    return;
+  }
+  if (t.dataset.chiapt !== undefined) {
+    const i = Number(t.dataset.chiapt);
+    const con = NV.phanThan ? NV.phanThan.point : 0;
+    const buoc = t.dataset.buoc === "het" ? con : Number(t.dataset.buoc);
+    if (!buoc) { bao("Phân thân không còn điểm chưa dùng.", true); return; }
+    lam("chiaTiemNangPhanThan", { index: i, value: buoc });
+    return;
+  }
+  if (t.dataset.knpt) {
+    lam("napKyNangPhanThan", { skill: Number(t.dataset.knpt), value: Number(t.dataset.buoc) });
+    return;
+  }
+  if (t.dataset.ditoi) {
+    const m = Number(($("#vt-map") || {}).value);
+    if (t.dataset.ditoi === "macdinh") {
+      lam("doiToaDo", { map: m, macDinh: true });
+    } else {
+      lam("doiToaDo", { map: m, x: Number($("#vt-x").value), y: Number($("#vt-y").value) });
+    }
+    return;
+  }
+  if (t.dataset.vetone) {
+    // Cùng toạ độ mà nút "Về Làng Tone" bên công cụ dùng.
+    lam("doiToaDo", { map: 22, x: 1741, y: 264 });
+    return;
+  }
+  if (t.dataset.diemluu) {
+    lam("datDiemLuu", { map: Number(($("#vt-map") || {}).value) });
+    return;
+  }
+  if (t.dataset.doibk) {
+    const ai = t.dataset.doibk;
+    const o = document.getElementById("bk-sodong-" + ai);
+    SO_DONG_BK = o ? Number(o.value) : 0;
+    lam("doiChiSoBiKip", { soDong: SO_DONG_BK, ai });
+    return;
+  }
+  if (t.dataset.luyenbk) {
+    lam("tinhLuyenBiKip", { soLan: Number(t.dataset.lan), ai: t.dataset.luyenbk });
+    return;
+  }
+  if (t.dataset.luyenmon) {
+    const [ai, kho, slot] = t.dataset.luyenmon.split("|");
+    lam("tinhLuyenMon", { ai, kho, slot: Number(slot), soLan: Number(t.dataset.lan) });
+    return;
+  }
+  if (t.dataset.quenkn) {
+    const ten = t.dataset.ten || "kỹ năng này";
+    if (!confirm("Cho " + NV.name + " quên hẳn " + ten + "?\n\n"
+        + "Kỹ năng biến mất khỏi bảng, coi như chưa từng học. Điểm đã nâng sẽ được hoàn lại.")) return;
+    lam("quenKyNang", { skill: Number(t.dataset.quenkn) });
+    return;
+  }
+  if (t.dataset.tabkn) { TABKN = t.dataset.tabkn; ve(); return; }
+  if (t.dataset.kn) {
+    lam("napKyNang", { skill: Number(t.dataset.kn), value: Number(t.dataset.buoc) });
+  }
+});
+
+document.addEventListener("keydown", ev => {
+  if (ev.key === "Escape") dongHopThemMon();
+});
+
+tipGan();
+$("#tim").addEventListener("input", veDanhSach);
+
+taiDanhSach().then(() => {
+  const [id, tab] = location.hash.slice(1).split("/");
+  if (tab) TAB = tab;
+  if (Number(id)) return chon(Number(id));
+}).catch(e => bao(e.message, true));
+</script>
+</body>
+</html>

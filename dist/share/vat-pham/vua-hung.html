@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danh sách trang bị NPC Vua Hùng</title>
+<style>
+  :root { --nen:#14161a; --the:#1c1f26; --vien:#2b2f3a; --chu:#e6e8ec;
+          --mo:#9aa1ad; --nhan:#7aa2f7; --vang:#e0af68; --do:#f7768e; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--nen); color:var(--chu);
+         font:14px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif; }
+  header { position:sticky; top:0; background:var(--the); border-bottom:1px solid var(--vien);
+           padding:12px 16px; z-index:5; }
+  h1 { margin:0 0 6px; font-size:17px; font-weight:600; }
+  nav a { color:var(--nhan); text-decoration:none; font-size:13px; margin-right:14px; }
+  nav a:hover { text-decoration:underline; }
+  .loc { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:10px; }
+  input { background:var(--nen); color:var(--chu); border:1px solid var(--vien);
+          border-radius:6px; padding:6px 9px; font-size:14px; }
+  input:focus { outline:none; border-color:var(--nhan); }
+  #tim { flex:1; min-width:200px; }
+  label { color:var(--mo); font-size:13px; display:flex; align-items:center; gap:5px; }
+  .luu-y { margin:12px 16px; padding:10px 12px; background:var(--the);
+           border-left:3px solid var(--vang); border-radius:0 6px 6px 0;
+           color:var(--mo); font-size:13px; max-width:900px; }
+  .luu-y b { color:var(--chu); }
+  #dem { color:var(--mo); font-size:13px; padding:4px 16px 8px; }
+  table { width:100%; border-collapse:collapse; }
+  th { text-align:left; font-weight:600; color:var(--mo); font-size:12px; text-transform:uppercase;
+       letter-spacing:.04em; padding:8px 10px; border-bottom:1px solid var(--vien); }
+  td { padding:7px 10px; border-bottom:1px solid var(--vien); vertical-align:top; }
+  tr:hover td { background:#1a1d24; }
+  img { width:30px; height:30px; object-fit:contain; image-rendering:pixelated; }
+  .stt { font-family:ui-monospace,Menlo,monospace; color:var(--vang); font-size:16px;
+         font-weight:600; cursor:pointer; }
+  .stt:hover { text-decoration:underline; }
+  .ma { font-family:ui-monospace,Menlo,monospace; color:var(--mo); cursor:pointer; }
+  .ma:hover { color:var(--nhan); text-decoration:underline; }
+  .ten { font-weight:600; }
+  .cs { color:#9ece6a; font-size:12px; font-family:ui-monospace,Menlo,monospace; }
+  .the-nho { display:inline-block; background:var(--nen); border:1px solid var(--vien);
+             border-radius:4px; padding:0 5px; font-size:11px; color:var(--mo); }
+  .trung { color:var(--do); }
+  #chep { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); background:var(--nhan);
+          color:#10131a; padding:8px 16px; border-radius:6px; font-weight:600; opacity:0;
+          transition:opacity .18s; pointer-events:none; }
+  #chep.hien { opacity:1; }
+  .trong { padding:40px 16px; text-align:center; color:var(--mo); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Danh sách trang bị NPC Vua Hùng</h1>
+  <nav><a href="./">← Tra cứu toàn bộ vật phẩm</a></nav>
+  <div class="loc">
+    <label>Cấp nhân vật <input id="capnv" type="number" min="0" value="130" style="width:76px"></label>
+    <input id="tim" placeholder="Lọc theo tên món hoặc mã">
+  </div>
+</header>
+
+<div class="luu-y">
+  Menu <b>Quản lý → Trang bị</b> ở NPC Vua Hùng nhận <b>số thứ tự trong bảng này</b>, không phải mã
+  vật phẩm. Danh sách được lọc theo cấp nhân vật đang gõ lệnh, nên <b>đổi cấp là số thứ tự đổi
+  theo</b> — cùng một số ở hai nhân vật khác cấp sẽ ra hai món khác nhau. Gõ số vượt quá bảng thì
+  máy chủ ném lỗi và menu im lặng, không báo gì.
+  Danh sách gồm hai phần: đồ cửa hàng (cấp 10–80) đứng trước, rồi <b>đồ cấp 90–109</b> nối vào
+  cuối — nhóm sau không có trong cửa hàng nào, chỉ số sinh bằng mã và luôn được lấy bản kịch trần.
+  Món lấy ra luôn <b>+24</b> và tinh luyện 9 (mã đặt <code>upgrade = 12</code> rồi gọi
+  <code>next(12)</code>, mà hàm đó cộng dồn chứ không gán) — không phải chỉ số thật của món.
+  Muốn đúng món đúng chỉ số thì dùng lệnh chat <code>item &lt;mã&gt;</code>.
+</div>
+
+<div id="dem"></div>
+<table>
+  <thead><tr>
+    <th style="width:76px">STT</th><th style="width:44px"></th><th style="width:62px">Mã</th>
+    <th>Tên</th><th style="width:52px">Cấp</th><th>Chỉ số thật của món</th>
+  </tr></thead>
+  <tbody id="than"></tbody>
+</table>
+<div id="chep">đã chép</div>
+
+<script>
+const HE = {0:"không hệ",1:"Phong",2:"Hoả",3:"Băng"};
+let DATA = null, theoMa = new Map();
+
+const bo = s => (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                       .replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
+
+function ve() {
+  const cap = parseInt(document.getElementById("capnv").value, 10);
+  const tim = bo(document.getElementById("tim").value.trim());
+
+  // Đánh số theo TỪNG DÒNG chứ không gom theo mã: máy chủ gọi list.get(số) trên danh sách còn
+  // nguyên dòng trùng, nên một món nằm ở nhiều cửa hàng sẽ có nhiều số thứ tự khác nhau.
+  //
+  // Cột thứ ba là nhóm: 0 đồ cửa hàng, 1 đồ cấp 90/100 sinh bằng mã. Máy chủ xếp trọn nhóm 0
+  // trước rồi mới tới nhóm 1, nên ở đây phải lọc theo cấp trong từng nhóm rồi nối lại đúng thứ
+  // tự đó -- trộn hai nhóm là số thứ tự lệch hết.
+  const dong = [];
+  const damDem = new Map();
+  let i = 0;
+  for (const nhom of [0, 1]) {
+    for (const [id, lv, g] of DATA.vuahung) {
+      if ((g || 0) !== nhom) continue;
+      if (!isNaN(cap) && lv > cap) continue;
+      dong.push({ stt: i, id, lv, nhom });
+      damDem.set(id, (damDem.get(id) || 0) + 1);
+      i++;
+    }
+  }
+
+  const hien = dong.filter(d => {
+    if (!tim) return true;
+    const v = theoMa.get(d.id);
+    return String(d.id) === tim || String(d.stt) === tim || (v && bo(v.ten).includes(tim));
+  });
+
+  document.getElementById("dem").textContent =
+    "Cấp " + (isNaN(cap) ? "?" : cap) + ": danh sách có " + dong.length + " dòng"
+    + (hien.length !== dong.length ? ", đang hiện " + hien.length : "")
+    + "  ·  số lớn nhất gõ được là " + (dong.length - 1)
+    + (dong.some(d => d.nhom === 1)
+        ? "  ·  đồ cấp 90+ bắt đầu từ số " + dong.find(d => d.nhom === 1).stt : "");
+
+  const than = document.getElementById("than");
+  than.innerHTML = "";
+  if (!hien.length) {
+    than.innerHTML = '<tr><td colspan="6" class="trong">Không có dòng nào khớp.</td></tr>';
+    return;
+  }
+  const manh = document.createDocumentFragment();
+  for (const d of hien) {
+    const v = theoMa.get(d.id) || { ten: "(không rõ)", icon: -1, cs: [], he: [] };
+    const tr = document.createElement("tr");
+    const lan = damDem.get(d.id);
+    const he = v.he && v.he.length > 1
+      ? ' <span class="the-nho">' + v.he.map(h => HE[h] || h).join(" / ") + "</span>" : "";
+    const trung = lan > 1
+      ? ' <span class="the-nho trung">có ' + lan + " số thứ tự</span>" : "";
+    const moi = d.nhom === 1
+      ? ' <span class="the-nho" style="border-color:#9ece6a;color:#9ece6a">cấp 90+</span>' : "";
+    tr.innerHTML =
+      '<td class="stt" title="Bấm để chép số">' + d.stt + "</td>" +
+      '<td><img loading="lazy" src="icon/' + v.icon + '.png" alt=""></td>' +
+      '<td class="ma" title="Bấm để chép lệnh item">' + d.id + "</td>" +
+      '<td><span class="ten">' + esc(v.ten) + "</span>" + he + moi + trung + "</td>" +
+      "<td>" + d.lv + "</td>" +
+      '<td class="cs">' + (v.cs || []).map(esc).join(" · ") + "</td>";
+    tr.querySelector(".stt").onclick = () => chep(String(d.stt));
+    tr.querySelector(".ma").onclick = () => chep("item " + d.id);
+    manh.appendChild(tr);
+  }
+  than.appendChild(manh);
+}
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"]/g,
+    c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+}
+
+function chep(text) {
+  navigator.clipboard?.writeText(text);
+  const t = document.getElementById("chep");
+  t.textContent = "đã chép: " + text;
+  t.classList.add("hien");
+  clearTimeout(chep.h);
+  chep.h = setTimeout(() => t.classList.remove("hien"), 1400);
+}
+
+fetch("items.json").then(r => r.json()).then(d => {
+  DATA = d;
+  for (const v of d.items) theoMa.set(v.id, v);
+  document.getElementById("capnv").addEventListener("input", ve);
+  document.getElementById("tim").addEventListener("input", ve);
+  ve();
+});
+</script>
+</body>
+</html>

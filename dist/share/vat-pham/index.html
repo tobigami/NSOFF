@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tra cứu vật phẩm NSO</title>
+<style>
+  :root {
+    --nen: #14161a; --the: #1c1f26; --vien: #2b2f3a; --chu: #e6e8ec;
+    --mo: #9aa1ad; --nhan: #7aa2f7; --vang: #e0af68;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--nen); color: var(--chu);
+         font: 14px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; background: var(--the);
+           border-bottom: 1px solid var(--vien); padding: 12px 16px; z-index: 5; }
+  h1 { margin: 0 0 10px; font-size: 17px; font-weight: 600; }
+  .loc { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  input, select { background: var(--nen); color: var(--chu); border: 1px solid var(--vien);
+                  border-radius: 6px; padding: 6px 9px; font-size: 14px; }
+  input:focus, select:focus { outline: none; border-color: var(--nhan); }
+  #tim { flex: 1; min-width: 220px; }
+  label { color: var(--mo); font-size: 13px; display: flex; align-items: center; gap: 5px; }
+  #dem { color: var(--mo); font-size: 13px; padding: 8px 16px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-weight: 600; color: var(--mo); font-size: 12px;
+       text-transform: uppercase; letter-spacing: .04em;
+       padding: 8px 10px; border-bottom: 1px solid var(--vien); }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--vien); vertical-align: top; }
+  tr:hover td { background: #1a1d24; }
+  img { width: 30px; height: 30px; object-fit: contain; image-rendering: pixelated; }
+  .ma { font-family: ui-monospace, Menlo, monospace; color: var(--vang); cursor: pointer; }
+  .ma:hover { text-decoration: underline; }
+  .ten { font-weight: 600; }
+  .mota { color: var(--mo); font-size: 13px; }
+  .cs { color: #9ece6a; font-size: 12px; font-family: ui-monospace, Menlo, monospace; }
+  .the-nho { display: inline-block; background: var(--nen); border: 1px solid var(--vien);
+             border-radius: 4px; padding: 0 5px; font-size: 11px; color: var(--mo); }
+  #chep { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+          background: var(--nhan); color: #10131a; padding: 8px 16px; border-radius: 6px;
+          font-weight: 600; opacity: 0; transition: opacity .18s; pointer-events: none; }
+  #chep.hien { opacity: 1; }
+  .trong { padding: 40px 16px; text-align: center; color: var(--mo); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tra cứu vật phẩm NSO</h1>
+  <nav style="margin-bottom:8px"><a href="vua-hung.html" style="color:#7aa2f7;text-decoration:none;font-size:13px">Danh sách trang bị NPC Vua Hùng →</a></nav>
+  <div class="loc">
+    <input id="tim" placeholder="Tìm theo tên, mã, hoặc mô tả — ví dụ: đan, kiếm, 275" autofocus>
+    <select id="loai"><option value="">Mọi phân loại</option></select>
+    <select id="gt">
+      <option value="">Mọi giới tính</option>
+      <option value="1">Nam</option>
+      <option value="0">Nữ</option>
+      <option value="2">Cả hai</option>
+    </select>
+    <label>Cấp <input id="capmin" type="number" min="0" style="width:64px" placeholder="từ"></label>
+    <label><input id="capmax" type="number" min="0" style="width:64px" placeholder="đến"></label>
+    <label><input id="tb2" type="checkbox"> chỉ Tbi 2</label>
+    <label><input id="cocs" type="checkbox"> chỉ món có chỉ số</label>
+    <label title="Menu Trang bị ở NPC Vua Hùng dùng số thứ tự, và danh sách đổi theo cấp nhân vật">
+      Cấp NV <input id="capnv" type="number" min="0" style="width:64px" placeholder="vd 60">
+    </label>
+  </div>
+</header>
+<div id="dem"></div>
+<table>
+  <thead><tr>
+    <th style="width:44px"></th><th style="width:62px">Mã</th><th>Tên</th>
+    <th style="width:150px">Phân loại</th><th style="width:52px">Cấp</th>
+    <th style="width:74px">Giới tính</th><th style="width:88px">STT Vua Hùng</th>
+    <th>Chỉ số / Mô tả</th>
+  </tr></thead>
+  <tbody id="than"></tbody>
+</table>
+<div id="chep">đã chép</div>
+
+<script>
+const LOAI = {
+  0:"Nón",1:"Vũ khí",2:"Áo",3:"Dây chuyền",4:"Găng tay",5:"Nhẫn",6:"Quần",7:"Ngọc bội",
+  8:"Giày",9:"Bùa",10:"Thú nuôi",11:"Mặt nạ",12:"Áo choàng",13:"Bao tay",14:"Mắt thần",
+  15:"Bí kíp",16:"Thuốc HP",17:"Thuốc MP",18:"Đồ ăn",19:"Tiền",20:"Túi tiền",21:"Thịt",
+  22:"Ngọc rồng",23:"Vật phẩm nhiệm vụ (giữ)",24:"Vật phẩm nhiệm vụ (chờ)",
+  25:"Vật phẩm nhiệm vụ",26:"Pha lê",27:"Vật phẩm thường",28:"Bảo vệ",
+  29:"Nguyên liệu 0",30:"Nguyên liệu 1",31:"Nguyên liệu 2",32:"Nguyên liệu 3",
+  33:"Nguyên liệu 4",34:"Ngọc khảm",35:"Thú nuôi - Hộ phù",36:"Thú nuôi - Dị trảo",
+  37:"Thú nuôi - Thể giáp",38:"Thú nuôi - Hạng khuyên"
+};
+const GT = {0:"Nữ",1:"Nam",2:"Cả hai"};
+const HE = {0:"không hệ",1:"Phong",2:"Hoả",3:"Băng"};
+
+let DATA = null, viTri = new Map();
+
+// Menu "Trang bị" ở NPC Vua Hùng KHÔNG nhận mã vật phẩm mà nhận số thứ tự trong danh sách
+// trang bị lọc theo cấp nhân vật. Nên số thứ tự phải tính lại mỗi khi đổi cấp.
+function tinhViTri(capNV) {
+  viTri = new Map();
+  if (!DATA || capNV === null) return;
+  let i = 0;
+  for (const [id, cap] of DATA.vuahung) {
+    if (cap <= capNV) {
+      if (!viTri.has(id)) viTri.set(id, i);
+      i++;
+    }
+  }
+}
+
+// Bỏ dấu trước khi so, để gõ "vu khi" cũng ra "Vũ khí". \u0300-\u036f là dải dấu thanh
+// mà NFD tách ra; viết bằng mã thay vì dán ký tự thật cho khỏi hỏng khi sửa tệp.
+const bo = s => (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                       .replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
+
+function ve() {
+  const tim = bo(document.getElementById("tim").value.trim());
+  const loai = document.getElementById("loai").value;
+  const gt = document.getElementById("gt").value;
+  const cmin = document.getElementById("capmin").value;
+  const cmax = document.getElementById("capmax").value;
+  const tb2 = document.getElementById("tb2").checked;
+  const cocs = document.getElementById("cocs").checked;
+  const capnv = document.getElementById("capnv").value;
+  tinhViTri(capnv === "" ? null : parseInt(capnv, 10));
+
+  const ra = DATA.items.filter(v => {
+    if (loai !== "" && String(v.loai) !== loai) return false;
+    if (gt !== "" && String(v.gt) !== gt) return false;
+    if (cmin !== "" && v.cap < +cmin) return false;
+    if (cmax !== "" && v.cap > +cmax) return false;
+    if (tb2 && v.fashion === -1) return false;
+    if (cocs && v.cs.length === 0) return false;
+    if (!tim) return true;
+    return String(v.id) === tim || bo(v.ten).includes(tim) || bo(v.mota).includes(tim);
+  });
+
+  document.getElementById("dem").textContent =
+    ra.length + " / " + DATA.items.length + " vật phẩm"
+    + (viTri.size ? "  ·  số thứ tự Vua Hùng tính theo cấp " + capnv : "");
+
+  const than = document.getElementById("than");
+  than.innerHTML = "";
+  if (!ra.length) {
+    than.innerHTML = '<tr><td colspan="8" class="trong">Không có vật phẩm nào khớp.</td></tr>';
+    return;
+  }
+  const manh = document.createDocumentFragment();
+  for (const v of ra) {
+    const tr = document.createElement("tr");
+    const stt = viTri.has(v.id) ? viTri.get(v.id) : "";
+    const he = v.he.length > 1 ? ' <span class="the-nho">' +
+               v.he.map(h => HE[h] || h).join(" / ") + "</span>" : "";
+    const chong = v.chong ? ' <span class="the-nho">xếp chồng</span>' : "";
+    const up = v.upmax > 0 ? ' <span class="the-nho">up tối đa +' + v.upmax + "</span>" : "";
+    tr.innerHTML =
+      '<td><img loading="lazy" src="icon/' + v.icon + '.png" alt=""></td>' +
+      '<td class="ma" title="Bấm để chép lệnh">' + v.id + "</td>" +
+      '<td><span class="ten">' + esc(v.ten) + "</span>" + he + chong + up + "</td>" +
+      "<td>" + (LOAI[v.loai] || v.loai) + "</td>" +
+      "<td>" + v.cap + "</td>" +
+      "<td>" + (GT[v.gt] || v.gt) + "</td>" +
+      '<td class="ma">' + stt + "</td>" +
+      "<td>" + (v.cs.length ? '<div class="cs">' + v.cs.map(esc).join(" · ") + "</div>" : "") +
+        (v.mota ? '<div class="mota">' + esc(v.mota) + "</div>" : "") + "</td>";
+    tr.querySelector(".ma").onclick = () => chep("item " + v.id);
+    manh.appendChild(tr);
+  }
+  than.appendChild(manh);
+}
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"]/g,
+    c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+}
+
+function chep(text) {
+  navigator.clipboard?.writeText(text);
+  const t = document.getElementById("chep");
+  t.textContent = "đã chép: " + text;
+  t.classList.add("hien");
+  clearTimeout(chep.h);
+  chep.h = setTimeout(() => t.classList.remove("hien"), 1400);
+}
+
+fetch("items.json").then(r => r.json()).then(d => {
+  DATA = d;
+  const sel = document.getElementById("loai");
+  const co = [...new Set(d.items.map(v => v.loai))].sort((a, b) => a - b);
+  for (const t of co) {
+    const o = document.createElement("option");
+    o.value = t; o.textContent = (LOAI[t] || t);
+    sel.appendChild(o);
+  }
+  for (const id of ["tim","loai","gt","capmin","capmax","tb2","cocs","capnv"]) {
+    document.getElementById(id).addEventListener("input", ve);
+  }
+  ve();
+});
+</script>
+</body>
+</html>

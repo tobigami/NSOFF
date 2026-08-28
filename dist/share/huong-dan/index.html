@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cẩm nang cuối game — NSO</title>
+<style>
+  :root { --nen:#14161a; --the:#1c1f26; --vien:#2b2f3a; --chu:#e6e8ec;
+          --mo:#9aa1ad; --nhan:#7aa2f7; --vang:#e0af68; --xanh:#9ece6a; --do:#f7768e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--nen); color:var(--chu);
+         font:15px/1.65 -apple-system,"Segoe UI",Roboto,sans-serif; }
+  header { position:sticky; top:0; z-index:10; background:var(--the);
+           border-bottom:1px solid var(--vien); padding:14px 20px; }
+  header h1 { margin:0; font-size:18px; font-weight:600; }
+  header p { margin:4px 0 0; color:var(--mo); font-size:13px; }
+  nav { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  nav a { color:var(--nhan); text-decoration:none; font-size:13px;
+          border:1px solid var(--vien); border-radius:999px; padding:3px 11px; }
+  nav a:hover { border-color:var(--nhan); }
+  main { max-width:940px; margin:0 auto; padding:26px 20px 80px; }
+  section { margin:0 0 42px; scroll-margin-top:120px; }
+  h2 { font-size:20px; margin:0 0 6px; padding-bottom:8px; border-bottom:1px solid var(--vien); }
+  h3 { font-size:16px; margin:26px 0 8px; color:var(--vang); }
+  p { margin:10px 0; }
+  .mo { color:var(--mo); }
+  table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+  th,td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--vien); vertical-align:top; }
+  th { color:var(--mo); font-weight:600; font-size:13px; }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  code { background:var(--the); border:1px solid var(--vien); border-radius:4px;
+         padding:1px 5px; font-size:13px; }
+  .hop { background:var(--the); border:1px solid var(--vien); border-left:3px solid var(--nhan);
+         border-radius:6px; padding:12px 15px; margin:14px 0; }
+  .hop.canh { border-left-color:var(--vang); }
+  .hop b { color:var(--vang); }
+  ul { margin:10px 0; padding-left:22px; }
+  li { margin:5px 0; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:4px;
+         border:1px solid var(--vien); color:var(--mo); }
+  .tag.on { color:var(--xanh); border-color:#2f4a2a; }
+  .tag.off { color:var(--do); border-color:#4a2a32; }
+  footer { color:var(--mo); font-size:12px; border-top:1px solid var(--vien);
+           padding-top:14px; margin-top:40px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Cẩm nang cuối game</h1>
+  <p>Nội dung cấp cao, khu vực ẩn, cách kiếm đồ xịn và nâng nó lên. Mọi con số đọc thẳng từ máy chủ.</p>
+  <nav>
+    <a href="#lich">Lịch trong ngày</a>
+    <a href="#boss">Boss thế giới</a>
+    <a href="#sukien">Sự kiện</a>
+    <a href="#khu">Khu vực ẩn</a>
+    <a href="#farm">Kiếm đồ xịn</a>
+    <a href="#nang">Nâng cấp</a>
+    <a href="#lotrinh">Lộ trình gợi ý</a>
+    <a href="/gop-y/" style="border-color:#4a3a1a;color:#e0af68">Góp ý &amp; ý tưởng →</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="lich">
+<h2>Lịch trong ngày</h2>
+<p>Gần như mọi thứ đáng giá đều theo khung giờ. Bỏ khung là mất một ngày.</p>
+<table>
+  <tr><th>Giờ</th><th>Nội dung</th><th>Ở đâu</th></tr>
+  <tr><td>06:00</td><td>Boss ngoài · Vùng đất ma quỷ · Làng địa ngục</td><td>rải nhiều map</td></tr>
+  <tr><td>12:00</td><td>Boss map sự kiện</td><td>Động Hachi, KTX Haruna, Sông Băng Yamato</td></tr>
+  <tr><td>17:30</td><td>Chiến trường cấp 50–70</td><td>Hirosaki / Haruna / Ookaza</td></tr>
+  <tr><td>19:01</td><td>Chiến trường cấp 71–89</td><td>nt</td></tr>
+  <tr><td>20:00</td><td>Boss map sự kiện</td><td>nt</td></tr>
+  <tr><td>20:32</td><td>Chiến trường cấp 90–110</td><td>nt</td></tr>
+  <tr><td>20:55</td><td><b>Vĩ thú</b> — mở đăng ký (đóng lúc 21:00)</td><td>Hang Karasumori</td></tr>
+  <tr><td>21:00</td><td>Boss ngoài · Vùng đất ma quỷ · Làng địa ngục</td><td>rải nhiều map</td></tr>
+  <tr><td>22:03</td><td>Chiến trường cấp 111–130</td><td>nt</td></tr>
+</table>
+<div class="hop canh">
+<b>Cửa sổ vĩ thú chỉ 5 phút.</b> Phải cầm sẵn Vĩ thú lệnh và dùng trong khoảng 20h55–21h00.
+Quá 21h là không vào được nữa, dù có lệnh trong túi.
+</div>
+</section>
+
+<section id="boss">
+<h2>Boss thế giới</h2>
+<p>Sát thương boss tính theo công thức <code>(cấp + cấp²/5) × 20</code>, rồi <b>nhân hệ số theo map</b>.
+Hệ số này là thứ hay bị bỏ sót — nó quyết định con nào thật sự nguy hiểm.</p>
+<table>
+  <tr><th>Khu</th><th class="n">Hệ số</th><th>Ghi chú</th></tr>
+  <tr><td>Làng cổ · Thánh địa Fujuka · Làng truyền thuyết</td><td class="n">×4</td><td>nguy hiểm nhất</td></tr>
+  <tr><td>Vùng đất ma quỷ</td><td class="n">×2</td><td></td></tr>
+  <tr><td>Hang động</td><td class="n">×2</td><td></td></tr>
+  <tr><td>Map thường · Làng địa ngục</td><td class="n">×1</td><td></td></tr>
+  <tr><td>Đấu trường · Lôi đài</td><td class="n">×0,1</td><td>gần như vô hại</td></tr>
+</table>
+
+<h3>Xếp theo sát thương thực nhận</h3>
+<table>
+  <tr><th>Boss</th><th class="n">Cấp</th><th class="n">Máu</th><th class="n">Sát thương</th><th>Khu</th></tr>
+  <tr><td>Băng Đế · Phù thủy Bí Ngô · Hỏa Kỳ Lân · Tử Lôi Diệu Thiên Long</td><td class="n">100</td><td class="n">150–200 tr</td><td class="n">168.000</td><td>Làng cổ</td></tr>
+  <tr><td>Tử Hạ Ma Thần · Tướng giặc · Mỹ Hầu Vương</td><td class="n">130</td><td class="n">2 tỉ</td><td class="n">210.600</td><td>Làng truyền thuyết</td></tr>
+  <tr><td>Đại Lực Sĩ</td><td class="n">110</td><td class="n">2 tỉ</td><td class="n">101.200</td><td>Vùng đất ma quỷ</td></tr>
+  <tr><td>U Minh Khuyển</td><td class="n">100</td><td class="n">2 tỉ</td><td class="n">84.000</td><td>Vùng đất ma quỷ</td></tr>
+  <tr><td>Kền Kền Vương</td><td class="n">90</td><td class="n">2 tỉ</td><td class="n">68.400</td><td>Vùng đất ma quỷ</td></tr>
+  <tr><td>Mỹ Hầu Tướng</td><td class="n">80</td><td class="n">1 tỉ</td><td class="n">27.200</td><td>Map sự kiện</td></tr>
+  <tr><td>Hỏa ngưu vương</td><td class="n">75</td><td class="n">150 tr</td><td class="n">24.000</td><td>Boss ngoài</td></tr>
+  <tr><td>Samurai chiến tướng</td><td class="n">65</td><td class="n">100 tr</td><td class="n">18.200</td><td>Boss ngoài</td></tr>
+  <tr><td>Thần thố</td><td class="n">55</td><td class="n">80 tr</td><td class="n">13.200</td><td>Boss ngoài</td></tr>
+  <tr><td>Xích phiến thiên long</td><td class="n">45</td><td class="n">60 tr</td><td class="n">9.000</td><td>Boss ngoài</td></tr>
+</table>
+<p class="mo">Sát thương ghi là cận trên; mỗi đòn bốc ngẫu nhiên trong khoảng 90–100% của nó.</p>
+</section>
+
+<section id="sukien">
+<h2>Sự kiện</h2>
+
+<h3>Chiến trường</h3>
+<p>Chia bốn khung cấp, mỗi khung một suất mỗi ngày. Trình tự: dựng map → <b>30 phút đăng ký</b>
+→ <b>60 phút đánh</b> → tổng kết. Vào trễ khung đăng ký là mất suất.</p>
+
+<h3>Vĩ thú — boss Thập Vĩ</h3>
+<ul>
+  <li>Map: <b>Hang Karasumori</b> (id 169–175, tức Karasumori 91 tới 97)</li>
+  <li>Boss <b>Juubi-Shinju</b>, 500 triệu máu, chỉ ra ở <b>khu 0</b>, toạ độ (830, 240)</li>
+  <li>Vào bằng <b>Vĩ thú lệnh</b> trong khung 20h55–21h00, dịch chuyển thẳng tới map 171</li>
+  <li>Điều kiện: <b>cấp ≥ 50</b>, trạng thái <b>PK thường</b>, đang là <b>chủ thân</b> (phân thân không vào được)</li>
+  <li>Thời gian trong hang: mở 1h15, kết thúc sau 1h</li>
+</ul>
+<div class="hop canh">
+<b>Vĩ thú lệnh hiện chưa mua được ở đâu.</b> Thông báo trong game bảo mua ở Tabemono, nhưng món
+này không nằm trong bảng cửa hàng nào và menu NPC Tabemono cũng không có mục bán. Hiện chỉ có
+đường quản trị gửi tay.
+</div>
+
+<h3>Thiên Địa bảng</h3>
+<p>Đăng ký ở NPC <b>Tabemono</b>. Thưởng xếp hạng là bộ danh hiệu <b>Thiên Bảng Đệ Nhất → Đệ Ngũ</b> —
+đây là đường chính thức duy nhất để có mấy món đó.</p>
+</section>
+
+<section id="khu">
+<h2>Khu vực ẩn và khu đặc biệt</h2>
+<table>
+  <tr><th>Khu</th><th>Map</th><th>Điều kiện vào</th></tr>
+  <tr><td><b>Làng cổ</b></td><td>Làng Fearri, Núi Doragon, Rừng Majo, Vực Yunikoon, Động Kingu</td><td>—</td></tr>
+  <tr><td><b>Làng truyền thuyết</b></td><td>Làng Shiiba, Hang Kiso, Đảo Bay Nokki, Đền Hashi</td><td>—</td></tr>
+  <tr><td><b>Làng địa ngục</b></td><td>Làng Địa Ngục, Quỷ Ngục</td><td><b>cấp 29–79</b> (trên 79 không vào được)</td></tr>
+  <tr><td><b>Thánh địa Fujuka</b></td><td>Thánh Địa Fujuka</td><td>có giới hạn lượt vào mỗi ngày</td></tr>
+  <tr><td><b>Tam Nhân Quan</b> (hầm 9x)</td><td>Tam Nhân Quan 1 · 2 · 3</td><td><b>lập nhóm đủ 6 người</b></td></tr>
+  <tr><td><b>Lãnh địa gia tộc</b></td><td>map riêng của tộc</td><td>Tộc trưởng hoặc Tộc phó mở</td></tr>
+  <tr><td><b>Hang Karasumori</b></td><td>id 169–175</td><td>Vĩ thú lệnh, khung 20h55–21h00</td></tr>
+  <tr><td><b>Hang Nymoz</b></td><td>Hang Nymoz</td><td>—</td></tr>
+  <tr><td><b>Nghĩa Địa Quan · Đền Kaiza</b></td><td>—</td><td>—</td></tr>
+  <tr><td>Khu VIP</td><td>—</td><td>một số cửa đòi <b>300</b> hoặc <b>3.000 lượng</b>, có cửa đòi <b>VVIP</b></td></tr>
+</table>
+<div class="hop">
+<b>Vùng đất ma quỷ</b> không nhận diện theo tên map mà theo <code>tileId == 4</code> — nên nó trải
+trên nhiều map khác nhau. Cứ thấy sát thương boss nhân đôi thì đang ở đó.
+</div>
+</section>
+
+<section id="farm">
+<h2>Kiếm đồ xịn</h2>
+
+<h3>Mảnh ghép — đường chính cho đồ trang bị 2</h3>
+<p>Đồ mạnh không phát qua bảng web nữa. Đường vào game là gom mảnh rồi đổi.</p>
+<table>
+  <tr><th>Mảnh</th><th>Đổi được</th><th class="n">Cần</th><th>Rơi từ</th><th class="n">Ước tính</th></tr>
+  <tr><td><b>Mảnh Y Phục</b></td><td>15 món y phục: bộ Hokage, Akatsuki nam/nữ, Obito Lục Đạo, nón Naruto Cửu Vĩ, RUBY, Thần Thoại Kiếm</td><td class="n">300</td><td>boss ngoài, boss sự kiện</td><td class="n">~6 ngày</td></tr>
+  <tr><td><b>Mảnh Chiến Tích</b></td><td>10 ấn tộc + 6 vũ khí Thiên Vương 100x</td><td class="n">600</td><td>boss vùng đất ma quỷ, boss làng cổ</td><td class="n">~15 ngày</td></tr>
+</table>
+<p class="mo">Ước tính tính cho người đi đủ cả hai khung giờ và ăn trọn. Chia với người khác thì lâu hơn.
+Dùng mảnh khi đủ số sẽ hiện menu cho chọn món — không bị ép nhận món ngẫu nhiên.</p>
+
+<h3>Trang bị 100 — mảnh Minh Giác Cốt Ngọc</h3>
+<p>Boss <b>Làng địa ngục</b> (Tướng giặc, cấp 79) rơi 14 loại mảnh. Gom <b>1000 mảnh</b> mỗi loại
+đổi được một món trang bị 100 tương ứng.</p>
+
+<h3>Hũ rơi đáng chú ý</h3>
+<table>
+  <tr><th>Nguồn</th><th>Món đáng lấy</th></tr>
+  <tr><td>Boss ngoài (cấp 45/55/65/75)</td><td>5 vũ khí boss (tự nâng +0…+10), 20 Phiếu may mắn, 6 loại sách võ công</td></tr>
+  <tr><td>Vùng đất ma quỷ (cấp 90/100/110)</td><td>5 vũ khí boss, 20 Phân thân lệnh, 1 sách võ công 100, <b>Bát bảo 0,8%</b>, <b>Rương bạch ngân 0,25%</b></td></tr>
+  <tr><td>Làng địa ngục</td><td>14 mảnh Minh Giác, Đá Vô Thương / Chinh Phục / Phục Sinh, <b>Harley Davidson 0,65%</b>, <b>Hộp Vũ khí 0,04%</b></td></tr>
+  <tr><td>Làng truyền thuyết</td><td>3–5 Mảnh sách mới (mở chiêu 125), Viên linh hồn, bộ ba Đá</td></tr>
+  <tr><td>Boss sự kiện</td><td>Đá cấp 9 (49,8%), Đá cấp 10 (29,9%)</td></tr>
+  <tr><td>Làng cổ</td><td>Tử tinh thạch (nguyên liệu tinh luyện), <b>Harley Davidson 0,01%</b></td></tr>
+</table>
+</section>
+
+<section id="nang">
+<h2>Nâng cấp</h2>
+
+<h3>1 · Nâng cấp trang bị (+N)</h3>
+<p>Trần phụ thuộc <b>cấp của món</b>, không phải cấp nhân vật:</p>
+<table>
+  <tr><th>Cấp món</th><th class="n">Nâng tối đa</th></tr>
+  <tr><td>dưới 10</td><td class="n">0</td></tr>
+  <tr><td>10–19</td><td class="n">+4</td></tr>
+  <tr><td>20–39</td><td class="n">+8</td></tr>
+  <tr><td>40–49</td><td class="n">+12</td></tr>
+  <tr><td>50–59</td><td class="n">+14</td></tr>
+  <tr><td>60 trở lên</td><td class="n">+16</td></tr>
+</table>
+<p>Mỗi bậc cộng theo loại chỉ số: <code>+15</code> cho sức đánh/HP gốc, <code>+10</code> cho nhóm kế,
+<code>+5</code> cho nhóm phụ, <code>+150</code> cho nhóm kháng, <code>+3</code> cho chí mạng.</p>
+<div class="hop canh">
+<b>Chỉ quần áo, trang sức và vũ khí nâng được.</b> Đồ trang bị 2 (trừ vũ khí 100x), áo choàng,
+mắt thần, bí kíp <b>không nâng được</b> — con số "+N" hiện trên mấy món đó chỉ là nhãn trang trí,
+không có tác dụng gì.
+</div>
+
+<h3>2 · Tinh luyện (trần 9)</h3>
+<p>Áp dụng cho quần áo, trang sức (trừ RUBY), vũ khí, áo choàng và thú cưỡi. Cần <b>tử tinh thạch</b> và yên.</p>
+<table>
+  <tr><th class="n">Độ hiện có</th><th class="n">Tỉ lệ thành công</th><th class="n">Phí (yên)</th><th class="n">Số thạch</th></tr>
+  <tr><td class="n">0 → 1</td><td class="n">60%</td><td class="n">150.000</td><td class="n">3</td></tr>
+  <tr><td class="n">1 → 2</td><td class="n">45%</td><td class="n">247.500</td><td class="n">5</td></tr>
+  <tr><td class="n">2 → 3</td><td class="n">34%</td><td class="n">408.375</td><td class="n">9</td></tr>
+  <tr><td class="n">3 → 4</td><td class="n">26%</td><td class="n">673.819</td><td class="n">4</td></tr>
+  <tr><td class="n">4 → 5</td><td class="n">20%</td><td class="n">1.111.801</td><td class="n">7</td></tr>
+  <tr><td class="n">5 → 6</td><td class="n">15%</td><td class="n">2.056.832</td><td class="n">10</td></tr>
+  <tr><td class="n">6 → 7</td><td class="n">11%</td><td class="n">4.010.822</td><td class="n">5</td></tr>
+  <tr><td class="n">7 → 8</td><td class="n">8%</td><td class="n">—</td><td class="n">7</td></tr>
+  <tr><td class="n">8 → 9</td><td class="n">6%</td><td class="n">—</td><td class="n">9</td></tr>
+</table>
+<p class="mo">Loại thạch đổi theo bậc: sơ cấp → trung cấp → cao cấp. Tử tinh thạch rơi ở Làng cổ và Vùng đất ma quỷ.</p>
+
+<h3>3 · Mắt thần (10 bậc)</h3>
+<p>Chuỗi dài nhất game: <b>Geningan → Sukaigan</b>. Nhận bậc đầu cần <b>100 điểm danh vọng ở cả 9 loại
+trang bị</b>. Mỗi bậc sau cần <b>(bậc+1) × 100 điểm mỗi loại</b>, cộng 10 viên nguyên liệu riêng và tiền.</p>
+<table>
+  <tr><th class="n">Lên bậc</th><th class="n">Tỉ lệ</th><th class="n">Chi phí (xu)</th><th class="n">Lượng (nhân đôi tỉ lệ)</th></tr>
+  <tr><td class="n">1 → 2</td><td class="n">50%</td><td class="n">500.000</td><td class="n">50</td></tr>
+  <tr><td class="n">2 → 3</td><td class="n">35%</td><td class="n">750.000</td><td class="n">60</td></tr>
+  <tr><td class="n">3 → 4</td><td class="n">25%</td><td class="n">1.250.000</td><td class="n">85</td></tr>
+  <tr><td class="n">4 → 5</td><td class="n">20%</td><td class="n">2.000.000</td><td class="n">100</td></tr>
+  <tr><td class="n">5 → 6</td><td class="n">15%</td><td class="n">3.000.000</td><td class="n">150</td></tr>
+  <tr><td class="n">6 → 7</td><td class="n">12%</td><td class="n">4.500.000</td><td class="n">200</td></tr>
+  <tr><td class="n">7 → 8</td><td class="n">10%</td><td class="n">6.000.000</td><td class="n">300</td></tr>
+  <tr><td class="n">8 → 9</td><td class="n">8%</td><td class="n">7.750.000</td><td class="n">450</td></tr>
+  <tr><td class="n">9 → 10</td><td class="n">5%</td><td class="n">10.000.000</td><td class="n">600</td></tr>
+</table>
+<p>Bậc cuối <b>Sukaigan</b> mang <b>Sát thương chuẩn 5000</b> — chỉ số xuyên qua mọi loại kháng và
+giảm sát thương phần trăm. Đây là món mạnh nhất game kiếm được bằng cày.</p>
+
+<h3>4 · Phá trần kỹ năng</h3>
+<p>Dùng sách để đưa một chiêu vượt trần thường, <b>tối đa 3 lần mỗi chiêu</b>. Sách vừa nới trần
+vừa cộng thẳng cấp, <b>không tốn điểm kỹ năng</b>.</p>
+<table>
+  <tr><th>Chiêu</th><th>Lớp</th><th class="n">Trần gốc</th><th class="n">Trần sau khi phá</th><th>Sách</th></tr>
+  <tr><td>Tiêu Hoả Phi Long (chiêu 120)</td><td>Tiêu</td><td class="n">1</td><td class="n">4</td><td>id 1265</td></tr>
+</table>
+
+<h3>5 · Ngọc khảm</h3>
+<p>Ngọc khảm (loại 34) nuôi bằng cách ăn ngọc khác để lên cấp, rồi khảm vào trang bị.
+Một số món không nhận khảm.</p>
+</section>
+
+<section id="lotrinh">
+<h2>Lộ trình gợi ý</h2>
+<ol>
+  <li><b>Trước cấp 79</b> — tranh thủ cày <b>Làng địa ngục</b>. Trên 79 là <b>không vào được nữa</b>,
+      mà đây là nguồn duy nhất của 14 mảnh Minh Giác Cốt Ngọc để làm trang bị 100.</li>
+  <li><b>Cấp 50 trở lên</b> — bắt đầu đi <b>vĩ thú</b> và <b>chiến trường</b> đúng khung cấp của mình.</li>
+  <li><b>Song song</b> — mỗi ngày hai lượt boss 6h và 21h để gom <b>Mảnh Y Phục</b>. Khoảng 6 ngày được một món.</li>
+  <li><b>Có đồ nền rồi</b> — chuyển sang boss <b>Vùng đất ma quỷ</b> gom <b>Mảnh Chiến Tích</b>,
+      đồng thời nhặt tử tinh thạch để tinh luyện.</li>
+  <li><b>Đường dài</b> — gom điểm danh vọng đủ 9 loại trang bị cho <b>mắt thần</b>. Đây là thứ nên bắt
+      đầu sớm vì nó cộng dồn chậm.</li>
+</ol>
+<div class="hop">
+<b>Ba thứ đang khoá kín, chưa có đường kiếm:</b> Susano, Cầu lục đạo, và danh hiệu bí kíp
+(ngoài bộ Thiên bảng vốn là thưởng xếp hạng). Chúng sẽ có đường riêng sau, không nằm trong
+cơ chế mảnh ghép.
+</div>
+</section>
+
+<footer>
+  Số liệu đọc trực tiếp từ cơ sở dữ liệu và mã nguồn máy chủ. Cân bằng có thể đổi — nếu thấy lệch
+  so với trong game thì tin trong game.
+</footer>
+</main>
+</body>
+</html>

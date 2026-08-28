@@ -1,0 +1,1242 @@
+﻿ID,Tên,Phân loại,Mã loại,Cấp,Giới tính,Tbi 2,Mô tả
+0,Đá cấp 1,Pha lê,26,1,Cả hai,,"Đá vụn, dùng nâng cấp trang bị"
+1,Đá cấp 2,Pha lê,26,1,Cả hai,,"Đá thường, dùng nâng cấp trang bị"
+2,Đá cấp 3,Pha lê,26,1,Cả hai,,"Đá tì vết, dùng nâng cấp trang bị"
+3,Đá cấp 4,Pha lê,26,1,Cả hai,,"Đá hoàn thiện, trông rất đẹp"
+4,Đá cấp 5,Pha lê,26,1,Cả hai,,"Đá tự nhiên, ở sâu trong lòng đất"
+5,Đá cấp 6,Pha lê,26,1,Cả hai,,"Đá tinh khiết, không bị lẫn tạp chất"
+6,Đá cấp 7,Pha lê,26,1,Cả hai,,"Đá lâu năm, cực kỳ rắn chắc"
+7,Đá cấp 8,Pha lê,26,1,Cả hai,,"Đá óng ánh, có thể phát sáng"
+8,Đá cấp 9,Pha lê,26,1,Cả hai,,"Đá tinh xảo, giá trị không rẻ"
+9,Đá cấp 10,Pha lê,26,1,Cả hai,,"Đá ngũ sắc, phát quang nhiều màu"
+10,Đá cấp 11,Pha lê,26,1,Cả hai,,"Đá toàn mỹ, thế gian khó tìm"
+11,Đá cấp 12,Pha lê,26,1,Cả hai,,"Đá thiên thạch, không rõ nguồn gốc"
+12,Yên,Tiền,19,1,Cả hai,,
+13,Bình HP cực tiểu,Thuốc HP,16,1,Cả hai,,"Nữa giây phục hồi 25 HP, duy trì 3 giây"
+14,Bình HP tiểu,Thuốc HP,16,10,Cả hai,,"Nữa giây phục hồi 90 HP, duy trì 3 giây"
+15,Bình HP vừa,Thuốc HP,16,30,Cả hai,,"Nữa giây phục hồi 230 HP, duy trì 3 giây"
+16,Bình HP lớn,Thuốc HP,16,50,Cả hai,,"Nữa giây phục hồi 400 HP, duy trì 3 giây"
+17,Bình HP cực lớn,Thuốc HP,16,70,Cả hai,,"Nữa giây phục hồi 650 HP, duy trì 3 giây"
+18,Bình MP cực tiểu,Thuốc MP,17,1,Cả hai,,Phục hồi 150 MP
+19,Bình MP tiểu,Thuốc MP,17,10,Cả hai,,Phục hồi 500 MP
+20,Bình MP vừa,Thuốc MP,17,30,Cả hai,,Phục hồi 1000 MP
+21,Bình MP lớn,Thuốc MP,17,50,Cả hai,,Phục hồi 2000 MP
+22,Bình MP cực lớn,Thuốc MP,17,70,Cả hai,,Phục hồi 3500 MP
+23,Cơm nắm,Đồ ăn,18,1,Cả hai,,"Nữa giây phục hồi 3 HP, MP duy trì 30 phút"
+24,Tempura,Đồ ăn,18,10,Cả hai,,"Nữa giây phục hồi 20 HP, MP duy trì 30 phút"
+25,Katsudon,Đồ ăn,18,20,Cả hai,,"Nữa giây phục hồi 30 HP, MP duy trì 30 phút"
+26,Sashimi,Đồ ăn,18,30,Cả hai,,"Nữa giây phục hồi 40 HP, MP duy trì 30 phút"
+27,Gà quay,Đồ ăn,18,40,Cả hai,,"Nữa giây phục hồi 50 HP, MP duy trì 30 phút"
+28,Nhân sâm ngàn năm,Vật phẩm thường,27,1,Cả hai,,Tăng 10% kinh nghiệm của level hiện tại
+29,Đùi heo sữa,Đồ ăn,18,50,Cả hai,,"Nữa giây phục hồi 60 HP, MP duy trì 30 phút"
+30,Đùi heo sữa cao cấp,Đồ ăn,18,50,Cả hai,,"Nữa giây phục hồi 60 HP, MP duy trì 3 ngày"
+31,quần xanh nam,Quần,6,1,Nam,,
+32,quần đỏ nam,Quần,6,1,Nam,,
+33,quần vàng nam,Quần,6,1,Nam,,
+34,Bách biến lệnh,Vật phẩm thường,27,1,Cả hai,,Di chuyển nhanh về tọa độ mặc định
+35,Khả di lệnh,Vật phẩm thường,27,1,Cả hai,,"Di chuyển nhanh qua các làng, trường"
+36,Vô hạn bách biến lệnh,Vật phẩm thường,27,1,Cả hai,,Di chuyển nhanh về tọa độ mặc định
+37,Vô hạn khả di lệnh,Vật phẩm thường,27,1,Cả hai,,"Di chuyển nhanh qua các làng, trường"
+38,Phúc nang nhẫn giả,Vật phẩm thường,27,1,Cả hai,,Sẽ có bất ngờ khi mở ra
+39,Giầy cấp 1 nam,Giày,8,1,Nam,,
+40,Sách võ công Hiyoko,Vật phẩm thường,27,10,Cả hai,,
+41,Sách võ công Amagedon,Vật phẩm thường,27,15,Cả hai,,
+42,Sách võ công Jizokuzan,Vật phẩm thường,27,20,Cả hai,,
+43,Sách võ công Kakyuu,Vật phẩm thường,27,25,Cả hai,,
+44,Sách võ công X Zangeki,Vật phẩm thường,27,30,Cả hai,,
+45,Sách võ công Raikou,Vật phẩm thường,27,35,Cả hai,,
+46,Sách võ công Hihebun,Vật phẩm thường,27,40,Cả hai,,
+47,Sách võ công Shuurai,Vật phẩm thường,27,45,Cả hai,,
+48,Sách võ công Choukouhirenzo,Vật phẩm thường,27,50,Cả hai,,
+49,Sách võ công Otama,Vật phẩm thường,27,10,Cả hai,,
+50,Sách võ công Itotama,Vật phẩm thường,27,15,Cả hai,,
+51,Sách võ công Kasoushuriken,Vật phẩm thường,27,20,Cả hai,,
+52,Sách võ công Taiyoutama,Vật phẩm thường,27,25,Cả hai,,
+53,Sách võ công Bikoushuriken,Vật phẩm thường,27,30,Cả hai,,
+54,Sách võ công Hoshitama,Vật phẩm thường,27,35,Cả hai,,
+55,Sách võ công Hinotama,Vật phẩm thường,27,40,Cả hai,,
+56,Sách võ công Hijoukai,Vật phẩm thường,27,45,Cả hai,,
+57,Sách võ công Choukou shuriken,Vật phẩm thường,27,50,Cả hai,,
+58,Sách võ công Yokobatan,Vật phẩm thường,27,10,Cả hai,,
+59,Sách võ công Akaiame,Vật phẩm thường,27,15,Cả hai,,
+60,Sách võ công Mizuibatan,Vật phẩm thường,27,20,Cả hai,,
+61,Sách võ công Aoiame,Vật phẩm thường,27,25,Cả hai,,
+62,Sách võ công Uzubatan,Vật phẩm thường,27,30,Cả hai,,
+63,Sách võ công Hibikou,Vật phẩm thường,27,35,Cả hai,,
+64,Sách võ công Kogoeru,Vật phẩm thường,27,40,Cả hai,,
+65,Sách võ công Jotente,Vật phẩm thường,27,45,Cả hai,,
+66,Sách võ công Choukoukogo,Vật phẩm thường,27,50,Cả hai,,
+67,Sách võ công Uzusa,Vật phẩm thường,27,10,Cả hai,,
+68,Sách võ công Washihitomi,Vật phẩm thường,27,15,Cả hai,,
+69,Sách võ công Kinkinsa,Vật phẩm thường,27,20,Cả hai,,
+70,Sách võ công Sogekihei,Vật phẩm thường,27,25,Cả hai,,
+71,Sách võ công Nikinkinsa,Vật phẩm thường,27,30,Cả hai,,
+72,Sách võ công Joutenhitomi,Vật phẩm thường,27,35,Cả hai,,
+73,Sách võ công Kogosa,Vật phẩm thường,27,40,Cả hai,,
+74,Sách võ công Kyshouma,Vật phẩm thường,27,45,Cả hai,,
+75,Sách võ công Chousoukinkinsa,Vật phẩm thường,27,50,Cả hai,,
+76,Sách võ công Enchokuto,Vật phẩm thường,27,10,Cả hai,,
+77,Sách võ công Konoitoame,Vật phẩm thường,27,15,Cả hai,,
+78,Sách võ công Maroyakato,Vật phẩm thường,27,20,Cả hai,,
+79,Sách võ công Magumandari,Vật phẩm thường,27,25,Cả hai,,
+80,Sách võ công Chousouto,Vật phẩm thường,27,30,Cả hai,,
+81,Sách võ công Aisubaagu,Vật phẩm thường,27,35,Cả hai,,
+82,Sách võ công Hayateto,Vật phẩm thường,27,40,Cả hai,,
+83,Sách võ công Zenpanteki,Vật phẩm thường,27,45,Cả hai,,
+84,Sách võ công Raikouto,Vật phẩm thường,27,50,Cả hai,,
+85,Sách võ công Ouchia,Vật phẩm thường,27,10,Cả hai,,
+86,Sách võ công Suishou,Vật phẩm thường,27,15,Cả hai,,
+87,Sách võ công Oouchia,Vật phẩm thường,27,20,Cả hai,,
+88,Sách võ công Kusenmono,Vật phẩm thường,27,25,Cả hai,,
+89,Sách võ công Bakkuuchiha,Vật phẩm thường,27,30,Cả hai,,
+90,Sách võ công Hayatemi,Vật phẩm thường,27,35,Cả hai,,
+91,Sách võ công Bousouhayate,Vật phẩm thường,27,40,Cả hai,,
+92,Sách võ công Toruneedo,Vật phẩm thường,27,45,Cả hai,,
+93,Sách võ công Tatsumaki,Vật phẩm thường,27,50,Cả hai,,
+94,Bạch Hạc Kiếm,Vũ khí,1,10,Cả hai,,
+95,Đả Lôi Kiếm,Vũ khí,1,20,Cả hai,,
+96,Trấn Ma Kiếm,Vũ khí,1,30,Cả hai,,
+97,Sinh Tử Kiếm,Vũ khí,1,40,Cả hai,,
+98,Mộ Danh Kiếm,Vũ khí,1,50,Cả hai,,
+99,Hắc Nanh Dao,Vũ khí,1,10,Cả hai,,
+100,Xà Nhãn Dao,Vũ khí,1,20,Cả hai,,
+101,Hộ Công Dao,Vũ khí,1,30,Cả hai,,
+102,Vô Ảnh Dao,Vũ khí,1,40,Cả hai,,
+103,Phượng Hoàng Dao,Vũ khí,1,50,Cả hai,,
+104,Trãm Mã Đao,Vũ khí,1,10,Cả hai,,
+105,Trãm Hổ Đao,Vũ khí,1,20,Cả hai,,
+106,Khổng Đao,Vũ khí,1,30,Cả hai,,
+107,Nộ Thiên Đao,Vũ khí,1,40,Cả hai,,
+108,Thanh Long Đao,Vũ khí,1,50,Cả hai,,
+109,Minh Nguyệt Cung,Vũ khí,1,10,Cả hai,,
+110,Đằng Vân Cung,Vũ khí,1,20,Cả hai,,
+111,Phụng Tiễn Cung,Vũ khí,1,30,Cả hai,,
+112,Trác Tâm Cung,Vũ khí,1,40,Cả hai,,
+113,Thiên Ý Cung,Vũ khí,1,50,Cả hai,,
+114,Phàm Ý Tiêu,Vũ khí,1,10,Cả hai,,
+115,Ưng nhãn Tiêu,Vũ khí,1,20,Cả hai,,
+116,Mạc Sầu Tiêu,Vũ khí,1,30,Cả hai,,
+117,Triệt Tà Tiêu,Vũ khí,1,40,Cả hai,,
+118,Nhất Dương Tiêu,Vũ khí,1,50,Cả hai,,
+119,Phong Ý Quạt,Vũ khí,1,10,Cả hai,,
+120,Vũ Đan Quạt,Vũ khí,1,20,Cả hai,,
+121,Phong Linh Quạt,Vũ khí,1,30,Cả hai,,
+122,Vấn Thiên Quạt,Vũ khí,1,40,Cả hai,,
+123,Phong Vũ Lôi Quạt,Vũ khí,1,50,Cả hai,,
+124,Giày Thô Bố,Giày,8,11,Nam,,
+125,Giày Thô Bố,Giày,8,11,Nữ,,
+126,Giày Thô Ma,Giày,8,21,Nam,,
+127,Giày Thô Ma,Giày,8,21,Nữ,,
+128,Giày Thiên Tằm,Giày,8,31,Nam,,
+129,Giày Thiên Tằm,Giày,8,31,Nữ,,
+130,Hoắc Giáp Ngoa,Giày,8,41,Nam,,
+131,Hoắc Giáp Ngoa,Giày,8,41,Nữ,,
+132,Kim Giáp Ngoa,Giày,8,51,Nam,,
+133,Kim Giáp Ngoa,Giày,8,51,Nữ,,
+134,Quần Thố,Quần,6,13,Nam,,
+135,Quần Thố,Quần,6,13,Nữ,,
+136,Quần Vải Bông,Quần,6,23,Nam,,
+137,Quần Vải Bông,Quần,6,23,Nữ,,
+138,Quần Tơ Tằm,Quần,6,33,Nam,,
+139,Quần Tơ Tằm,Quần,6,33,Nữ,,
+140,Hoắc Giáp,Quần,6,43,Nam,,
+141,Hoắc Giáp,Quần,6,43,Nữ,,
+142,Kim Giáp,Quần,6,53,Nam,,
+143,Kim Giáp,Quần,6,53,Nữ,,
+144,Thanh Mã Thủ,Găng tay,4,15,Nam,,
+145,Thanh Mã Thủ,Găng tay,4,15,Nữ,,
+146,Huyết Hổ Thủ,Găng tay,4,25,Nam,,
+147,Huyết Hổ Thủ,Găng tay,4,25,Nữ,,
+148,Kim Long Thủ,Găng tay,4,35,Nam,,
+149,Kim Long Thủ,Găng tay,4,35,Nữ,,
+150,Hoắc Thiết Thủ,Găng tay,4,45,Nam,,
+151,Hoắc Thiết Thủ,Găng tay,4,45,Nữ,,
+152,Kim Triền Thủ,Găng tay,4,55,Nam,,
+153,Kim Triền Thủ,Găng tay,4,55,Nữ,,
+154,Áo Thố,Áo,2,17,Nam,,
+155,Áo Thố,Áo,2,17,Nữ,,
+156,Áo Vải Bông,Áo,2,27,Nam,,
+157,Áo Vải Bông,Áo,2,27,Nữ,,
+158,Áo Tơ Tằm,Áo,2,37,Nam,,
+159,Áo Tơ Tằm,Áo,2,37,Nữ,,
+160,Hoắc Giáp Y,Áo,2,47,Nam,,
+161,Hoắc Giáp Y,Áo,2,47,Nữ,,
+162,Kim Giáp Y,Áo,2,57,Nam,,
+163,Kim Giáp Y,Áo,2,57,Nữ,,
+164,Dây Thanh Tuyến,Nón,0,19,Nam,,
+165,Thanh Ngọc Trâm,Nón,0,19,Nữ,,
+166,Dây Huyết Tuyến,Nón,0,29,Nam,,
+167,Hồng Bảo Trâm,Nón,0,29,Nữ,,
+168,Dây Kim Tuyến,Nón,0,39,Nam,,
+169,Kim Lân Trâm,Nón,0,39,Nữ,,
+170,Dây Hoắc Tuyến,Nón,0,49,Nam,,
+171,Bích Hoa Trâm,Nón,0,49,Nữ,,
+172,Ngân Bội Tuyến,Nón,0,59,Nam,,
+173,Ngân Hoa Trâm,Nón,0,59,Nữ,,
+174,Bùa Hộ Thân,Bùa,9,12,Cả hai,,
+175,Bùa Kháng Ma,Bùa,9,22,Cả hai,,
+176,Bùa Phúc Mệnh,Bùa,9,32,Cả hai,,
+177,Bùa Thánh Ý,Bùa,9,42,Cả hai,,
+178,Bùa Vạn Phước,Bùa,9,52,Cả hai,,
+179,Cẩm Thạch Bội ,Ngọc bội,7,14,Cả hai,,
+180,Phỉ Thúy Bội,Ngọc bội,7,24,Cả hai,,
+181,Bạch Ngọc Bội ,Ngọc bội,7,34,Cả hai,,
+182,Ngọc Bội Hổ Phách,Ngọc bội,7,44,Cả hai,,
+183,Thạch Anh Bội ,Ngọc bội,7,54,Cả hai,,
+184,Nhẫn Bạc,Nhẫn,5,16,Cả hai,,
+185,Nhẫn Mắt Mèo,Nhẫn,5,26,Cả hai,,
+186,Nhẫn Thạch Lam,Nhẫn,5,36,Cả hai,,
+187,Nhẫn Opal,Nhẫn,5,46,Cả hai,,
+188,Nhẫn Kim cương,Nhẫn,5,56,Cả hai,,
+189,Dây Chuyền Bạc,Dây chuyền,3,18,Cả hai,,
+190,Dây Chuyền Bạch Kim,Dây chuyền,3,28,Cả hai,,
+191,Dây Chuyền Vàng,Dây chuyền,3,38,Cả hai,,
+192,Dây Chuyền Lục Bảo,Dây chuyền,3,48,Cả hai,,
+193,Dây Chuyền Hồng Bảo,Dây chuyền,3,58,Cả hai,,
+194,Kiếm Gỗ,Vũ khí,1,1,Cả hai,,
+195,Giày,Giày,8,1,Nam,,
+196,Giày,Giày,8,1,Nữ,,
+197,Quần Da Thú,Quần,6,3,Nam,,
+198,Quần Da Thú,Quần,6,3,Nữ,,
+199,Găng Tay,Găng tay,4,5,Nam,,
+200,Găng Tay,Găng tay,4,5,Nữ,,
+201,Áo Da Thú,Áo,2,7,Nam,,
+202,Áo Da Thú,Áo,2,7,Nữ,,
+203,Dây Bạch Tuyến,Nón,0,9,Nam,,
+204,Trâm Cài,Nón,0,9,Nữ,,
+205,Bùa Bình An,Bùa,9,2,Cả hai,,
+206,Ngọc Bội,Ngọc bội,7,4,Cả hai,,
+207,Nhẫn,Nhẫn,5,6,Cả hai,,
+208,Dây Chuyền,Dây chuyền,3,8,Cả hai,,
+209,Lông nhím,Vật phẩm nhiệm vụ,25,1,Cả hai,,Trưởng làng cần vật phẩm này
+210,Da thỏ,Vật phẩm nhiệm vụ,25,1,Cả hai,,Trưởng làng cần vật phẩm này
+211,Bông thảo dược,Vật phẩm nhiệm vụ,25,1,Cả hai,,Dùng để chế thuốc
+212,Khoáng thạch,Vật phẩm nhiệm vụ,25,1,Cả hai,,Dùng làm đồ trang sức
+213,Vỏ Ốc Đá,Vật phẩm nhiệm vụ,25,1,Cả hai,,Dùng làm đồ trang sức
+214,Thư liên lạc,Vật phẩm nhiệm vụ (giữ),23,1,Cả hai,,Vật phẩm nhiệm vụ
+215,Túi vải cấp 1,Vật phẩm thường,27,1,Cả hai,,Mở thêm 6 ô trong hành trang
+216,Nhị hầu tửu,Vật phẩm nhiệm vụ,25,1,Cả hai,,Nguyên liệu đặc biệt chữa vết thương
+217,Xác Châu Chấu,Vật phẩm nhiệm vụ,25,1,Cả hai,,Nguyên liệu đặc biệt chữa vết thương
+218,Sushi,Thịt,21,1,Cả hai,,
+219,Bình rỗng,Vật phẩm nhiệm vụ (chờ),24,1,Cả hai,,Dùng để chứa nước
+220,Bình nước,Vật phẩm nhiệm vụ (giữ),23,1,Cả hai,,Bên trong chứa đầy nước
+221,Rìu Bạc,Vật phẩm nhiệm vụ (giữ),23,1,Cả hai,,Vật trấn ngư chi bảo Làng Chài
+222,Ngọc 1 sao,Ngọc rồng,22,1,Cả hai,,Hội tụ 7 viên sẽ được phần thưởng giá trị
+223,Ngọc 2 sao,Ngọc rồng,22,1,Cả hai,,Hội tụ 7 viên sẽ được phần thưởng giá trị
+224,Ngọc 3 sao,Ngọc rồng,22,1,Cả hai,,Hội tụ 7 viên sẽ được phần thưởng giá trị
+225,Ngọc 4 sao,Ngọc rồng,22,1,Cả hai,,Hội tụ 7 viên sẽ được phần thưởng giá trị
+226,Ngọc 5 sao,Ngọc rồng,22,1,Cả hai,,Hội tụ 7 viên sẽ được phần thưởng giá trị
+227,Ngọc 6 sao,Ngọc rồng,22,1,Cả hai,,Hội tụ 7 viên sẽ được phần thưởng giá trị
+228,Ngọc 7 sao,Ngọc rồng,22,1,Cả hai,,Hội tụ 7 viên sẽ được phần thưởng giá trị
+229,Túi vải cấp 2,Vật phẩm thường,27,5,Cả hai,,Mở thêm 6 ô trong hành trang
+230,Chìa khóa cơ quan,Vật phẩm nhiệm vụ,25,34,Cả hai,,Vật phẩm nhiệm vụ
+231,Chìa khóa cơ quan,Vật phẩm nhiệm vụ,25,34,Cả hai,,Dùng để mở cửa địa đạo
+232,Địa đồ,Vật phẩm nhiệm vụ (giữ),23,35,Cả hai,,Vật phẩm nhiệm vụ
+233,Địa đồ,Vật phẩm nhiệm vụ (chờ),24,35,Cả hai,,Khi sử dụng sẽ cho biết tọa độ cần đến
+234,Địa đồ,Vật phẩm nhiệm vụ (chờ),24,35,Cả hai,,Khi sử dụng sẽ cho biết tọa độ cần đến
+235,Địa đồ,Vật phẩm nhiệm vụ (chờ),24,35,Cả hai,,Khi sử dụng sẽ cho biết tọa độ cần đến
+236,Tinh thể băng,Vật phẩm nhiệm vụ (giữ),23,1,Cả hai,,Vật phẩm nhiệm vụ
+237,Tinh thể băng,Vật phẩm nhiệm vụ (giữ),23,1,Cả hai,,Có thể trung hòa nhiệt độ
+238,Xác dơi lửa,Vật phẩm nhiệm vụ (giữ),23,41,Cả hai,,
+239,Xác dơi lửa,Vật phẩm nhiệm vụ (giữ),23,41,Cả hai,,Đã bị đóng băng
+240,Giấy phép tẩy tiềm năng,Vật phẩm thường,27,10,Cả hai,,Sử dụng sẽ tăng 1 lần tẩy tiềm năng
+241,Giấy phép tẩy kỹ năng,Vật phẩm thường,27,10,Cả hai,,Sử dụng sẽ tăng 1 lần tẩy kỹ năng
+242,Bảo hiểm sơ cấp,Bảo vệ,28,1,Cả hai,,Bảo hiểm nâng cấp trang bị từ cấp 1 đến cấp 8
+243,Chuyển hóa y phục,Vật phẩm thường,27,1,Cả hai,,Chuyển cấp độ từ y phục qua y phục
+244,Chuyển hóa trang sức,Vật phẩm thường,27,1,Cả hai,,Chuyển cấp độ từ trang sức qua trang sức
+245,Chuyển hóa vũ khí,Vật phẩm thường,27,1,Cả hai,,Chuyển cấp độ từ vũ khí qua vũ khí
+246,Dơi đen,Thú nuôi,10,1,Cả hai,,Hỗ trợ tấn công quái
+247,Thỏi bạc,Vật phẩm thường,27,1,Cả hai,,Có thể đổi lấy xu hoặc yên
+248,Nấm linh chi,Vật phẩm thường,27,1,Cả hai,,"Nhân 2 kinh nghiệm đánh quái. Duy trì 5h, cộng dồn khi sử dụng."
+249,Sashimi cao cấp,Đồ ăn,18,30,Cả hai,,"Nữa giây phục hồi 40 HP, MP duy trì 3 ngày"
+250,Gà quay cao cấp,Đồ ăn,18,40,Cả hai,,"Nữa giây phục hồi 50 HP, MP duy trì 3 ngày"
+251,Mảnh giấy vụn,Vật phẩm thường,27,1,Cả hai,,Dùng để đổi sách tiềm năng hoặc sách kỹ năng
+252,Sách kỹ năng sơ cấp,Vật phẩm thường,27,10,Cả hai,,"Học xong sẽ tăng 1 điểm kỹ năng, được học tối đa 3 quyển"
+253,Sách tiềm năng sơ cấp,Vật phẩm thường,27,10,Cả hai,,"Học xong sẽ tăng 10 điểm tiềm năng, được học tối đa 3 quyển"
+254,Hoàn cốt chi chú sơ cấp,Vật phẩm thường,27,1,Cả hai,,Xóa sạch kinh nghiệm âm dưới cấp 30
+255,Hoàn cốt chi chú trung cấp,Vật phẩm thường,27,30,Cả hai,,Xóa sạch kinh nghiệm âm dưới cấp 60
+256,Hoàn cốt chi chú cao cấp,Vật phẩm thường,27,60,Cả hai,,Xóa sạch kinh nghiệm âm cấp 60 trở lên
+257,Hoàn lương chi thảo,Vật phẩm thường,27,1,Cả hai,,Mỗi lần sử dụng giảm 5 điểm hiếu chiến
+258,Mặt nạ Sasuke,Mặt nạ,11,10,Nam,,Giúp thay đổi diện mạo
+259,Mặt nạ Muramasa,Mặt nạ,11,10,Nữ,,Giúp thay đổi diện mạo
+260,Chìa khóa Lãnh Địa Gia Tộc,Vật phẩm thường,27,1,Cả hai,,Dùng để mở cơ quan lãnh địa gia tộc
+261,Lam Thảo dược,Vật phẩm thường,27,1,Cả hai,,Giúp tập trung thị lực
+262,Đồng tiền gia tộc,Túi tiền,20,1,Cả hai,,Dùng để đổi túi quà gia tộc
+263,Túi quà gia tộc,Vật phẩm thường,27,1,Cả hai,,Nếu may mắn có thể sẽ mở ra hoán chuyển sơ cấp
+264,Giỏ Cá hổ,Vật phẩm nhiệm vụ,25,1,Cả hai,,Bên trong chứa Cá hổ
+265,Giỏ Rắn tía,Vật phẩm nhiệm vụ,25,1,Cả hai,,Bên trong chứa Rắn tía
+266,Cần câu,Vật phẩm nhiệm vụ (chờ),24,49,Cả hai,,Vật phẩm nhiệm vụ
+267,Guốc gỗ,Vật phẩm nhiệm vụ,25,1,Cả hai,,Đồ dùng của Soba
+268,Tà thú lệnh,Vật phẩm thường,27,1,Cả hai,,"Dùng để tăng số lần truy bắt tà thú, mỗi ngày dùng tối đa 2 lần"
+269,Hoán chuyển sơ cấp,Vật phẩm thường,27,1,Cả hai,,Chuyển hóa trang bị từ cấp 1 đến cấp 10
+270,Hoán chuyển trung cấp,Vật phẩm thường,27,1,Cả hai,,Chuyển hóa trang bị từ cấp 1 đến cấp 13
+271,Hoán chuyển cao cấp,Vật phẩm thường,27,1,Cả hai,,Chuyển hóa trang bị từ cấp 1 đến cấp 16
+272,Rương may mắn,Vật phẩm thường,27,1,Cả hai,,Nếu may mắn có thể sẽ mở ra bảo hiểm nâng cấp
+273,Mặt nạ sát thủ,Mặt nạ,11,20,Nam,,Giúp thay đổi diện mạo
+274,Mặt nạ trinh sát,Mặt nạ,11,20,Nữ,,Giúp thay đổi diện mạo
+275,Minh Mẫn Đan,Vật phẩm thường,27,20,Cả hai,,Tăng 500 độ chính xác duy trì 10 phút
+276,Long Lực Đan,Vật phẩm thường,27,20,Cả hai,,Tăng 500% tấn công cơ bản duy trì 10 phút
+277,Kháng Thể Đan,Vật phẩm thường,27,20,Cả hai,,Tăng 100 kháng tất cả duy trì 10 phút
+278,Sinh Mệnh Đan,Vật phẩm thường,27,20,Cả hai,,Tăng 1000 HP duy trì 10 phút
+279,Vạn biến lệnh,Vật phẩm thường,27,10,Cả hai,,Di chuyển nhanh tới người chơi khác
+280,Lệnh bài hang động,Vật phẩm thường,27,20,Cả hai,,"Tăng thêm 1 lần vào hang động, mỗi ngày sử dụng tối đa 1 cái"
+281,Lệnh bài gia tộc,Vật phẩm thường,27,20,Cả hai,,"Tăng thêm 1 lần vào lãnh địa gia tộc, mỗi tuần sử dụng tối đa 4 cái, sẽ khóa sau khi mua."
+282,Rương tinh xảo,Vật phẩm thường,27,20,Cả hai,,Bên trong chứa đầy vật phẩm có giá trị
+283,Túi vải cấp 3,Vật phẩm thường,27,1,Cả hai,,Mở thêm 12 ô trong hành trang
+284,Bảo hiểm trung cấp,Bảo vệ,28,1,Cả hai,,Bảo hiểm nâng cấp trang bị từ cấp 1 đến cấp 12
+285,Bảo hiểm cao cấp,Bảo vệ,28,1,Cả hai,,Bảo hiểm nâng cấp trang bị từ cấp 1 đến cấp 14
+286,Mặt nạ Koumou,Mặt nạ,11,30,Nam,,Giúp thay đổi diện mạo
+287,Mặt nạ Ryokuhatsu,Mặt nạ,11,30,Nữ,,Giúp thay đổi diện mạo
+288,Thất thú thú bảo,Vật phẩm thường,27,20,Cả hai,,Chứa đựng phần quà bất ngờ
+289,Thẻ bài sơ,Vật phẩm thường,27,20,Cả hai,,Tăng 1 điểm tinh tú
+290,Thẻ bài trung,Vật phẩm thường,27,20,Cả hai,,Tăng 3 điểm tinh tú
+291,Thẻ bài cao,Vật phẩm thường,27,20,Cả hai,,Tăng 9 điểm tinh tú
+292,Bột mì,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+293,Trứng,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+294,Đường,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+295,Hạt sen,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+296,Đậu xanh,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+297,Mứt,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+298,Bánh thập cẩm,Vật phẩm thường,27,20,Cả hai,,Sử dụng sẽ nhận được kinh nghiệm
+299,Bánh dẻo,Vật phẩm thường,27,20,Cả hai,,Sử dụng sẽ nhận được kinh nghiệm
+300,Bánh đậu xanh,Vật phẩm thường,27,20,Cả hai,,Sử dụng sẽ nhận được kinh nghiệm
+301,Bánh Pía,Vật phẩm thường,27,20,Cả hai,,Sử dụng sẽ nhận được kinh nghiệm
+302,Hộp bánh thường,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện trung thu
+303,Hộp bánh thượng hạng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện trung thu
+304,Giấy gói thường,Vật phẩm thường,27,20,Cả hai,,Dùng làm hộp bánh
+305,Giấy gói cao cấp,Vật phẩm thường,27,20,Cả hai,,Dùng làm hộp bánh
+306,Mặt nạ Hannya,Mặt nạ,11,30,Nam,,Giúp thay đổi diện mạo
+307,Mặt nạ Hannya,Mặt nạ,11,30,Nữ,,Giúp thay đổi diện mạo
+308,Bánh trung thu phong lôi,Vật phẩm thường,27,20,Cả hai,,"Tăng 1 điểm kỹ năng, sử dụng tối đa 10 cái"
+309,Bánh trung thu băng hỏa,Vật phẩm thường,27,20,Cả hai,,"Tăng 10 điểm tiềm năng, sử dụng tối đa 10 cái"
+310,Hộp diêm,Vật phẩm thường,27,20,Cả hai,,Dùng để thấp đèn trung thu
+311,Sách võ công Pawaraikou,Vật phẩm thường,27,60,Cả hai,,
+312,Sách võ công Totogai,Vật phẩm thường,27,60,Cả hai,,
+313,Sách võ công Kitsukemaguma,Vật phẩm thường,27,60,Cả hai,,
+314,Sách võ công Totaaigo,Vật phẩm thường,27,60,Cả hai,,
+315,Sách võ công Ikennotto,Vật phẩm thường,27,60,Cả hai,,
+316,Sách võ công Ooenjo,Vật phẩm thường,27,60,Cả hai,,
+317,Huyền Thiết Ngoa,Giày,8,61,Nam,,
+318,Bùa Huyền Kỹ,Bùa,9,62,Cả hai,,
+319,Huyền Thiết Hạ Giáp,Quần,6,63,Nam,,
+320,Huyền Kỹ Bội,Ngọc bội,7,64,Cả hai,,
+321,Huyền Thiết Thủ,Găng tay,4,65,Nam,,
+322,Nhẫn Huyền Kỹ,Nhẫn,5,66,Cả hai,,
+323,Huyền Thiết Thượng Giáp,Áo,2,67,Nam,,
+324,Dây Chuyền Huyền Kỹ,Dây chuyền,3,68,Cả hai,,
+325,Huyền Thiết Tuyến,Nón,0,69,Nam,,
+326,Huyền Thiết Ngoa,Giày,8,61,Nữ,,
+327,Huyền Thiết Hạ Giáp,Quần,6,63,Nữ,,
+328,Huyền Thiết Thủ,Găng tay,4,65,Nữ,,
+329,Huyền Thiết Thượng Giáp,Áo,2,67,Nữ,,
+330,Huyền Thiết Trâm,Nón,0,69,Nữ,,
+331,Ly Hỏa kiếm,Vũ khí,1,60,Cả hai,,
+332,Thái dương tiêu,Vũ khí,1,60,Cả hai,,
+333,Long khảm Dao,Vũ khí,1,60,Cả hai,,
+334,Đoạt tâm cung,Vũ khí,1,60,Cả hai,,
+335,Chấn thiên Đao,Vũ khí,1,60,Cả hai,,
+336,Âm phong quạt,Vũ khí,1,60,Cả hai,,
+337,Mặt nạ thỏ,Mặt nạ,11,20,Nam,,"Chỉ xuất hiên trong mùa trung thu, số lượng có hạn"
+338,Mặt nạ thỏ,Mặt nạ,11,20,Nữ,,"Chỉ xuất hiên trong mùa trung thu, số lượng có hạn"
+339,Điện thoại  LG T375,Vật phẩm thường,27,1,Cả hai,,Liên hệ đường dây nóng 19006610 để biết thêm về cách nhận thưởng.
+340,Phiếu may mắn,Vật phẩm thường,27,1,Cả hai,,
+341,Điện thoại Nokia Asha,Vật phẩm thường,27,1,Cả hai,,Liên hệ đường dây nóng 19006610 để biết thêm về cách nhận thưởng.
+342,Điện thoại Nokia lumia 520,Vật phẩm thường,27,1,Cả hai,,Liên hệ đường dây nóng 19006610 để biết thêm về cách nhận thưởng.
+343,Mặt nạ fasshon,Mặt nạ,11,30,Nam,,Dùng để thay đổi diện mạo
+344,Mặt nạ kinmou,Mặt nạ,11,40,Nam,,Dùng để thay đổi diện mạo
+345,Mặt nạ fasshon,Mặt nạ,11,30,Nữ,,Dùng để thay đổi diện mạo
+346,Mặt nạ kinmou,Mặt nạ,11,40,Nữ,,Dùng để thay đổi diện mạo
+347,Cây nấm,Vật phẩm nhiệm vụ,25,1,Cả hai,,Vật phẩm nhiệm vụ
+348,Oan hồn,Vật phẩm nhiệm vụ,25,1,Cả hai,,Vật phẩm nhiệm vụ
+349,Lồng đèn ma,Vật phẩm nhiệm vụ,25,1,Cả hai,,Vật phẩm nhiệm vụ
+350,Cánh bướm,Vật phẩm nhiệm vụ,25,1,Cả hai,,Vật phẩm nhiệm vụ
+351,Mũ noel,Mặt nạ,11,10,Nam,,Dùng để thay đổi diện mạo
+352,Mũ noel,Mặt nạ,11,10,Nữ,,Dùng để thay đổi diện mạo
+353,Mũ thời trang,Mặt nạ,11,10,Nam,,Dùng để thay đổi diện mạo
+354,Mũ thời trang,Mặt nạ,11,10,Nữ,,Dùng để thay đổi diện mạo
+355,Bạch ngân Ngoa,Giày,8,71,Nam,,
+356,Bùa Bạch ngân,Bùa,9,72,Cả hai,,
+357,Bạch ngân Hạ Giáp,Quần,6,73,Nam,,
+358,Bạch ngân Bội,Ngọc bội,7,74,Cả hai,,
+359,Bạch ngân Thủ,Găng tay,4,75,Nam,,
+360,Nhẫn Bạch ngân,Nhẫn,5,76,Cả hai,,
+361,Bạch ngân Thượng Giáp,Áo,2,77,Nam,,
+362,Dây Chuyền Bạch ngân,Dây chuyền,3,78,Cả hai,,
+363,Bạch ngân Tuyến,Nón,0,79,Nam,,
+364,Bạch ngân Ngoa,Giày,8,71,Nữ,,
+365,Bạch ngân Hạ Giáp,Quần,6,73,Nữ,,
+366,Bạch ngân Thủ,Găng tay,4,75,Nữ,,
+367,Bạch ngân Thượng Giáp,Áo,2,77,Nữ,,
+368,Bạch ngân Trâm,Nón,0,79,Nữ,,
+369,Thiên hỏa kiếm,Vũ khí,1,70,Cả hai,,
+370,Hỏa phong tiêu,Vũ khí,1,70,Cả hai,,
+371,Thủy chấn dao,Vũ khí,1,70,Cả hai,,
+372,Băng thần cung,Vũ khí,1,70,Cả hai,,
+373,Đồ thần đao,Vũ khí,1,70,Cả hai,,
+374,Âm dương quạt,Vũ khí,1,70,Cả hai,,
+375,Sách võ công Maajizangeki,Vật phẩm thường,27,70,Cả hai,,
+376,Sách võ công Baaningufukiya,Vật phẩm thường,27,70,Cả hai,,
+377,Sách võ công Furiizukatto,Vật phẩm thường,27,70,Cả hai,,
+378,Sách võ công Furoozunkyuusen,Vật phẩm thường,27,70,Cả hai,,
+379,Sách võ công Baasutosutoomu,Vật phẩm thường,27,70,Cả hai,,
+380,Sách võ công Kougekitenrai,Vật phẩm thường,27,70,Cả hai,,
+381,Bao lì xì nhỏ,Vật phẩm thường,27,20,Cả hai,,
+382,Bao lì xì lớn,Vật phẩm thường,27,20,Cả hai,,
+383,Bát bảo,Vật phẩm thường,27,20,Cả hai,,Sau khi sử dụng sẽ ra ngẫu nhiên trang bị+12
+384,Rương bạch ngân,Vật phẩm thường,27,20,Cả hai,,Sau khi sử dụng sẽ ra ngẫu nhiên trang bị+14
+385,Rương Huyền bí,Vật phẩm thường,27,20,Cả hai,,Sau khi sử dụng sẽ ra ngẫu nhiên trang bị+16
+386,Hoa hồng đỏ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+387,Hoa hồng vàng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+388,Hoa hồng xanh,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+389,Bó hoa hồng đỏ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+390,Bó hoa hồng vàng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+391,Bó hoa hồng xanh,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+392,Giỏ hoa 8/3,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+393,Giấy màu,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+394,Ruy băng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+395,Khung tre,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 8/3
+396,Thẻ bài gia tộc,Vật phẩm thường,27,20,Cả hai,,Dùng trong hoạt động gia tộc
+397,Bí kíp Kiếm Thuật,Bí kíp,15,60,Cả hai,,Nâng cao kỹ năng chiêu thức môn phái
+398,Bí kíp Tiêu Thuật,Bí kíp,15,60,Cả hai,,Nâng cao kỹ năng chiêu thức môn phái
+399,Bí kíp Kunai,Bí kíp,15,60,Cả hai,,Nâng cao kỹ năng chiêu thức môn phái
+400,Bí kíp Cung,Bí kíp,15,60,Cả hai,,Nâng cao kỹ năng chiêu thức môn phái
+401,Bí kíp Đao,Bí kíp,15,60,Cả hai,,Nâng cao kỹ năng chiêu thức môn phái
+402,Bí kíp Quạt,Bí kíp,15,60,Cả hai,,Nâng cao kỹ năng chiêu thức môn phái
+403,Mặt nạ Vegeta,Mặt nạ,11,40,Nam,,Giúp thay đổi diện mạo
+404,Mặt nạ Kunoichi,Mặt nạ,11,40,Nữ,,Giúp thay đổi diện mạo
+405,Mặt nạ Broly,Mặt nạ,11,40,Nam,,Giúp thay đổi diện mạo
+406,Mặt nạ Buruma,Mặt nạ,11,40,Nữ,,Giúp thay đổi diện mạo
+407,Mặt nạ Super Broly,Mặt nạ,11,40,Nam,,Giúp thay đổi diện mạo
+408,Mặt nạ Onna Bugeisha,Mặt nạ,11,40,Nữ,,Giúp thay đổi diện mạo
+409,Gà Tây,Đồ ăn,18,60,Cả hai,,"Nữa giây phục hồi 150 HP, MP duy trì 1 ngày"
+410,Tôm hùm,Đồ ăn,18,70,Cả hai,,"Nữa giây phục hồi 200 HP, MP duy trì 1 ngày"
+411,Cây kẹo mút,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 1/6
+412,Hộp bánh ngọt,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 1/6
+413,Quả bong bóng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 1/6
+414,Giấy giới thiệu,Vật phẩm thường,27,20,Cả hai,,Khi sử dụng sẽ tăng số lần nhận nhiệm vụ tìm trẻ lạc
+415,Huy hiệu,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 1/6
+416,Nấm thần kỳ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 1/6
+417,Ngôi sao nhỏ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 1/6
+418,Ngôi sao may mắn,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện 1/6
+419,Chim tinh anh,Thú nuôi,10,20,Cả hai,,Hỗ trợ tấn công quái
+420,Faiyaa yoroi,Áo choàng,12,70,Cả hai,,
+421,Mizu Yoroi,Áo choàng,12,70,Cả hai,,
+422,Windo Yoroi,Áo choàng,12,70,Cả hai,,
+423,Nhẫn thuật gia tộc cấp 1,Bao tay,13,10,Cả hai,,Sau khi gia tộc đã khai mở vật phẩm này thì mới được phép mua sử dụng.
+424,Nhẫn thuật gia tộc cấp 2,Bao tay,13,20,Cả hai,,Sau khi gia tộc đã khai mở vật phẩm này thì mới được phép mua sử dụng.
+425,Nhẫn thuật gia tộc cấp 3,Bao tay,13,30,Cả hai,,Sau khi gia tộc đã khai mở vật phẩm này thì mới được phép mua sử dụng.
+426,Nhẫn thuật gia tộc cấp 4,Bao tay,13,40,Cả hai,,Sau khi gia tộc đã khai mở vật phẩm này thì mới được phép mua sử dụng.
+427,Nhẫn thuật gia tộc cấp 5,Bao tay,13,50,Cả hai,,Sau khi gia tộc đã khai mở vật phẩm này thì mới được phép mua sử dụng.
+428,Tre,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện ngày hè
+429,Dây,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện ngày hè
+430,Giấy,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện ngày hè
+431,Vải,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện ngày hè
+432,Màu vẽ thô sơ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện ngày hè
+433,Màu vẽ cao cấp,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện ngày hè
+434,Diều giấy,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện ngày hè
+435,Diều vải,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện ngày hè
+436,Thẻ bài kinh nghiệm gia tộc sơ,Vật phẩm thường,27,20,Cả hai,,Yêu cầu gia tộc phải đạt trình độ cấp 5 trở lên
+437,Thẻ bài kinh nghiệm gia tộc trung,Vật phẩm thường,27,20,Cả hai,,Yêu cầu gia tộc phải đạt trình độ cấp 10 trở lên
+438,Thẻ bài kinh nghiệm gia tộc cao,Vật phẩm thường,27,20,Cả hai,,Yêu cầu gia tộc phải đạt trình độ cấp 15 trở lên
+439,Thú trang,Nguyên liệu 0,29,10,Cả hai,,
+440,Giáp thú,Nguyên liệu 1,30,10,Cả hai,,
+441,Yên,Nguyên liệu 2,31,10,Cả hai,,
+442,Dây cương,Nguyên liệu 3,32,10,Cả hai,,
+443,Xích Nhãn Ngân Lang,Nguyên liệu 4,33,10,Cả hai,,
+444,Linh Lang Thảo,Vật phẩm thường,27,10,Cả hai,,"Thức ăn thú cưỡi, tăng 200 hp cho thú cưỡi"
+445,Chữ Vui,Vật phẩm thường,27,20,Cả hai,,"Tích lũy đủ 10 chữ vui, 10 chữ tết, 10 chữ trung, 10 chữ thu sẽ đổi được thú cưỡi"
+446,Chữ Tết,Vật phẩm thường,27,20,Cả hai,,"Tích lũy đủ 10 chữ vui, 10 chữ tết, 10 chữ trung, 10 chữ thu sẽ đổi được thú cưỡi"
+447,Chữ Trung,Vật phẩm thường,27,20,Cả hai,,"Tích lũy đủ 10 chữ vui, 10 chữ tết, 10 chữ trung, 10 chữ thu sẽ đổi được thú cưỡi"
+448,Chữ Thu,Vật phẩm thường,27,20,Cả hai,,"Tích lũy đủ 10 chữ vui, 10 chữ tết, 10 chữ trung, 10 chữ thu sẽ đổi được thú cưỡi"
+449,Lang hồn thảo,Vật phẩm thường,27,20,Cả hai,,Tăng 5 kinh nghiệm thú cưỡi
+450,Lang hồn mộc,Vật phẩm thường,27,20,Cả hai,,Tăng 7 kinh nghiệm thú cưỡi
+451,Địa lang thảo,Vật phẩm thường,27,20,Cả hai,,Tăng 14 kinh nghiệm thú cưỡi
+452,Tam lục diệp,Vật phẩm thường,27,20,Cả hai,,Tăng 20 kinh nghiệm thú cưỡi
+453,Xích lan hoa ,Vật phẩm thường,27,20,Cả hai,,Tăng 25 kinh nghiệm thú cưỡi
+454,Chuyển tinh thạch,Vật phẩm thường,27,20,Cả hai,,Ẩn chứa tinh hoa của trời đất
+455,Tử tinh thạch sơ cấp,Vật phẩm thường,27,20,Cả hai,,
+456,Tử tinh thạch trung cấp,Vật phẩm thường,27,20,Cả hai,,
+457,Tử tinh thạch cao cấp,Vật phẩm thường,27,20,Cả hai,,
+458,Kẹo ngọt,Vật phẩm thường,27,20,Cả hai,,Vật phẩm trong chiến trường Kẹo
+459,Kẹo đỏ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+460,Kẹo xanh,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+461,Kẹo vàng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+462,Kẹo tím,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+463,Giỏ tre,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+464,Giỏ bí ngô,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+465,Giỏ kẹo,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+466,Giỏ kẹo bí ngô,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+467,Bí ngô mặt quỷ nhỏ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+468,Bí ngô mặt quỷ lớn,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện
+469,Xăng A95,Vật phẩm thường,27,20,Cả hai,,Tăng 200 nhiên liệu cho xe moto
+470,Bộ cải thiện giảm xóc,Vật phẩm thường,27,20,Cả hai,,Tăng 5 hiệu năng Xe moto
+471,Bộ cải thiện đánh lửa,Vật phẩm thường,27,20,Cả hai,,Tăng 14 hiệu năng Xe moto
+472,Bộ cải thiện động cơ,Vật phẩm thường,27,20,Cả hai,,Tăng 25 hiệu năng Xe moto
+473,Xăng cấp 5,Vật phẩm thường,27,20,Cả hai,,
+474,Diệt quỷ phù,Vật phẩm thường,27,20,Cả hai,,Cất giữ sức mạnh có thể tiêu diệt Bí ngô mặt quỷ
+475,Bảo hiểm như ý,Bảo vệ,28,1,Cả hai,,Bảo hiểm nâng cấp trang bị từ cấp 1 đến cấp 16
+476,Rương kẹo,Vật phẩm thường,27,20,Cả hai,,Chứa nhiều vật phẩm quý giá
+477,Túi quà noel,Vật phẩm thường,27,1,Cả hai,,
+478,Hộp quà noel,Vật phẩm thường,27,20,Cả hai,,
+479,Thư đảm bảo,Vật phẩm thường,27,20,Cả hai,,
+480,Thiệp giáng sinh,Vật phẩm thường,27,20,Cả hai,,
+481,Trái châu,Vật phẩm thường,27,20,Cả hai,,
+482,Dây kim tuyến,Vật phẩm thường,27,20,Cả hai,,
+483,Chiếc kẹo gậy,Vật phẩm thường,27,20,Cả hai,,
+484,Bít tất may mắn,Vật phẩm thường,27,20,Cả hai,,
+485,Xe máy,Nguyên liệu 4,33,50,Cả hai,,
+486,Bộ điều khiển,Nguyên liệu 0,29,10,Cả hai,,
+487,Động cơ V- Power,Nguyên liệu 1,30,10,Cả hai,,
+488,Định vị,Nguyên liệu 2,31,10,Cả hai,,
+489,Bình Nitro,Nguyên liệu 3,32,10,Cả hai,,
+490,Cổ lệnh,Vật phẩm thường,27,70,Cả hai,,Dùng để dịch chuyển đến ngôi làng trong truyền thuyết
+491,Nhiệm vụ bí ẩn,Vật phẩm thường,27,60,Cả hai,,"Sử dụng sẽ nhận được một nhiệm vụ ngẫu nhiên, chỉ dành cho ninja cấp độ 60 - 89."
+492,Hắc Tử Tuyến,Nón,0,85,Nam,,
+493,Hắc Tử Trâm,Nón,0,85,Nữ,,
+494,Hắc Tử Thượng Giáp,Áo,2,85,Nam,,
+495,Hắc Tử Thượng Giáp,Áo,2,85,Nữ,,
+496,Hắc Tử Hạ Giáp,Quần,6,85,Nam,,
+497,Hắc Tử Hạ Giáp,Quần,6,85,Nữ,,
+498,Hắc Tử Thủ,Găng tay,4,85,Nam,,
+499,Hắc Tử Thủ,Găng tay,4,85,Nữ,,
+500,Hắc Tử Ngoa,Giày,8,85,Nam,,
+501,Hắc Tử Ngoa,Giày,8,85,Nữ,,
+502,Bùa Hắc Tử,Bùa,9,85,Cả hai,,
+503,Hắc Tử Bội,Ngọc bội,7,85,Cả hai,,
+504,Nhẫn Hắc Tử,Nhẫn,5,85,Cả hai,,
+505,Dây Chuyền Hắc Tử,Dây chuyền,3,85,Cả hai,,
+506,Huyết Ẩm Kiếm,Vũ khí,1,80,Cả hai,,
+507,Thiêu Thủy Tiêu,Vũ khí,1,80,Cả hai,,
+508,Lệ Hàn Dao,Vũ khí,1,80,Cả hai,,
+509,Đại Hàn Cung,Vũ khí,1,80,Cả hai,,
+510,Diệt Ma Đao,Vũ khí,1,80,Cả hai,,
+511,Linh Phong Quạt,Vũ khí,1,80,Cả hai,,
+512,Mũ Hắc Tử,Mặt nạ,11,85,Nam,,Giúp thay đổi diện mạo
+513,Mũ Hắc Tử,Mặt nạ,11,85,Nữ,,Giúp thay đổi diện mạo
+514,Thiệp chúc tết,Vật phẩm thường,27,20,Cả hai,,Nhắn gởi yêu thương
+515,Thiệp chúc tết đặc biệt,Vật phẩm thường,27,20,Cả hai,,"Cùng chung niềm vui, sẻ chia nụ cười."
+516,Sung,Vật phẩm thường,27,20,Cả hai,,Item sự kiện Tết nguyên đán 2015
+517,Xoài,Vật phẩm thường,27,20,Cả hai,,Item sự kiện Tết nguyên đán 2015
+518,Đu đủ,Vật phẩm thường,27,20,Cả hai,,Item sự kiện Tết nguyên đán 2015
+519,Dừa,Vật phẩm thường,27,20,Cả hai,,Item sự kiện Tết nguyên đán 2015
+520,Mãng cầu,Vật phẩm thường,27,20,Cả hai,,Item sự kiện Tết nguyên đán 2015
+521,Mâm ngũ quả nhỏ,Vật phẩm thường,27,20,Cả hai,,Item sự kiện Tết nguyên đán 2015
+522,Mâm ngũ quả lớn,Vật phẩm thường,27,20,Cả hai,,Item sự kiện Tết nguyên đán 2015
+523,Huyết Sắc Hung Lang,Nguyên liệu 4,33,20,Cả hai,,
+524,Harley Davidson,Nguyên liệu 4,33,60,Cả hai,,Xe dành cho những ninja đích thực
+525,100 ván gạo nếp,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+526,100 nệp bánh chưng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+527,Voi 9 ngà,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+528,Gà 9 cựa,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+529,Ngựa 9 hồng mao,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+530,Linh thạch,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+531,Mâm bạc,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+532,Mâm vàng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+533,Mâm lễ vật bạc,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+534,Mâm lễ vật vàng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Giổ tổ 2015
+535,Lang bảo,Vật phẩm thường,27,60,Cả hai,,Sử dụng nhận được một vật phẩm ngẫu nhiên của Lang tộc.
+536,Khí bảo,Vật phẩm thường,27,60,Cả hai,,Sử dụng có cơ hội nhận được vật phẩm quý.
+537,Khai nhãn phù,Vật phẩm thường,27,60,Cả hai,,Tăng tỉ lệ ra đồ quý khi đánh quái.
+538,Thiên nhãn phù,Vật phẩm thường,27,60,Cả hai,,Tăng tỉ lệ ra đồ quý khi đánh quái.
+539,Linh Chi Ngàn Năm,Vật phẩm thường,27,50,Cả hai,,Sử dụng sẽ được nhân ba kinh nghiệm trong vòng 60 phút. Không cộng dồn.
+540,Linh Chi Vạn Năm,Vật phẩm thường,27,50,Cả hai,,Sử dụng sẽ được nhân bốn kinh nghiệm trong vòng 60 phút. Không cộng dồn
+541,Thủy tinh,Mặt nạ,11,50,Cả hai,,Sử dụng giúp thay đổi diện mạo
+542,Sơn tinh,Mặt nạ,11,50,Cả hai,,Sử dụng giúp thay đổi diện mạo
+543,Thủy lệnh,Vật phẩm thường,27,30,Cả hai,,Nhận lệnh tiêu diệt Sơn tinh
+544,Sơn lệnh,Vật phẩm thường,27,30,Cả hai,,Nhận lệnh tiêu diệt Thủy tinh
+545,Phân thân lệnh,Vật phẩm thường,27,90,Cả hai,,Sở hữu vật phẩm này cho phép triệu hồi phân thân
+546,Nhân sâm vạn năm,Vật phẩm thường,27,40,Cả hai,,Sử dụng sẽ được x2 kinh nghiệm trong 2 tiếng. Sử dụng cùng Nấm linh chi sẽ được x4.
+547,Sách võ công Kage Bunshin ,Vật phẩm thường,27,90,Cả hai,, 
+548,Cần câu vàng,Vật phẩm thường,27,20,Cả hai,,Sử dụng tại sông hồ sẽ câu được phần thưởng bất ngờ.
+549,Giày rách,Vật phẩm thường,27,10,Cả hai,,Sử dụng sẽ nhận được một ít Yên.
+550,Giày bạc,Vật phẩm thường,27,10,Cả hai,,Sử dụng sẽ nhận được Yên.
+551,Giày vàng,Vật phẩm thường,27,10,Cả hai,,Sử dụng sẽ nhận được một số Yên ngẫu nhiên.
+552,Sách võ công Ikkakujuu ,Vật phẩm thường,27,80,Cả hai,,
+553,Sách võ công Hibashiri,Vật phẩm thường,27,80,Cả hai,,
+554,Sách võ công Saihyoken,Vật phẩm thường,27,80,Cả hai,,
+555,Sách võ công Aisu Meiku,Vật phẩm thường,27,80,Cả hai,,
+556,Sách võ công Kaminari,Vật phẩm thường,27,80,Cả hai,,
+557,Sách võ công Kokaze,Vật phẩm thường,27,80,Cả hai,,
+558,Sách võ công Enko Bakusatsu,Vật phẩm thường,27,100,Cả hai,,
+559,Sách võ công Tsumabeni,Vật phẩm thường,27,100,Cả hai,,
+560,Sách võ công Shabondama,Vật phẩm thường,27,100,Cả hai,,
+561,Sách võ công Kogoraseru,Vật phẩm thường,27,100,Cả hai,,
+562,Sách võ công Raijin,Vật phẩm thường,27,100,Cả hai,,
+563,Sách võ công Kamikaze,Vật phẩm thường,27,100,Cả hai,,
+564,Thí Luyện Thiếp,Vật phẩm thường,27,60,Cả hai,,Sử dụng sẽ được phiêu lưu 2 giờ trong Vùng Đất Ma Quỷ. Cộng dồn tối đa 10 giờ.
+565,Bình HP Cao Cấp,Thuốc HP,16,90,Cả hai,,"Nữa giây phục hồi 1500 HP, duy trì 3 giây."
+566,Bình MP Cao Cấp,Thuốc MP,17,90,Cả hai,,Phục hồi 5000 MP.
+567,Haggis,Đồ ăn,18,90,Cả hai,,"Nữa giây phục hồi 300 HP, MP duy trì 1 ngày"
+568,Lồng đèn tròn,Thú nuôi,10,40,Cả hai,, 
+569,Lồng đèn cá chép,Thú nuôi,10,40,Cả hai,, 
+570,Lồng đèn ngôi sao,Thú nuôi,10,40,Cả hai,, 
+571,Lồng đèn mặt trăng,Thú nuôi,10,40,Cả hai,, 
+572,Thiên biến lệnh,Vật phẩm thường,27,20,Cả hai,,Sử dụng để di chuyển mượt
+573,Lục thanh hoa,Vật phẩm thường,27,50,Cả hai,,Tăng 200 điểm kinh nghiệm cho thú cưỡi.
+574,Tử linh liên hoa,Vật phẩm thường,27,60,Cả hai,,Tăng 400 điểm kinh nghiệm cho thú cưỡi.
+575,Linh lang hồ điệp,Vật phẩm thường,27,70,Cả hai,,Tăng 600 điểm kinh nghiệm cho thú cưỡi.
+576,Bánh răng,Vật phẩm thường,27,50,Cả hai,,Tăng 100 điểm hiệu năng cho Xe máy.
+577,IK,Vật phẩm thường,27,60,Cả hai,,Tăng 250 điểm hiệu năng cho Xe máy.
+578,Thuốc cải tiến,Vật phẩm thường,27,70,Cả hai,,Tăng 500 điểm hiệu năng cho Xe máy.
+579,Giấy Cứng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm Sự kiện Tết 
+580,Dây Mồi,Vật phẩm thường,27,20,Cả hai,,Vật phẩm Sự kiện Tết 
+581,Thuốc,Vật phẩm thường,27,20,Cả hai,,Vật phẩm Sự kiện Tết 
+582,Pháo Hoa,Vật phẩm thường,27,20,Cả hai,,Vật phẩm Sự kiện Tết 2016
+583,Hỏa long,Thú nuôi,10,70,Cả hai,, 
+584,Hải mã cấp 1,Thú nuôi,10,70,Cả hai,, 
+585,Hải mã cấp 2,Thú nuôi,10,70,Cả hai,, 
+586,Hải mã cấp 3,Thú nuôi,10,70,Cả hai,, 
+587,Dị Long cấp 1,Thú nuôi,10,70,Cả hai,, 
+588,Dị Long cấp 2,Thú nuôi,10,70,Cả hai,, 
+589,Dị Long cấp 3,Thú nuôi,10,70,Cả hai,, 
+590,Đốt tre xanh,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sử dụng trong sự kiện Giổ tổ 2017
+591,Đốt tre vàng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sử dụng trong sự kiện Giổ tổ 2017
+592,Tre xanh trăm đốt,Vật phẩm thường,27,20,Cả hai,,Về làng Tone gặp Vua Hùng
+593,Tre vàng trăm đốt,Vật phẩm thường,27,20,Cả hai,,Về làng Tone gặp Vua Hùng
+594,Mặt nạ Thánh Gióng ,Mặt nạ,11,50,Cả hai,,Sử dụng có thể hóa thân thành Thánh gióng.
+595,Tín vật,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sử dụng trong sự kiện Giổ tổ 2017
+596,Trứng Dị Long,Vật phẩm thường,27,60,Cả hai,,Sau 1 giờ sẽ nở ra một Dị long con.
+597,Vạn Ngư Câu,Vật phẩm thường,27,60,Cả hai,,Sử dụng để câu cá tại làng chài.
+598,Huyết long ngư,Vật phẩm thường,27,60,Cả hai,,Thức ăn ưa thích của thần thú.
+599,Tuyết sa ngư,Vật phẩm thường,27,60,Cả hai,,Loài cá quý hiếm giúp thần thú mau chóng trưởng thành.
+600,Linh tâm ngư,Vật phẩm thường,27,60,Cả hai,,Là loài cá cổ rất hiếm ở làng Chài.
+601,Trứng Hải Mã,Vật phẩm thường,27,60,Cả hai,,Sau 1 giờ sẽ nở ra một Hải mã con.
+602,Dế Cơm,Vật phẩm thường,27,60,Cả hai,,Mồi câu cá.
+603,Giun Đất,Vật phẩm thường,27,60,Cả hai,,Mồi câu cá.
+604,Triệu Hồi Thú Thần,Vật phẩm thường,27,60,Cả hai,,Sử dụng để gọi ra thần thú giá tộc.
+605,Tiến Hóa Đan,Vật phẩm thường,27,60,Cả hai,,Có xác suất giúp thần thú tiến hóa.
+606,Bí Ma,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+607,Xương Thú,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+608,Tàn Linh,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+609,Quả Táo,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+610,Mật Ong,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+611,Kẹo Táo,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+612,Hộp Ma Quỷ,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+613,Mặt nạ Jiraiya ,Mặt nạ,11,60,Nam,,Sử dụng để thay đổi diện mạo
+614,Mặt nạ Konan,Mặt nạ,11,60,Nữ,,Sử dụng để thay đổi diện mạo
+615,Mặt nạ Deidara,Mặt nạ,11,80,Nữ,,Sử dụng để thay đổi diện mạo
+616,Mặt nạ Tobi,Mặt nạ,11,80,Nam,,Sử dụng để thay đổi diện mạo
+617,Ma vật,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween 2016
+618,Thái Dương Cốt Ngọc Tuyến,Nón,0,99,Nam,,
+619,Thái Dương Cốt Ngọc Trâm,Nón,0,99,Nữ,,
+620,Thái Dương Cốt Ngọc Giáp,Áo,2,97,Nam,,
+621,Thái Dương Cốt Ngọc Giáp,Áo,2,97,Nữ,,
+622,Thái Dương Cốt Ngọc Hạ Giáp,Quần,6,93,Nam,,
+623,Thái Dương Cốt Ngọc Hạ Giáp,Quần,6,93,Nữ,,
+624,Thái Dương Cốt Ngọc Thủ,Găng tay,4,95,Nam,,
+625,Thái Dương Cốt Ngọc Thủ,Găng tay,4,95,Nữ,,
+626,Thái Dương Cốt Ngọc Ngoa,Giày,8,91,Nam,,
+627,Thái Dương Cốt Ngọc Ngoa,Giày,8,91,Nữ,,
+628,Thái Dương Cốt Ngọc Phù,Bùa,9,92,Cả hai,,
+629,Thái Dương Cốt Ngọc Bội,Ngọc bội,7,94,Cả hai,,
+630,Thái Dương Cốt Ngọc Giới,Nhẫn,5,96,Cả hai,,
+631,Thái Dương Cốt Ngọc Liên,Dây chuyền,3,98,Cả hai,,
+632,Thái Dương Vô Cực Kiếm,Vũ khí,1,90,Cả hai,,
+633,Thái Dương Thiên Hỏa Tiêu,Vũ khí,1,90,Cả hai,,
+634,Thái Dương Táng Hồn Dao,Vũ khí,1,90,Cả hai,,
+635,Thái Dương Băng Thần Cung,Vũ khí,1,90,Cả hai,,
+636,Thái Dương Chiến Lục Đao,Vũ khí,1,90,Cả hai,,
+637,Thái Dương Hoàng Phong Phiến,Vũ khí,1,90,Cả hai,,
+638,Lá dong,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán 
+639,Nếp,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán 
+640,Thịt heo,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán
+641,Đậu xanh,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán
+642,Lạt tre,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán
+643,Bánh Chưng,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán
+644,Bánh Tét,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán
+645,Túi Lộc Đầu Xuân,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán
+646,Bùa May Mắn,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Tết Nguyên Đán
+647,Rương Ma Quái,Vật phẩm thường,27,90,Cả hai,,Chứa đựng rất nhiều vật phẩm giá trị.
+648,Huy chương chiến công đồng,Vật phẩm thường,27,30,Cả hai,,Item sự kiện
+649,Huy chương chiến công bạc,Vật phẩm thường,27,30,Cả hai,,Item sự kiện
+650,Huy Chương chiến công vàng,Vật phẩm thường,27,30,Cả hai,,Item sự kiện
+651,Huy Chương chiến công bạch kim,Vật phẩm thường,27,30,Cả hai,,Item sự kiện
+652,Huyền Tinh Ngọc,Ngọc khảm,34,70,Cả hai,,
+653,Huyết Ngọc,Ngọc khảm,34,70,Cả hai,,
+654,Lam Tinh Ngọc,Ngọc khảm,34,70,Cả hai,,
+655,Lục Ngọc,Ngọc khảm,34,50,Cả hai,,
+656,Đá Năng Lượng Băng,Vật phẩm thường,27,40,Cả hai,,Item sự kiện
+657,Đá Năng Lượng Hỏa,Vật phẩm thường,27,40,Cả hai,,Item sự kiện
+658,Đá Năng Lượng Gió,Vật phẩm thường,27,40,Cả hai,,Item sự kiện
+659,Đá Ma Thuật,Vật phẩm thường,27,40,Cả hai,,Item sự kiện
+660,Truy Tung Phù,Vật phẩm thường,27,40,Cả hai,,Item sự kiện
+661,Truy Tung Lệnh,Vật phẩm thường,27,40,Cả hai,,Item sự kiện
+662,Lệnh bài năng động,Vật phẩm thường,27,90,Cả hai,,Item mo rong
+663,Lệnh bài hoàn thành,Vật phẩm thường,27,1,Cả hai,,Dùng để hoàn thành tức thời nhiệm vụ đang nhận
+664,Lồng đèn,Vật phẩm thường,27,1,Cả hai,,Thắp đèn đêm trung thu
+665,Giấy thông hành,Vật phẩm thường,27,1,Cả hai,,Item sự kiện
+666,Bơ,Vật phẩm thường,27,1,Cả hai,,Bơ làm bánh
+667,Kem,Vật phẩm thường,27,1,Cả hai,,Kem làm bánh
+668,Đường bột,Vật phẩm thường,27,1,Cả hai,,Đường bột làm bánh
+669,Chocolate,Vật phẩm thường,27,1,Cả hai,,Socola làm bánh
+670,Dâu tây,Vật phẩm thường,27,1,Cả hai,,Dâu làm bánh
+671,Bánh khúc cây chocolate,Vật phẩm thường,27,20,Cả hai,,Bánh khúc cây
+672,Bánh khúc cây dâu tây,Vật phẩm thường,27,20,Cả hai,,Bánh khúc cây dâu tây
+673,Quà trang trí,Vật phẩm thường,27,20,Cả hai,,Quà trang trí cây thông
+674,Mảnh pháo hoa,Vật phẩm thường,27,1,Cả hai,,Nguyên liệu để ghép pháo hoa ngày tết
+675,Dây pháo hoa,Vật phẩm thường,27,1,Cả hai,,Sử dụng để bắn phóa hoa và nhận thưởng
+676,Vui Xuân,Vật phẩm thường,27,1,Cả hai,,Sử dụng để tìm kiếm hộp quà vui xuân
+677,Miếng dưa hấu,Vật phẩm thường,27,1,Cả hai,,Dưa hấu ăn dở
+678,Dưa hấu dài,Vật phẩm thường,27,1,Cả hai,,Dưa hấu dài
+679,Dưa hấu tròn,Vật phẩm thường,27,1,Cả hai,,Dưa hấu tròn
+680,Giấy xác thực,Vật phẩm thường,27,1,Cả hai,,Giấy xác thực
+681,Giấy chứng nhận,Vật phẩm thường,27,1,Cả hai,,Giấy chứng nhận
+682,Đá mặt trăng,Vật phẩm thường,27,1,Cả hai,,Mảnh đá mặt trăng
+683,Cỏ ba lá,Vật phẩm thường,27,1,Cả hai,,Cỏ ba lá
+684,Cỏ bốn lá,Vật phẩm thường,27,1,Cả hai,,Cỏ bốn lá
+685,Geningan,Mắt thần,14,1,Cả hai,,
+686,Chuuningan,Mắt thần,14,1,Cả hai,,
+687,Jougan,Mắt thần,14,1,Cả hai,,
+688,Seningan,Mắt thần,14,1,Cả hai,,
+689,Kyubigan,Mắt thần,14,1,Cả hai,,
+690,Rinnegan,Mắt thần,14,1,Cả hai,,
+691,Sharingan,Mắt thần,14,1,Cả hai,,
+692,Tenseigan,Mắt thần,14,1,Cả hai,,
+693,Ketsuryugan,Mắt thần,14,1,Cả hai,,
+694,Sukaigan,Mắt thần,14,1,Cả hai,,
+695,Đá danh vọng cấp 1,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+696,Đá danh vọng cấp 2,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+697,Đá danh vọng cấp 3,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+698,Đá danh vọng cấp 4,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+699,Đá danh vọng cấp 5,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+700,Đá danh vọng cấp 6,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+701,Đá danh vọng cấp 7,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+702,Đá danh vọng cấp 8,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+703,Đá danh vọng cấp 9,Vật phẩm thường,27,1,Cả hai,,Vật phẩm nâng cấp
+704,Đá danh vọng cấp 10,Vật phẩm thường,27,1,Cả hai,,Đá danh vọng cấp 10
+705,Danh vọng phù,Vật phẩm thường,27,1,Cả hai,,Tăng số lần làm nhiệm vụ danh vọng
+706,Mảnh bản đồ,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+707,Bản đồ 1,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+708,Bản đồ 3,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+709,áo cam 1,Áo,2,1,Nam,,áo cam 1
+710,quần cam 1,Quần,6,1,Nam,,quần cam 1
+711,Mặt nạ Jirai ,Mặt nạ,11,1,Nam,,tóc cam 1
+712,Áo Jirai,Áo,2,1,Nam,, 
+713,Quần Jirai ,Quần,6,1,Nam,, 
+714,Mặt nạ Jumito,Mặt nạ,11,1,Nữ,, 
+715,Áo jumito,Áo,2,1,Nữ,, 
+716,Quần Jumito,Quần,6,1,Nữ,, 
+717,tóc 3,Mặt nạ,11,1,Cả hai,, 
+718,áo 4,Áo,2,1,Cả hai,, 
+719,quần 4,Quần,6,1,Cả hai,, 
+720,tóc 4,Mặt nạ,11,1,Cả hai,, 
+721,áo 5,Áo,2,1,Cả hai,, 
+722,quần 5,Quần,6,1,Cả hai,, 
+723,tóc 5,Mặt nạ,11,1,Cả hai,, 
+724,áo 6,Áo,2,1,Cả hai,, 
+725,quần 6,Quần,6,1,Cả hai,, 
+726,tóc 6,Mặt nạ,11,1,Cả hai,, 
+727,áo 7,Áo,2,1,Cả hai,, 
+728,quần 7,Quần,6,1,Cả hai,, 
+729,tóc 7,Mặt nạ,11,1,Cả hai,, 
+730,áo 8,Áo,2,1,Cả hai,, 
+731,quần 8,Quần,6,1,Cả hai,, 
+732,tóc 8,Mặt nạ,11,1,Cả hai,, 
+733,Mảnh Nón Jirai ,Vật phẩm thường,27,1,Nam,,
+734,Mảnh Găng tay Jirai ,Vật phẩm thường,27,1,Nam,,
+735,Mảnh Áo Jirai ,Vật phẩm thường,27,1,Nam,,
+736,Mảnh Quần Jirai ,Vật phẩm thường,27,1,Nam,,
+737,Mảnh Giày Jirai ,Vật phẩm thường,27,1,Nam,,
+738,Mảnh Dây chuyền Jirai ,Vật phẩm thường,27,1,Nam,,
+739,Mảnh Ngọc Bội Jirai ,Vật phẩm thường,27,1,Nam,,
+740,Mảnh Phù Jirai ,Vật phẩm thường,27,1,Nam,,
+741,Mảnh Nhẫn Jirai ,Vật phẩm thường,27,1,Nam,,
+742,Tuần Lộc,Thú nuôi,10,1,Cả hai,,
+743,Tuần Thú Lệnh,Vật phẩm nhiệm vụ (chờ),24,40,Cả hai,,Sử dụng để triệu hồi Boss Tuần Lộc
+744,Tuần Lộc,Thú nuôi,10,1,Cả hai,,Chống đồ sát
+745,Mặt nạ chuột,Mặt nạ,11,40,Cả hai,,Dùng thay đổi diện mạo
+746,Nón Jirai,Nón,0,1,Nam,,
+747,Găng Tay Jirai,Găng tay,4,1,Nam,,
+748,Giày Jirai,Giày,8,1,Nam,,
+749,Nhẫn Jirai,Nhẫn,5,1,Nam,,
+750,Phù Jirai,Bùa,9,1,Nam,,
+751,Ngọc Bội Jirai,Ngọc bội,7,1,Nam,,
+752,Dây Chuyền Jirai,Dây chuyền,3,1,Nam,,
+753,Nón Jumito,Nón,0,1,Nữ,,
+754,Găng Tay Jumito,Găng tay,4,1,Nữ,,
+755,Giày Jumito,Giày,8,1,Nữ,,
+756,Nhẫn Jumito,Nhẫn,5,1,Nữ,,
+757,Phù Jumito,Bùa,9,1,Nữ,,
+758,Ngọc Bội Jumito,Ngọc bội,7,1,Nữ,,
+759,Dây Chuyền Jumito,Dây chuyền,3,1,Nữ,,
+760,Mảnh Nón Jumito,Vật phẩm thường,27,1,Nữ,,
+761,Mảnh Găng tay Jumito,Vật phẩm thường,27,1,Nữ,,
+762,Mảnh Áo Jumito,Vật phẩm thường,27,1,Nữ,,
+763,Mảnh Quần Jumito,Vật phẩm thường,27,1,Nữ,,
+764,Mảnh Giày Jumito,Vật phẩm thường,27,1,Nữ,,
+765,Mảnh Dây chuyền Jumito,Vật phẩm thường,27,1,Nữ,,
+766,Mảnh Ngọc Bội Jumito,Vật phẩm thường,27,1,Nữ,,
+767,Mảnh Phù Jumito,Vật phẩm thường,27,1,Nữ,,
+768,Mảnh Nhẫn Jumito,Vật phẩm thường,27,1,Nữ,,
+769,Nước diệt khuẩn,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+770,Viên thuốc thần kỳ,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+771,Jack Hollow,Mặt nạ,11,1,Cả hai,,Vật phẩm sự kiện
+772,Bí Rễ Hành,Thú nuôi,10,1,Cả hai,,Vật phẩm sự kiện
+773,Bí Rễ Hành,Thú nuôi,10,1,Cả hai,,Chống đồ sát
+774,Santa Claus,Mặt nạ,11,1,Cả hai,,Vật phẩm sự kiện
+775,Hoa tuyết,Vật phẩm thường,27,1,Cả hai,,Dùng tạo và nâng cấp mặt nạ Santa claus
+776,Hắc ngưu,Nguyên liệu 4,33,1,Cả hai,,Thú cưỡi
+777,Kim ngưu,Nguyên liệu 4,33,1,Cả hai,,Thú cưỡi
+778,Thông linh thảo,Vật phẩm thường,27,1,Cả hai,,Tăng ngẫu nhiên 1-10 exp cho Trâu
+779,Tượng linh thảo,Vật phẩm thường,27,1,Cả hai,,Thức ăn cho Trâu. Hồi 100 hp
+780,Tiến hoá thảo,Vật phẩm thường,27,1,Cả hai,,Dùng tiến hoá cho Trâu
+781,Pet Boru,Thú nuôi,10,1,Cả hai,,Chống đồ sát
+782,Bóng đồng,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+783,Bóng,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+784,Cúp bạc,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+785,Cúp vàng,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+786,Sumimura ,Mặt nạ,11,1,Cả hai,,Vật phẩm sự kiện
+787,Yukimura ,Mặt nạ,11,1,Cả hai,,Vật phẩm sự kiện
+788,Nham Thạch ,Vật phẩm thường,27,1,Cả hai,,Dùng tạo cải trang Sumimura
+789,Pha Lê,Vật phẩm thường,27,1,Cả hai,,Dùng tạo cải trang Yukimura
+790,Hoa sen trắng,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+791,Hoa sen hồng,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+792,Bó sen trắng,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+793,Bó sen hồng,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+794,Màu nhuộm  ,Vật phẩm thường,27,1,Cả hai,,Vật phẩm sự kiện
+795,Thiên Nguyệt Chi Nữ,Áo,2,1,Nữ,x,Vật phẩm sự kiện
+796,Nhật Tử Lam Phong,Áo,2,1,Nam,x,Vật phẩm sự kiện
+797,Hakairo Yoroi,Áo choàng,12,1,Cả hai,x,
+798,Lân Sư Vũ,Nguyên liệu 4,33,1,Cả hai,x,
+799,Gậy Mặt Trăng,Vũ khí,1,1,Nam,x,Vũ khí thời trang
+800,Gậy Trái tim,Vũ khí,1,1,Nữ,x,Vũ khí thời trang
+801,Túi vải cấp 4,Vật phẩm thường,27,1,Cả hai,,Mở thêm 24 ô trong hành trang
+802,Xích Tử Mã,Nguyên liệu 4,33,1,Cả hai,x,
+803,Tà Linh Mã,Nguyên liệu 4,33,1,Cả hai,x,
+804,Phong Thương Mã,Nguyên liệu 4,33,1,Cả hai,x,
+805,Hajiro ,Áo,2,1,Nữ,x,Áo thời trang dùng bên trang bị 2
+806,Shiraiji,Áo,2,1,Nam,x,Áo thời trang dùng bên trang bị 2
+807,H,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+808,A,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+809,L,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+810,O,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+811,W,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+812,E,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+813,N,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+814,Mặt nạ Shin Ah,Mặt nạ,11,20,Cả hai,x,"Chỉ xuất hiên trong mùa Haloween, số lượng có hạn"
+815,Mặt nạ Vô Diện,Mặt nạ,11,20,Cả hai,x,"Chỉ xuất hiên trong mùa Haloween, số lượng có hạn"
+816,Mặt nạ Oni,Mặt nạ,11,20,Cả hai,x,"Chỉ xuất hiên trong mùa Haloween, số lượng có hạn"
+817,Mặt nạ Kuma,Mặt nạ,11,20,Cả hai,x,"Chỉ xuất hiên trong mùa Haloween, số lượng có hạn"
+818,Mặt nạ Inu,Mặt nạ,11,20,Cả hai,x,"Chỉ xuất hiên trong mùa Haloween, số lượng có hạn"
+819,Chìa khóa,Vật phẩm thường,27,30,Cả hai,,Item sự kiện Halloween
+820,Tôn Hành Giả,Mặt nạ,11,50,Cả hai,,Hộ tống tường tăng đi tây thiên thỉnh kinh
+821,Lông khỉ,Vật phẩm thường,27,1,Cả hai,,Thu thập 10.000 để đổi mặt nạ Tôn Hành Giả
+822,Đồng xu Đỏ,Vật phẩm thường,27,1,Cả hai,,Item sự kiện
+823,Đồng Xu Trắng,Vật phẩm thường,27,1,Cả hai,,Item sự kiện
+824,Đồng Xu Vàng,Vật phẩm thường,27,1,Cả hai,,Item sự kiện
+825,Đồng Xu Xanh,Vật phẩm thường,27,1,Cả hai,,Item sự kiện
+826,Đồng Xu Xanh Lá,Vật phẩm thường,27,1,Cả hai,,Item sự kiện
+827,Rương may mắn,Vật phẩm thường,27,1,Cả hai,,Item sự kiện Blackfriday
+828,Pet Bóng Ma,Thú nuôi,10,1,Cả hai,x,Item sự kiện
+829,Pet Yêu Tinh,Thú nuôi,10,1,Cả hai,x,Item sự kiện
+830,Phượng Hoàng Băng,Nguyên liệu 4,33,1,Cả hai,x,
+831,Chuông vàng,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Noel
+832,Hộp quà trang trí cây thông,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Noel
+833,Truyền thuyết lệnh,Vật phẩm thường,27,70,Cả hai,,Sử dụng để đi vào tiềm thức dẫn đến ngôi làng xa xưa trong truyền thuyết
+834,Hỏa thạch,Vật phẩm thường,27,70,Cả hai,,Dùng để nâng cấp bí kíp hệ hỏa
+835,Phong thạch,Vật phẩm thường,27,70,Cả hai,,Dùng để nâng cấp bí kíp hệ phong
+836,Thủy thạch,Vật phẩm thường,27,70,Cả hai,,Dùng để nâng cấp bí kíp hệ thủy
+837,Khai thú lệnh,Vật phẩm thường,27,50,Cả hai,,Dùng để khai mở chỉ số bí ẩn của thú cưỡi
+838,Mảnh sách cổ,Vật phẩm thường,27,100,Cả hai,,Sử dụng 100 mảnh để đổi lấy sách võ công cấp 120
+839,Sách võ công CUNG,Vật phẩm thường,27,100,Cả hai,,
+840,Sách võ công QUẠT,Vật phẩm thường,27,100,Cả hai,,
+841,Sách võ công TIÊU,Vật phẩm thường,27,100,Cả hai,,
+842,Sách võ công KUNAI,Vật phẩm thường,27,100,Cả hai,,
+843,Sách võ công ĐAO,Vật phẩm thường,27,100,Cả hai,,
+844,Sách võ công KIẾM,Vật phẩm thường,27,100,Cả hai,,
+845,Rương chiến trường,Vật phẩm thường,27,1,Cả hai,,Bên trong chứa nhiều vật phẩm có giá trị
+846,Chìa khóa may mắn,Vật phẩm thường,27,1,Cả hai,,Tăng may mắn cho rương chiến trường
+847,Thần chết,Thú nuôi,10,1,Cả hai,,Item sự kiện
+848,Thiệp đầu xuân,Vật phẩm thường,27,20,Cả hai,,Tặng thầy cô hiệu trưởng đề nhận lì xì
+849,Mặt nạ hổ,Áo,2,1,Cả hai,x,Dùng thay đổi diện mạo
+850,Bạch Hổ,Nguyên liệu 4,33,20,Cả hai,x,
+851,Pet Ứng Long,Thú nuôi,10,1,Cả hai,x,Item sự kiện
+852,Gỗ lim,Vật phẩm thường,27,30,Cả hai,,Dùng để xây cung thành
+853,Khúc cá,Vật phẩm thường,27,30,Cả hai,,Dùng để tiếp tế lương thực
+854,Tảng thịt,Vật phẩm thường,27,30,Cả hai,,Dùng để tiếp tế lương thực
+855,Cà chua,Vật phẩm thường,27,30,Cả hai,,Dùng để tiếp tế lương thực
+856,Bắp ngô,Vật phẩm thường,27,30,Cả hai,,Dùng để tiếp tế lương thực
+857,Thau rau củ,Vật phẩm thường,27,30,Cả hai,,Dùng để tiếp tế lương thực
+858,Thau thịt cá,Vật phẩm thường,27,30,Cả hai,,Dùng để tiếp tế lương thực
+859,Thánh vật Iku,Vật phẩm thường,27,30,Cả hai,,Thánh vật bị thất lạc
+860,Thánh vật Zato,Vật phẩm thường,27,30,Cả hai,,Thánh vật bị thất lạc
+861,Thánh vật Jino,Vật phẩm thường,27,30,Cả hai,,Thánh vật bị thất lạc
+862,Thánh vật Tansu,Vật phẩm thường,27,30,Cả hai,,Thánh vật bị thất lạc
+863,Thánh vật Ranka,Vật phẩm thường,27,30,Cả hai,,Thánh vật bị thất lạc
+864,Đệ nhất vinh danh,Thú nuôi,10,30,Cả hai,x,Vinh danh ninja tài năng
+865,Súng lục,Vật phẩm thường,27,30,Cả hai,,Bộ môn bắn súng SeaGame31
+866,Viên đạn,Vật phẩm thường,27,30,Cả hai,,Bộ môn bắn súng SeaGame31
+867,Cung,Vật phẩm thường,27,30,Cả hai,,Bộ môn bắn cung SeaGame31
+868,Mũi tên,Vật phẩm thường,27,30,Cả hai,,Bộ môn bắn cung SeaGame31
+869,Kiếm ba cạnh,Vật phẩm thường,27,30,Cả hai,,Bộ môn đấu kiếm SeaGame31
+870,Ấn tộc Hidan,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+871,Ấn tộc Juvo,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+872,Ấn tộc Samaku,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+873,Ấn tộc Kensin,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+874,Ấn tộc Inura,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+875,Ấn tộc Jaira,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+876,Ấn tộc Koichi,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+877,Ấn tộc Minto,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+878,Ấn tộc Dareku,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+879,Ấn tộc Jukari,Bao tay,13,50,Cả hai,x,Được luyện từ các linh hồn lưu lạc
+880,Viên linh hồn cấp 1,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+881,Viên linh hồn cấp 2,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+882,Viên linh hồn cấp 3,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+883,Viên linh hồn cấp 4,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+884,Viên linh hồn cấp 5,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+885,Viên linh hồn cấp 6,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+886,Viên linh hồn cấp 7,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+887,Viên linh hồn cấp 8,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+888,Viên linh hồn cấp 9,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+889,Viên linh hồn cấp 10,Vật phẩm thường,27,30,Cả hai,,Chứa các linh hồn bị đọa đày
+890,Trượng linh hồn,Vật phẩm thường,27,30,Cả hai,,Dùng để phù phép
+891,Trượng linh hồn,Vật phẩm thường,27,30,Cả hai,,Dùng để phù phép
+892,Trượng linh hồn,Vật phẩm thường,27,30,Cả hai,,Dùng để phù phép
+893,Bụi linh hồn,Vật phẩm thường,27,30,Cả hai,,Dùng để phù phép
+894,Giấy phép nâng cấp,Vật phẩm thường,27,50,Cả hai,,Sử dụng để nâng cấp ấn tộc
+895,Xương cá,Vật phẩm thường,27,50,Cả hai,,Đứng cạnh bà Rei sử dụng để nhận quà
+896,Cá giao lục,Vật phẩm thường,27,50,Cả hai,,Đứng cạnh bà Rei sử dụng để nhận quà
+897,Cá Koi,Vật phẩm thường,27,50,Cả hai,,Đứng cạnh bà Rei sử dụng để nhận quà
+898,Cá đĩa lam,Vật phẩm thường,27,50,Cả hai,,Đứng cạnh bà Rei sử dụng để nhận quà
+899,Cá buồm tím,Vật phẩm thường,27,50,Cả hai,,Đứng cạnh bà Rei sử dụng để nhận quà
+900,Sao biển xanh,Vật phẩm thường,27,50,Cả hai,,Đứng cạnh bà Rei sử dụng để nhận quà
+901,Cua hoàng đế,Vật phẩm thường,27,50,Cả hai,,Đứng cạnh bà Rei sử dụng để nhận quà
+902,Kem ốc quế,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+903,Kem sữa,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+904,Kem chocolate,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+905,Kem dâu,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+906,Hũ kem dầm,Vật phẩm thường,27,20,Cả hai,,Tặng Em bé tại các trường làng để nhận quà!
+907,Bướm vàng,Vật phẩm thường,27,50,Cả hai,,Linh vật cổ
+908,Dế ngọc,Vật phẩm thường,27,50,Cả hai,,Linh vật cổ
+909,Bọ vàng,Vật phẩm thường,27,50,Cả hai,,Linh vật cổ
+910,Cần câu cá,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+911,Ngư tinh thảo,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+912,Tô diệp,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+913,Hoa hải đường,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+914,Hoa hải quỳ,Vật phẩm thường,27,50,Cả hai,,Vật phẩm sự kiện
+915,Tinh dầu ngư thảo,Vật phẩm thường,27,50,Cả hai,,Tinh dầu chữa bệnh
+916,Tinh dầu tô diệp,Vật phẩm thường,27,50,Cả hai,,Tinh dầu chữa bệnh
+917,Tinh dầu hải đường,Vật phẩm thường,27,50,Cả hai,,Tinh dầu chữa bệnh
+918,Tinh dầu hải quỳ,Vật phẩm thường,27,50,Cả hai,,Tinh dầu chữa bệnh
+919,Hoa thiên điểu,Vật phẩm thường,27,50,Cả hai,,Loài hoa quý
+920,Hoa dạ yến,Vật phẩm thường,27,50,Cả hai,,Loài hoa quý
+921,Khẩu trang,Mặt nạ,11,20,Cả hai,,Chống lây lan Virus
+922,Rương hắc ám,Vật phẩm thường,27,70,Cả hai,,Chứa nhiều vật phẩm quý
+923,Khóa hắc ám,Vật phẩm thường,27,70,Cả hai,,Chìa khóa mở rương hắc ám
+924,Nhất Vĩ Li Mao Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+925,Nhị Vĩ Ác Miêu Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+926,Tam Vĩ Khổng Quy Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+927,Tứ Vĩ Hầu Tôn Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+928,Ngũ Vĩ Mã Ngư Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+929,Lục Vĩ Bạch Sên Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+930,Thất Vĩ Cương Trùng Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+931,Bát Vĩ Khổng Ngưu Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+932,Cửu Vĩ Hồ Ly Bảo Bảo Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+933,Nhất Vĩ Li Mao Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+934,Nhị Vĩ Ác Miêu Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+935,Tam Vĩ Khổng Quy Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+936,Tứ Vĩ Hầu Tôn Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+937,Ngũ Vĩ Mã Ngư Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+938,Lục Vĩ Bạch Sên Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+939,Thất Vĩ Cương Trùng Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+940,Bát Vĩ Khổng Ngưu Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+941,Cửu Vĩ Hồ Ly Sơ Cấp,Thú nuôi,10,1,Cả hai,,
+942,Bùa Aitemu,Vật phẩm thường,27,1,Cả hai,,Gia hạn vật phẩm không phải thú và thời trang
+943,Bùa Sochi,Vật phẩm thường,27,1,Cả hai,,"Gia hạn trang bị, mặt nạ, thú nuôi,..."
+944,Bùa Noru,Vật phẩm thường,27,1,Cả hai,,Gia hạn thú cưỡi
+945,Pet Boru,Thú nuôi,10,1,Cả hai,,
+946,Dây Nenshi,Vật phẩm thường,27,1,Cả hai,,Dùng thu thập trứng vĩ thú
+947,Kim Thạc Hộ Phù,Thú nuôi - Hộ phù,35,15,Cả hai,,Trang bị Vĩ Thú
+948,Kim Thạc Dị Trảo,Thú nuôi - Dị trảo,36,18,Cả hai,,Trang bị Vĩ Thú
+949,Kim Thạc Thể Giáp,Thú nuôi - Thể giáp,37,12,Cả hai,,Trang bị Vĩ Thú
+950,Kim Thạc Hạng Khuyên,Thú nuôi - Hạng khuyên,38,10,Cả hai,,Trang bị Vĩ Thú
+951,Thuỷ Nguyên Hộ Phù,Thú nuôi - Hộ phù,35,25,Cả hai,,Trang bị Vĩ Thú
+952,Thuỷ Nguyên Dị Trảo,Thú nuôi - Dị trảo,36,28,Cả hai,,Trang bị Vĩ Thú
+953,Thuỷ Nguyên Thể Giáp,Thú nuôi - Thể giáp,37,22,Cả hai,,Trang bị Vĩ Thú
+954,Thuỷ Nguyên Hạng Khuyên,Thú nuôi - Hạng khuyên,38,20,Cả hai,,Trang bị Vĩ Thú
+955,Linh Tú Hộ Phù,Thú nuôi - Hộ phù,35,35,Cả hai,,Trang bị Vĩ Thú
+956,Linh Tú Dị Trảo,Thú nuôi - Dị trảo,36,38,Cả hai,,Trang bị Vĩ Thú
+957,Linh Tú Thể Giáp,Thú nuôi - Thể giáp,37,32,Cả hai,,Trang bị Vĩ Thú
+958,Linh Tú Hạng Khuyên,Thú nuôi - Hạng khuyên,38,30,Cả hai,,Trang bị Vĩ Thú
+959,Xích Tử Hộ Phù,Thú nuôi - Hộ phù,35,45,Cả hai,,Trang bị Vĩ Thú
+960,Xích Tử Dị Trảo,Thú nuôi - Dị trảo,36,48,Cả hai,,Trang bị Vĩ Thú
+961,Xích Tử Thể Giáp,Thú nuôi - Thể giáp,37,42,Cả hai,,Trang bị Vĩ Thú
+962,Xích Tử Hạng Khuyên,Thú nuôi - Hạng khuyên,38,40,Cả hai,,Trang bị Vĩ Thú
+963,Ngân Giác Hộ Phù,Thú nuôi - Hộ phù,35,55,Cả hai,,Trang bị Vĩ Thú
+964,Ngân Giác Dị Trảo,Thú nuôi - Dị trảo,36,58,Cả hai,,Trang bị Vĩ Thú
+965,Ngân Giác Thể Giáp,Thú nuôi - Thể giáp,37,52,Cả hai,,Trang bị Vĩ Thú
+966,Ngân Giác Hạng Khuyên,Thú nuôi - Hạng khuyên,38,50,Cả hai,,Trang bị Vĩ Thú
+967,Hồng Bảo Hộ Phù,Thú nuôi - Hộ phù,35,65,Cả hai,,Trang bị Vĩ Thú
+968,Hồng Bảo Dị Trảo,Thú nuôi - Dị trảo,36,68,Cả hai,,Trang bị Vĩ Thú
+969,Hồng Bảo Thể Giáp,Thú nuôi - Thể giáp,37,62,Cả hai,,Trang bị Vĩ Thú
+970,Hồng Bảo Hạng Khuyên,Thú nuôi - Hạng khuyên,38,60,Cả hai,,Trang bị Vĩ Thú
+971,Lục Huyễn Hộ Phù,Thú nuôi - Hộ phù,35,75,Cả hai,,Trang bị Vĩ Thú
+972,Lục Huyễn Dị Trảo,Thú nuôi - Dị trảo,36,78,Cả hai,,Trang bị Vĩ Thú
+973,Lục Huyễn Thể Giáp,Thú nuôi - Thể giáp,37,72,Cả hai,,Trang bị Vĩ Thú
+974,Lục Huyễn Hạng Khuyên,Thú nuôi - Hạng khuyên,38,70,Cả hai,,Trang bị Vĩ Thú
+975,Phi Huyết Hộ Phù,Thú nuôi - Hộ phù,35,85,Cả hai,,Trang bị Vĩ Thú
+976,Phi Huyết Dị Trảo,Thú nuôi - Dị trảo,36,88,Cả hai,,Trang bị Vĩ Thú
+977,Phi Huyết Thể Giáp,Thú nuôi - Thể giáp,37,82,Cả hai,,Trang bị Vĩ Thú
+978,Phi Huyết Hạng Khuyên,Thú nuôi - Hạng khuyên,38,80,Cả hai,,Trang bị Vĩ Thú
+979,Hổ Phách Hộ Phù,Thú nuôi - Hộ phù,35,95,Cả hai,,Trang bị Vĩ Thú
+980,Hổ Phách Dị Trảo,Thú nuôi - Dị trảo,36,98,Cả hai,,Trang bị Vĩ Thú
+981,Hổ Phách Thể Giáp,Thú nuôi - Thể giáp,37,92,Cả hai,,Trang bị Vĩ Thú
+982,Hổ Phách Hạng Khuyên,Thú nuôi - Hạng khuyên,38,90,Cả hai,,Trang bị Vĩ Thú
+983,Vĩ Thú Lệnh,Vật phẩm thường,27,1,Cả hai,,Di chuyển tới Lối Vào Hang Karasumori 
+984,Quả Chaka Xanh,Vật phẩm thường,27,1,Cả hai,,Tăng 1-10 exp vĩ thú
+985,Quả Chaka Vàng,Vật phẩm thường,27,1,Cả hai,,Tăng 200 exp cho vĩ thú
+986,Quả Chaka Tím,Vật phẩm thường,27,1,Cả hai,,Tăng 300 exp cho vĩ thú
+987,Ngũ Hành Quả,Vật phẩm thường,27,1,Cả hai,,Nâng cấp vĩ thú lên cấp mới khi đạt 99%
+988,Ngũ Hành Hoa,Vật phẩm thường,27,1,Cả hai,,Hồi phục 150 thể lực vĩ thú
+989,Tamamizu,Vật phẩm thường,27,1,Cả hai,,Ấp ra vĩ thú sơ cấp
+990,Tamakiro,Vật phẩm thường,27,1,Cả hai,,Ấp ra vĩ thú trung cấp
+991,Tamamura ,Vật phẩm thường,27,1,Cả hai,,Ấp ra vĩ thú cao cấp
+992,Tamadai ,Vật phẩm thường,27,1,Cả hai,,Ấp ra vĩ thú siêu cấp
+993,Trứng Vĩ Thú ,Vật phẩm thường,27,1,Cả hai,,Cần 1tr yên để giải phong ấn
+994,Nhất Vĩ Li Mao Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+995,Nhị Vĩ Ác Miêu Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+996,Tam Vĩ Khổng Quy Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+997,Tứ Vĩ Hầu Tôn Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+998,Ngũ Vĩ Mã Ngư Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+999,Lục Vĩ Bạch Sên Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1000,Thất Vĩ Cương Trùng Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1001,Bát Vĩ Khổng Ngưu Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1002,Cửu Vĩ Hồ Ly Bảo Bảo Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1003,Nhất Vĩ Li Mao Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1004,Nhị Vĩ Ác Miêu Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1005,Tam Vĩ Khổng Quy Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1006,Tứ Vĩ Hầu Tôn Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1007,Ngũ Vĩ Mã Ngư Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1008,Lục Vĩ Bạch Sên Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1009,Thất Vĩ Cương Trùng Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1010,Bát Vĩ Khổng Ngưu Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1011,Cửu Vĩ Hồ Ly Trung Cấp,Thú nuôi,10,1,Cả hai,,
+1012,Nhất Vĩ Li Mao Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1013,Nhị Vĩ Ác Miêu Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1014,Tam Vĩ Khổng Quy Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1015,Tứ Vĩ Hầu Tôn Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1016,Ngũ Vĩ Mã Ngư Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1017,Lục Vĩ Bạch Sên Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1018,Thất Vĩ Cương Trùng Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1019,Bát Vĩ Khổng Ngưu Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1020,Cửu Vĩ Hồ Ly Bảo Bảo Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1021,Nhất Vĩ Li Mao Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1022,Nhị Vĩ Ác Miêu Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1023,Tam Vĩ Khổng Quy Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1024,Tứ Vĩ Hầu Tôn Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1025,Ngũ Vĩ Mã Ngư Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1026,Lục Vĩ Bạch Sên Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1027,Thất Vĩ Cương Trùng Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1028,Bát Vĩ Khổng Ngưu Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1029,Cửu Vĩ Hồ Ly Cao Cấp,Thú nuôi,10,1,Cả hai,,
+1030,Nhất Vĩ Li Mao Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1031,Nhị Vĩ Ác Miêu Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1032,Tam Vĩ Khổng Quy Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1033,Tứ Vĩ Hầu Tôn Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1034,Ngũ Vĩ Mã Ngư Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1035,Lục Vĩ Bạch Sên Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1036,Thất Vĩ Cương Trùng Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1037,Bát Vĩ Khổng Ngưu Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1038,Cửu Vĩ Hồ Ly Bảo Bảo Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1039,Nhất Vĩ Li Mao Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1040,Nhị Vĩ Ác Miêu Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1041,Tam Vĩ Khổng Quy Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1042,Tứ Vĩ Hầu Tôn Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1043,Ngũ Vĩ Mã Ngư Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1044,Lục Vĩ Bạch Sên Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1045,Thất Vĩ Cương Trùng Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1046,Bát Vĩ Khổng Ngưu Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1047,Cửu Vĩ Hồ Ly Siêu Cấp,Thú nuôi,10,1,Cả hai,,
+1048,Lồng đèn ngôi sao thời trang,Thú nuôi,10,40,Cả hai,x, 
+1049,Lồng đèn hoa sen thời trang,Thú nuôi,10,40,Cả hai,x, 
+1050,Lồng đèn kéo quân thời trang,Thú nuôi,10,40,Cả hai,x, 
+1051,Lồng đèn trái tim thời trang,Thú nuôi,10,40,Cả hai,x, 
+1052,Lồng đèn bươm bướm thời trang,Thú nuôi,10,40,Cả hai,x, 
+1053,Lồng đèn mặt trăng thời trang,Thú nuôi,10,40,Cả hai,x, 
+1054,Lồng đèn mặt trời thời trang,Thú nuôi,10,40,Cả hai,x, 
+1055,Lồng đèn tròn thời trang,Thú nuôi,10,40,Cả hai,x, 
+1056,Bột mì,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+1057,Trứng,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+1058,Đường,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+1059,Hạt sen,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+1060,Đậu xanh,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+1061,Mứt,Vật phẩm thường,27,20,Cả hai,,Nguyên liệu làm bánh
+1062,Bánh thập cẩm,Vật phẩm thường,27,20,Cả hai,,Sự kiện trung thu
+1063,Bánh dẻo,Vật phẩm thường,27,20,Cả hai,,Sự kiện trung thu
+1064,Bánh đậu xanh,Vật phẩm thường,27,20,Cả hai,,Sự kiện trung thu
+1065,Bánh Pía,Vật phẩm thường,27,20,Cả hai,,Sự kiện trung thu
+1066,Hộp bánh thường,Vật phẩm thường,27,20,Cả hai,,Sự kiện trung thu
+1067,Hộp bánh thượng hạng,Vật phẩm thường,27,20,Cả hai,,Sự kiện trung thu
+1068,Giấy gói thường,Vật phẩm thường,27,20,Cả hai,,Dùng làm hộp bánh
+1069,Giấy gói cao cấp,Vật phẩm thường,27,20,Cả hai,,Dùng làm hộp bánh
+1070,Lồng đèn,Vật phẩm thường,27,1,Cả hai,,Thắp đèn đêm trung thu
+1071,Thư mời lễ hội,Vật phẩm thường,27,50,Cả hai,,Thư mời tham gia lễ hội hóa trang
+1072,Chổi bay,Vật phẩm thường,27,50,Cả hai,,Chổi bay của phù thủy
+1073,Gậy phép,Vật phẩm thường,27,50,Cả hai,,Gậy hóa phép của phù thủy
+1074,Phục sinh phù,Vật phẩm thường,27,40,Cả hai,,Tự động hồi sinh trong 30 phút. Chỉ có tác dụng trong hang Karasumori 
+1075,Lệnh bài Kamakura,Vật phẩm thường,27,1,Cả hai,,Mở rương nhanh.
+1076,Hỏa kỳ lân,Nguyên liệu 4,33,20,Cả hai,x,
+1077,Phiếu giảm giá 50%,Vật phẩm thường,27,20,Cả hai,,
+1078,Lam sơn dạ,Vật phẩm thường,27,50,Cả hai,,Loài cây chỉ nở vào mùa đông
+1079,Trúc bạch thiên lữ,Vật phẩm thường,27,50,Cả hai,,Loài cây chỉ nở vào mùa đông
+1080,Lãnh dược,Vật phẩm thường,27,1,Cả hai,,Giúp chống lại cái lạnh
+1081,Kim tước thảo,Vật phẩm thường,27,50,Cả hai,,Tăng ngẫu nhiên 2-40 exp cho Trâu
+1082,Tử hoa địa đinh,Vật phẩm thường,27,60,Cả hai,,Tăng ngẫu nhiên 50-150 exp cho Trâu
+1083,Áo ngũ thân,Áo,2,20,Nam,x,Dùng thay đổi diện mạo
+1084,Áo tân thời,Áo,2,20,Nữ,x,Dùng thay đổi diện mạo
+1085,Thẻ đổi tên,Vật phẩm thường,27,20,Cả hai,,Dùng để đổi tên
+1086,Phiếu giảm giá 10%,Vật phẩm thường,27,20,Cả hai,,
+1087,Phiếu giảm giá 20%,Vật phẩm thường,27,20,Cả hai,,
+1088,Phiếu giảm giá 30%,Vật phẩm thường,27,20,Cả hai,,
+1089,Phiếu giảm giá 40%,Vật phẩm thường,27,20,Cả hai,,
+1090,Phiếu giảm giá 50%,Vật phẩm thường,27,20,Cả hai,,
+1091,Phiếu giảm giá 60%,Vật phẩm thường,27,20,Cả hai,,
+1092,Akasuki,Áo,2,20,Nam,x,Dùng thay đổi diện mạo
+1093,Akasuki,Áo,2,20,Nữ,x,Dùng thay đổi diện mạo
+1094,Túi vải cấp 5,Vật phẩm thường,27,1,Cả hai,,Dùng để mở thêm 24 ô hành trang
+1095,Cát ngũ sắc,Vật phẩm thường,27,20,Cả hai,,Dùng để nâng cấp tà thuật Uchi
+1096,Tà thuật Uchi,Bí kíp,15,20,Cả hai,x,Tăng cường sức mạnh triệu hồi Susano
+1097,Thiên Vương Tuyến,Nón,0,109,Nam,,
+1098,Thiên Vương Tuyến,Nón,0,107,Nữ,,
+1099,Thiên Vương Giáp Thượng,Áo,2,107,Nam,,
+1100,Thiên Vương Giáp Thượng,Áo,2,103,Nữ,,
+1101,Thiên Vương Giáp Hạ,Quần,6,103,Nam,,
+1102,Thiên Vương Giáp Hạ,Quần,6,105,Nữ,,
+1103,Thiên Vương Thủ,Găng tay,4,105,Nam,,
+1104,Thiên Vương Thủ,Găng tay,4,101,Nữ,,
+1105,Thiên Vương Ngoa,Giày,8,101,Nam,,
+1106,Thiên Vương Ngoa,Giày,8,102,Nữ,,
+1107,Thiên Vương Phù,Bùa,9,104,Cả hai,,
+1108,Thiên Vương Bội,Ngọc bội,7,106,Cả hai,,
+1109,Thiên Vương Giới,Nhẫn,5,108,Cả hai,,
+1110,Thiên Vương Liên ,Dây chuyền,3,100,Cả hai,,
+1111,Thiên Vương Vô Cực Kiếm,Vũ khí,1,100,Cả hai,x,
+1112,Thiên Vương Thiên Hỏa Tiêu,Vũ khí,1,100,Cả hai,x,
+1113,Thiên Vương Táng Hồn Dao,Vũ khí,1,100,Cả hai,x,
+1114,Thiên Vương Băng Thần Cung,Vũ khí,1,100,Cả hai,x,
+1115,Thiên Vương Chiến Lục Đao,Vũ khí,1,100,Cả hai,x,
+1116,Thiên Vương Hoàng Phong Phiến,Vũ khí,1,100,Cả hai,x,
+1117,RUBY,Ngọc bội,7,30,Cả hai,x,
+1118,Trùm Phái,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1119,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1120,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1121,Trùm Trường,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1122,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1123,Rương Thần Bí,Vật phẩm thường,27,100,Cả hai,,Bên trong chứa Trang Bị cấp 100 ngẫu nhiên
+1124,Rương Báu Vật,Vật phẩm thường,27,100,Cả hai,,Bên trong chứa Vũ Khí cấp 100 ngẫu nhiên
+1125,Sách võ công Hoả Hồn Long Trảm,Vật phẩm thường,27,120,Cả hai,,Kỹ năng Đẹp và bá đạo không còn gì để nói
+1126,Sách võ công Tiêu Hoả Phi Long,Vật phẩm thường,27,120,Cả hai,,Kỹ năng Đẹp và bá đạo không còn gì để nói
+1127,Sách võ công Băng Hổ Bạch Long,Vật phẩm thường,27,120,Cả hai,,Kỹ năng Đẹp và bá đạo không còn gì để nói
+1128,Sách võ công Tiễn Ưng Vĩnh Cửu,Vật phẩm thường,27,120,Cả hai,,Kỹ năng Đẹp và bá đạo không còn gì để nói
+1129,Sách võ công Vũ Đao Thiên Lôi,Vật phẩm thường,27,120,Cả hai,,Kỹ năng Đẹp và bá đạo không còn gì để nói
+1130,Sách võ công Thuật Phiến Cuồng Phong,Vật phẩm thường,27,120,Cả hai,,Kỹ năng Đẹp và bá đạo không còn gì để nói
+1131,Fan Cứng,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1132,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1133,V_VIP,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1134,Gạo,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1135,Muối,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1136,Bánh,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1137,Tiền giấy,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1138,Mâm cúng,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1139,Mâm cúng bạc,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1140,Mâm cúng vàng,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1141,Oan Hồn tháng 7,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1142,Máy dò linh hồn,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1143,Hồ Lô,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1144,Hộp quà may mắn,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Tháng 7
+1145,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1146,Đá Chinh Phục,Vật phẩm thường,27,1,Cả hai,,Nguyên liệu quý dùng để Khai Hóa trang bị
+1147,Đá Vô Thương,Vật phẩm thường,27,1,Cả hai,,Nguyên liệu quý dùng để Khai Hóa trang bị
+1148,Đá Phục Sinh,Vật phẩm thường,27,1,Cả hai,,Nguyên liệu quý dùng để Khai Hóa trang bị
+1149,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1150,Đệ Nhất Ninja,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1151,Đệ Nhị,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1152,Đệ Tam,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1153,Đệ Tứ,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1154,Noname,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1155,Noname,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1156,Đoạn Mệnh Thương,Vũ khí,1,1,Cả hai,x,Vũ khí thời trang
+1157,Thần Thoại Kiếm,Vũ khí,1,1,Cả hai,x,Vũ khí thời trang
+1158,Túi vải cấp 6,Vật phẩm thường,27,1,Cả hai,,Dùng để mở thêm 18 ô hành trang
+1159,Cải trang Anime,Mặt nạ,11,1,Cả hai,,Chống đồ sát
+1160,Áo anime ,Áo,2,1,Cả hai,,
+1161,Quần anime ,Quần,6,1,Cả hai,,
+1162,Noname,Bí kíp,15,1,Cả hai,x,Danh hiệu
+1163,Minh Giác Cốt Ngọc Tuyến,Nón,0,109,Nam,,
+1164,Minh Giác Cốt Ngọc Trâm,Nón,0,109,Nữ,,
+1165,Minh Giác Cốt Ngọc Giáp,Áo,2,107,Nam,,
+1166,Minh Giác Cốt Ngọc Giáp,Áo,2,107,Nữ,,
+1167,Minh Giác Cốt Ngọc Hạ Giáp,Quần,6,103,Nam,,
+1168,Minh Giác Cốt Ngọc Hạ Giáp,Quần,6,103,Nữ,,
+1169,Minh Giác Cốt Ngọc Thủ,Găng tay,4,105,Nam,,
+1170,Minh Giác Cốt Ngọc Thủ,Găng tay,4,105,Nữ,,
+1171,Minh Giác Cốt Ngọc Ngoa,Giày,8,101,Nam,,
+1172,Minh Giác Cốt Ngọc Ngoa,Giày,8,101,Nữ,,
+1173,Minh Giác Cốt Ngọc Phù,Bùa,9,102,Cả hai,,
+1174,Minh Giác Cốt Ngọc Bội,Ngọc bội,7,104,Cả hai,,
+1175,Minh Giác Cốt Ngọc Giới,Nhẫn,5,106,Cả hai,,
+1176,Minh Giác Cốt Ngọc Liên,Dây chuyền,3,108,Cả hai,,
+1177,Mảnh Minh Giác Cốt Ngọc Tuyến,Vật phẩm thường,27,1,Cả hai,,
+1178,Mảnh Minh Giác Cốt Ngọc Giáp,Vật phẩm thường,27,1,Cả hai,,
+1179,Mảnh Minh Giác Cốt Ngọc Thủ,Vật phẩm thường,27,1,Cả hai,,
+1180,Mảnh Minh Giác Cốt Ngọc Hạ Giáp,Vật phẩm thường,27,1,Cả hai,,
+1181,Mảnh Minh Giác Cốt Ngọc Ngoa,Vật phẩm thường,27,1,Cả hai,,
+1182,Mảnh Minh Giác Cốt Ngọc Trâm,Vật phẩm thường,27,1,Cả hai,,
+1183,Mảnh Minh Giác Cốt Ngọc Giáp Nữ,Vật phẩm thường,27,1,Cả hai,,
+1184,Mảnh Minh Giác Cốt Ngọc Thủ Nữ,Vật phẩm thường,27,1,Cả hai,,
+1185,Mảnh Minh Giác Cốt Ngọc Hạ Giáp Nữ,Vật phẩm thường,27,1,Cả hai,,
+1186,Mảnh Minh Giác Cốt Ngọc Ngoa Nữ,Vật phẩm thường,27,1,Cả hai,,
+1187,Mảnh Minh Giác Cốt Ngọc Phù,Vật phẩm thường,27,1,Cả hai,,
+1188,Mảnh Minh Giác Cốt Ngọc Bội,Vật phẩm thường,27,1,Cả hai,,
+1189,Mảnh Minh Giác Cốt Ngọc Giới,Vật phẩm thường,27,1,Cả hai,,
+1190,Mảnh Minh Giác Cốt Ngọc Liên,Vật phẩm thường,27,1,Cả hai,,
+1191,Cải Trang Buffalo ,Mặt nạ,11,1,Nam,,
+1192,Áo Buffalo ,Áo,2,1,Nam,,
+1193,Quần Buffalo ,Quần,6,1,Nam,,
+1194,Cải trang Rube,Mặt nạ,11,1,Nam,,
+1195,Áo Rube,Áo,2,1,Nam,,
+1196,Quần Rube,Quần,6,1,Nam,,
+1197,Cải Trang Sumil,Mặt nạ,11,1,Cả hai,,
+1198,Áo Sumil,Áo,2,1,Cả hai,,
+1199,Quần Sumil,Quần,6,1,Cả hai,,
+1200,Cải Trang Fairies,Mặt nạ,11,1,Nữ,,
+1201,Áo Fairies,Áo,2,1,Nữ,,
+1202,Quần Fairies,Quần,6,1,Nữ,,
+1203,Cải trang Sixgirl,Mặt nạ,11,1,Nữ,,
+1204,Áo Sixgirl,Áo,2,1,Nữ,,
+1205,Quần Sixgirl,Quần,6,1,Nữ,,
+1206,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1207,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1208,Hộp Vũ khí ,Vật phẩm thường,27,100,Cả hai,,Mở nhận ngẫu nhiên vũ khí lv100 +12 đến +14 hạn 3 ngày
+1209,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1210,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1211,Obito,Áo,2,20,Nam,x,Dùng thay đổi diện mạo
+1212,Sakura,Áo,2,20,Nữ,x,Dùng thay đổi diện mạo
+1213,Akatsuki,Mặt nạ,11,1,Cả hai,x,Cải trang chỉ hiện bên bản 211 trở lên
+1214,Akatsuki,Mặt nạ,11,1,Cả hai,x,Cải trang chỉ hiện bên bản 211 trở lên
+1215,Pet Thanh Long,Thú nuôi,10,1,Cả hai,,
+1216,Trứng Hỏa Long,Vật phẩm thường,27,60,Cả hai,,Sau 1 giờ sẽ nở ra một Hỏa long con.
+1217,Rương danh vọng,Vật phẩm thường,27,30,Cả hai,,Sử dụng tăng ngẫu nhiên 1-5 điểm danh vọng
+1218,Lúa mì,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Cô hồn
+1219,Trứng,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Cô hồn
+1220,Sữa,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Cô hồn
+1221,Bơ,Vật phẩm thường,27,10,Cả hai,,Vật phẩm sự kiện Cô hồn
+1222,Bánh mì,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Cô hồn
+1223,Bánh mì bơ,Vật phẩm thường,27,20,Cả hai,,Vật phẩm sự kiện Cô hồn
+1224,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1225,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1226,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1227,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1228,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1229,Lồng đèn rồng,Thú nuôi,10,1,Cả hai,x,
+1230,Mảnh sách mới,Vật phẩm thường,27,100,Cả hai,,Sử dụng 100 mảnh để đổi lấy sách võ công cấp 125
+1231,Vải thượng hạng,Vật phẩm thường,27,1,Cả hai,,
+1232,Dung dịch cải tạo,Vật phẩm thường,27,1,Cả hai,,
+1233,Áo Kurama,Áo,2,20,Nam,x,Dùng thay đổi diện mạo
+1234,Áo Nakoruru,Áo,2,20,Nữ,x,Dùng thay đổi diện mạo
+1235,Noname,Bí kíp,15,1,Cả hai,x,Chưa sử dụng 
+1236,Áo Kage nam,Áo,2,20,Nam,x,Dùng thay đổi diện mạo
+1237,Áo Kage nữ,Áo,2,20,Nữ,x,Dùng thay đổi diện mạo
+1238,Bạch Ngân Lang,Nguyên liệu 4,33,20,Cả hai,x,
+1239,Bạch Sư Vương,Nguyên liệu 4,33,20,Cả hai,x,
+1240,Siêu Xe Halloween,Nguyên liệu 4,33,50,Cả hai,x,

@@ -1,0 +1,56 @@
+Các bản đã phát hành (mới nhất ở trên cùng)
+
+22/08/2026 14:38  NSO-2.6.jar
+    Chí mạng ở bảng Thông tin hiện dạng phần trăm; Né đòn ghi rõ chỉ ăn khi đấu người.
+    Phía máy chủ: Cầu lục đạo (tím/đen) -- sáu quả cầu xoay quanh lưng, trang bị 2, cấp 130.
+    Bốn danh hiệu Hokage làm lại theo lối "mỗi cái một chất" thay cho xếp bậc.
+
+21/08/2026 15:53  NSO-2.4.jar
+    Trang bị 2 nay đổi được diện mạo. Client gốc vẫn đọc đủ mười số thời trang máy chủ gửi xuống rồi bỏ đi -- không có chỗ chứa, cũng không có chỗ vẽ, nên trang bị 2 xưa nay chỉ cộng chỉ số. Bản này nối ba số đầu vào tóc, thân và chân, nên mặc vào là đổi hình thật. Kèm bảy bộ trang phục mới: Hokage, Mizukage, Akatsuki nam và nữ, Naruto Cửu Vĩ, Obito Lục Đạo, Naruto Hiền Nhân, thêm Mặt nạ Pain. Mỗi bộ ba món rời, đeo món nào ra món đó.
+
+21/08/2026 10:19  NSO-2.3.jar
+    Số máu quái nay cũng hiện gọn dạng K/M/B như sát thương và kinh nghiệm: 182.3K thay vì 182300. Vẫn giữ nguyên mốc 100.000 -- dưới mức đó hiện đủ số, và chỉ số món đồ cố ý không rút gọn.
+
+20/08/2026 15:56  NSO-2.2.jar
+    Số lớn hiện gọn lại dạng K/M/B thay vì dãy chữ số dài: sát thương bay lên đầu quái, HP/MP
+    trên thanh trạng thái, và con số trong câu "Bạn nhận được ... Kinh nghiệm". Chỉ rút gọn từ
+    100.000 trở lên, dưới mức đó vẫn hiện đủ số. Chỉ số món đồ CỐ Ý giữ nguyên chi tiết, vì rút
+    gọn sẽ làm 1.2M với 1.29M nhìn như nhau đúng lúc đang so hai món.
+    Font chữ số của client vốn chỉ có " 0123456789+-" nên đã vẽ thêm bốn ký tự ".KMB" cho cả
+    năm bản màu.
+
+20/08/2026 13:54  NSO-2.1.jar
+    Menu "Tàn sát" chỉ liệt kê quái có trong map đang đứng. Trước đây nó đọc một danh sách tích
+    luỹ mọi mẫu quái từng gặp và không bao giờ dọn khi đổi map, nên đi càng nhiều map thì danh
+    sách càng dài và lẫn cả quái của những map đã rời đi từ lâu.
+    Bỏ tiền tố "[null]" ở mọi thông báo do client tự sinh. Chỗ ghép chuỗi dùng một biến nhãn mà
+    trong toàn bộ chương trình không có dòng nào gán giá trị, nên nó vĩnh viễn là null.
+
+19/08/2026 17:05  NSO-2.0.jar
+    Bảng hướng dẫn trong game cập nhật đủ lệnh, thêm mục lệnh máy chủ (shop, sv, info, tt). Gồm cả hai bản vá khung thông tin vật phẩm của 1.4.
+
+19/08/2026 16:14  NSO-1.4.jar
+    Tắt hai hiệu ứng làm khung thông tin vật phẩm không đọc được với đồ +24: dãy hình thoi vẽ lặp tràn khung, và tên món nhấp nháy đỏ trắng ở đồ từ +15 trở lên. Dựng lại từ đầu, thay cho bản 1.3 đã gỡ.
+
+19/08/2026 13:47  NSO-1.2.jar
+    Trả lệnh dan về đúng logic bản 1.0 (có dòng thông báo). Bản 1.1 bỏ dòng đó nhưng không chữa được lỗi treo trên KEmulator, lại làm mất dấu hiệu lệnh đã chạy.
+
+18/08/2026 21:40  NSO-1.1.jar
+    Sửa lỗi treo game khi gõ lệnh dan trên KEmulator (Windows): bỏ dòng thông báo vì luồng vẽ và luồng lệnh đụng nhau.
+
+18/08/2026 15:23  NSO-1.0.jar
+    Lệnh dan: bật Tự Dùng cho 4 viên đan (Minh Mẫn, Long Lực, Kháng Thể, Sinh Mệnh). Viết lại bảng hướng dẫn thành danh sách lệnh chat.
+
+====================================================================
+PHẦN MÁY CHỦ -- không nằm trong file tải, cứ vào game là có
+====================================================================
+
+18/08/2026
+    shop   mở cửa hàng ở bất cứ đâu, không phải về làng.
+           Gõ shop rồi chọn một trong 10 cửa hàng.
+    sv     xem ai đang online, cấp mấy, đang ở map nào.
+    info   xem toạ độ hiện tại của mình.
+
+    Ba lệnh trên mọi tài khoản đều dùng được.
+    Tự dùng 4 viên đan và tự dọn Đá cấp 1 ngay khi đăng nhập.
+

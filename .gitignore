@@ -1,0 +1,48 @@
+# ============================================================================
+#  Những gì KHÔNG đẩy lên và vì sao
+#  Nguyên tắc: chỉ giữ thứ không dựng lại được. Cái gì có script sinh ra thì bỏ.
+# ============================================================================
+
+# --- macOS ---------------------------------------------------------------
+.DS_Store
+
+# --- Kho tham khảo (1.9G) -------------------------------------------------
+# Bản cài của các server khác tải về để đọc tham khảo. Không phải nguồn của
+# dự án này, và là phần lớn nhất trong cây thư mục.
+/thamkhao/
+
+# --- Kết quả biên dịch ----------------------------------------------------
+# build/ chứa server.log 87M cùng lớp .class; target/ do maven sinh ra.
+# Dựng lại bằng: tools/nap.sh (hoặc mvn package) và mod.sh
+/build/
+/work/server/NSO_KEM/target/
+/work/server/NSO_KEM/logs/
+*.class
+
+# --- Bản lưu cũ và dữ liệu lúc chạy (186M) --------------------------------
+# luutru/ toàn là ảnh chụp trạng thái cũ (work-cu, build-cu, jar-cu), sao lưu
+# CSDL người chơi, và dữ liệu sống của bảng góp ý -- gồm cả gop-y-khoa.txt là
+# MÃ QUẢN TRỊ. Không thứ nào thuộc về mã nguồn.
+/luutru/
+
+# --- Bản phát hành tải về (161M) ------------------------------------------
+# orther-version/ là các bản client cũ để người chơi tải; *.jar là client dựng
+# ra từ mod.sh. Đều sinh lại được.
+/dist/share/orther-version/
+/dist/share/*.jar
+/dist/win/*.jar
+/test/*.jar
+/mod/**/*.jar
+
+# Trang tra cứu vật phẩm: phần icon do tools/export-web.sh xuất từ Data/Img.
+/dist/share/vat-pham/icon/
+
+# --- Dữ liệu cá nhân ------------------------------------------------------
+# 11.619 tài khoản thật kèm hash mật khẩu bcrypt, số điện thoại và mã OTP,
+# đi kèm gói máy chủ gốc. Chỉ ConvertUser.java (công cụ chuyển đổi chạy một
+# lần) đụng tới, máy chủ đang chạy không cần. Không có lý do gì để đẩy lên.
+/work/server/NSO_KEM/src/main/java/com/nsoz/fake/user.json
+
+# --- Tệp tạm --------------------------------------------------------------
+*.tam
+*.swp

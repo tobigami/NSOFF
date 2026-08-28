@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Góp ý & ý tưởng — NSO</title>
+<style>
+  :root { --nen:#14161a; --the:#1c1f26; --vien:#2b2f3a; --chu:#e6e8ec;
+          --mo:#9aa1ad; --nhan:#7aa2f7; --vang:#e0af68; --xanh:#9ece6a; --do:#f7768e; --tim:#bb9af7; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--nen); color:var(--chu);
+         font:15px/1.6 -apple-system,"Segoe UI",Roboto,sans-serif; }
+  header { background:var(--the); border-bottom:1px solid var(--vien); padding:14px 20px; }
+  header h1 { margin:0; font-size:18px; font-weight:600; }
+  header p { margin:4px 0 0; color:var(--mo); font-size:13px; }
+  main { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  input, textarea, select, button {
+    background:var(--nen); color:var(--chu); border:1px solid var(--vien);
+    border-radius:6px; padding:8px 10px; font:inherit; font-size:14px; }
+  input:focus, textarea:focus { outline:none; border-color:var(--nhan); }
+  textarea { width:100%; min-height:74px; resize:vertical; }
+  button { cursor:pointer; background:var(--the); }
+  button:hover { border-color:var(--nhan); }
+  button.chinh { background:var(--nhan); color:#0d1117; border-color:var(--nhan); font-weight:600; }
+  .khung { background:var(--the); border:1px solid var(--vien); border-radius:9px;
+           padding:14px 16px; margin-bottom:18px; }
+  .hang { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .hang > input { flex:1; min-width:150px; }
+  .y { background:var(--the); border:1px solid var(--vien); border-radius:9px;
+       padding:13px 15px; margin-bottom:11px; }
+  .y h3 { margin:0 0 3px; font-size:16px; font-weight:600; }
+  .y .meta { color:var(--mo); font-size:12.5px; margin-bottom:8px; }
+  .y .nd { white-space:pre-wrap; margin:8px 0; }
+  .day { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:9px; }
+  .phieu { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--vien);
+           background:var(--nen); border-radius:999px; padding:4px 12px; cursor:pointer;
+           font-size:13px; color:var(--chu); }
+  .phieu.roi { border-color:var(--nhan); color:var(--nhan); }
+  .tt { font-size:12px; padding:2px 9px; border-radius:999px; border:1px solid var(--vien); }
+  .tt.moi{color:var(--mo)} .tt.dang-xem{color:var(--nhan);border-color:#2a3a5a}
+  .tt.dang-lam{color:var(--vang);border-color:#4a3a1a} .tt.xong{color:var(--xanh);border-color:#2f4a2a}
+  .tt.khong{color:var(--do);border-color:#4a2a32;text-decoration:line-through}
+  .ghichu { margin-top:10px; border-top:1px solid var(--vien); padding-top:9px; }
+  .gc { font-size:13.5px; margin:6px 0; padding-left:11px; border-left:2px solid var(--vien); }
+  .gc b { color:var(--tim); font-weight:600; }
+  .gc .luc { color:var(--mo); font-size:12px; }
+  .lienket { color:var(--nhan); font-size:13px; cursor:pointer; }
+  .trong { color:var(--mo); text-align:center; padding:36px 0; }
+  #bao { position:fixed; left:50%; transform:translateX(-50%); bottom:22px; background:var(--the);
+         border:1px solid var(--nhan); border-radius:8px; padding:9px 16px; font-size:14px;
+         display:none; z-index:20; }
+  .loc { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+  .loc button.on { border-color:var(--nhan); color:var(--nhan); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Góp ý &amp; ý tưởng</h1>
+  <p>Ai cũng đăng được. Bấm ❤ để ủng hộ ý tưởng bạn thích, hoặc thêm ghi chú để bàn thêm. · <a href="/huong-dan/" style="color:#7aa2f7">Cẩm nang cuối game →</a></p>
+</header>
+
+<main>
+  <div class="khung">
+    <div class="hang" style="margin-bottom:9px">
+      <input id="ten" placeholder="Tên của bạn (để trống thành ẩn danh)" maxlength="40">
+    </div>
+    <div class="hang" style="margin-bottom:9px">
+      <input id="tieude" placeholder="Ý tưởng của bạn là gì?" maxlength="120">
+    </div>
+    <textarea id="noidung" placeholder="Mô tả thêm — càng cụ thể càng dễ làm (không bắt buộc)" maxlength="2000"></textarea>
+    <div class="hang" style="margin-top:9px; justify-content:flex-end">
+      <button class="chinh" id="guiY">Đăng ý tưởng</button>
+    </div>
+  </div>
+
+  <div class="loc" id="loc"></div>
+  <div id="ds"></div>
+</main>
+
+<div id="bao"></div>
+
+<script>
+const NHAN = {moi:"Mới", "dang-xem":"Đang xem xét", "dang-lam":"Đang làm", xong:"Đã làm", khong:"Không làm"};
+const THU_TU = ["moi","dang-xem","dang-lam","xong","khong"];
+let LOC = "tat";
+
+// Mã máy để chống bỏ phiếu trùng. Không phải danh tính -- chỉ để một trình duyệt bỏ một phiếu.
+let AI = localStorage.getItem("gopy_ai");
+if (!AI) { AI = Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem("gopy_ai", AI); }
+const KHOA = new URLSearchParams(location.search).get("khoa") || "";
+
+const el = (t, c, s) => { const e = document.createElement(t); if (c) e.className = c; if (s !== undefined) e.textContent = s; return e; };
+function bao(t) { const b = document.getElementById("bao"); b.textContent = t; b.style.display = "block"; clearTimeout(b._t); b._t = setTimeout(() => b.style.display = "none", 2400); }
+
+async function goi(duong, than) {
+  const r = await fetch(duong, than ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(than)} : {});
+  const d = await r.json().catch(() => ({ok:false, loi:"Máy chủ trả về dữ liệu hỏng"}));
+  if (!d.ok) bao(d.loi || "Có lỗi xảy ra");
+  return d;
+}
+
+function nho(k, v) { if (v) localStorage.setItem(k, v); }
+document.getElementById("ten").value = localStorage.getItem("gopy_ten") || "";
+
+async function tai() {
+  const d = await goi("/api/gop-y?ai=" + encodeURIComponent(AI));
+  if (!d.ok) return;
+  const ds = document.getElementById("ds");
+  ds.innerHTML = "";
+
+  // Lọc
+  const loc = document.getElementById("loc");
+  if (!loc.dataset.xong) {
+    const lam = (ma, nhan) => {
+      const b = el("button", ma === LOC ? "on" : "", nhan);
+      b.onclick = () => { LOC = ma; loc.dataset.xong = ""; tai(); };
+      loc.appendChild(b);
+    };
+    loc.innerHTML = ""; lam("tat", "Tất cả"); THU_TU.forEach(t => lam(t, NHAN[t]));
+    loc.dataset.xong = "1";
+  }
+  [...loc.children].forEach(b => b.className = (b.textContent === (LOC === "tat" ? "Tất cả" : NHAN[LOC])) ? "on" : "");
+
+  const ys = d.y_tuong.filter(y => LOC === "tat" || y.trang_thai === LOC)
+                      .sort((a, b) => b.so_phieu - a.so_phieu || b.id - a.id);
+  if (!ys.length) { ds.appendChild(el("div", "trong", "Chưa có ý tưởng nào. Bạn mở hàng nhé.")); return; }
+
+  for (const y of ys) {
+    const k = el("div", "y");
+    k.appendChild(el("h3", null, y.tieu_de));
+    const tt = el("span", "tt " + y.trang_thai, NHAN[y.trang_thai] || y.trang_thai);
+    const m = el("div", "meta");
+    m.append(tt, document.createTextNode("  ·  " + y.nguoi + "  ·  " + y.luc));
+    k.appendChild(m);
+    if (y.noi_dung) k.appendChild(el("div", "nd", y.noi_dung));
+
+    const day = el("div", "day");
+    const p = el("button", "phieu" + (y.da_bo_phieu ? " roi" : ""), (y.da_bo_phieu ? "❤ " : "♡ ") + y.so_phieu);
+    p.onclick = async () => { await goi("/api/gop-y/phieu", {id:y.id, ai:AI}); tai(); };
+    day.appendChild(p);
+
+    const them = el("span", "lienket", "+ ghi chú");
+    them.onclick = () => {
+      if (o.dataset.mo) { o.dataset.mo = ""; o.style.display = "none"; return; }
+      o.dataset.mo = "1"; o.style.display = "block"; o.querySelector("textarea").focus();
+    };
+    day.appendChild(them);
+
+    if (KHOA) {
+      const s = el("select");
+      THU_TU.forEach(t => { const op = el("option", null, NHAN[t]); op.value = t; if (t === y.trang_thai) op.selected = true; s.appendChild(op); });
+      s.onchange = async () => { await goi("/api/gop-y/trang-thai", {id:y.id, trang_thai:s.value, khoa:KHOA}); tai(); };
+      day.appendChild(s);
+    }
+    k.appendChild(day);
+
+    // Ô thêm ghi chú
+    const o = el("div"); o.style.display = "none"; o.style.marginTop = "9px";
+    const ta = el("textarea"); ta.placeholder = "Ghi chú của bạn..."; ta.maxLength = 1000;
+    const nut = el("button", "chinh", "Gửi ghi chú");
+    nut.style.marginTop = "7px";
+    nut.onclick = async () => {
+      const ten = document.getElementById("ten").value.trim();
+      nho("gopy_ten", ten);
+      const r = await goi("/api/gop-y/ghi-chu", {id:y.id, nguoi:ten, noi_dung:ta.value});
+      if (r.ok) { ta.value = ""; bao("Đã thêm ghi chú"); tai(); }
+    };
+    o.append(ta, nut);
+    k.appendChild(o);
+
+    if (y.ghi_chu && y.ghi_chu.length) {
+      const g = el("div", "ghichu");
+      for (const c of y.ghi_chu) {
+        const d1 = el("div", "gc");
+        d1.append(el("b", null, c.nguoi), document.createTextNode("  "),
+                  el("span", "luc", c.luc), el("div", null, c.noi_dung));
+        g.appendChild(d1);
+      }
+      k.appendChild(g);
+    }
+    ds.appendChild(k);
+  }
+}
+
+document.getElementById("guiY").onclick = async () => {
+  const ten = document.getElementById("ten").value.trim();
+  const td = document.getElementById("tieude").value.trim();
+  const nd = document.getElementById("noidung").value.trim();
+  if (!td) { bao("Nhập tiêu đề đã."); return; }
+  nho("gopy_ten", ten);
+  const r = await goi("/api/gop-y", {tieu_de:td, noi_dung:nd, nguoi:ten});
+  if (r.ok) {
+    document.getElementById("tieude").value = "";
+    document.getElementById("noidung").value = "";
+    bao("Đã đăng. Cảm ơn bạn!");
+    tai();
+  }
+};
+
+tai();
+</script>
+</body>
+</html>

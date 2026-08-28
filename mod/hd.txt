@@ -1,0 +1,150 @@
+LỆNH CHAT - BẢN 2.0
+Gõ vào khung chat, không cần dấu.
+
+-- LỆNH MÁY CHỦ --
+Mấy lệnh này do máy chủ xử lý, ai
+cũng gõ được, không cần bản mod.
+shop - mở cửa hàng ở bất cứ đâu,
+       không phải về làng
+sv - xem ai đang chơi, ở map nào
+info - thông tin nhân vật
+tt - đổi qua lại giữa chủ thân và
+     phân thân, khỏi chạy về NPC
+     Tajima. Phân thân phải đang
+     triệu hồi và còn hạn
+
+-- ĐAN --
+dan - bật Tự Dùng cho 4 viên đan
+      (275 276 277 278), gõ 1 lần thay
+      vì vào hành trang bấm từng món
+      Gõ xong có dòng báo "Da bat Tu
+      Dung" là đã bật
+
+-- TỰ ĐÁNH --
+ak - bật/tắt tự đánh
+pe - dừng mọi auto
+locdo - auto lọc đồ
+sell - auto bán đồ
+glv - giữ level
+hsl - hồi sinh bằng lượng
+time - xem thời gian còn lại
+
+-- AUTO NHIỆM VỤ --
+as10 - mở Auto NV 10
+as20 - Auto NV 20, chưa vào trường
+a20k - Auto NV 20, ninja kiếm
+a20t - Auto NV 20, ninja phi tiêu
+a20u - Auto NV 20, ninja kunai
+a20c - Auto NV 20, ninja cung
+a20d - Auto NV 20, ninja đao
+a20q - Auto NV 20, ninja quạt
+anv - auto NV hằng ngày (ở trường)
+adv - auto danh vọng
+
+-- AUTO SĂN --
+boss - auto boss
+att - auto Tà Thú
+attn - auto Tà Thú nhóm (nhóm trưởng)
+tnx - auto làm tiên nữ
+
+-- ĐỔI MAP, ĐỔI KHU --
+aq - auto chuyển map
+z - auto chuyển map
+rm - auto sang map kế
+nm - auto sang map kế
+k - chuyển khu
+dck - đánh xong chuyển khu
+dcvt - đánh xong chuyển vị trí
+avt - thêm vị trí hiện tại
+dvtx - xoá một vị trí
+dvt - xoá hết vị trí
+ltd - lưu toạ độ (ở làng/trường)
+
+-- ĐI NHANH TỚI MAP --
+hr - Haruna
+hs - Hirosaki
+tn - Tone
+os - Oshin
+oz - Ozawa
+sz - Sanzu
+kj - Kojin
+lc - Làng Chài
+ck - Chakumi
+eg - Echigo
+mnv - map nhiệm vụ
+mnvp - map nhiệm vụ phụ
+hd9x - hang động 9x
+
+-- NHẶT ĐỒ --
+add - thêm vật phẩm vào ds nhặt
+del - xoá vật phẩm khỏi ds nhặt
+ait - thêm item đang chỉ vào ds nhặt
+dit - bỏ item đang chỉ khỏi ds nhặt
+ajt - thêm item theo tên vào ds nhặt
+djt - bỏ item theo tên khỏi ds nhặt
+vdmq - thêm item nhặt VDMQ
+cnhat - bật nhặt xa, hút VP
+x - đặt khoảng cách nhặt
+
+-- NHÓM --
+addn - thêm vào nhóm
+sn - lưu nhóm
+cn - xoá nhóm (nhóm trưởng)
+pt - PT nhóm
+
+-- KỸ NĂNG --
+ts - tàn sát
+tsx - tàn sát
+tsa - tàn sát tất cả
+tsn - tàn sát nhóm
+tsan - tàn sát nhóm tất cả
+st - stanima tất cả
+sta - stanima tất cả
+stn - stanima nhóm
+stan - stanima nhóm tất cả
+sts - step stanima
+stb - stanima buff HS (quạt)
+stbx - stanima buff (quạt)
+sths - stanima HS (quạt)
+buff - bật buff HS xa
+bux - bật buff xa
+hsx - bật HS xa
+kts - đặt khoảng cách tàn sát
+
+-- PK --
+pk - auto PK
+apk - thêm tên vào ds PK
+dpk - bỏ tên khỏi ds PK
+cpk - xoá ds PK
+ahs - thêm tên vào ds HS
+dhs - bỏ tên khỏi ds HS
+chs - xoá ds HS
+atpk - auto PK âm exp (acc chính)
+acpk - auto chờ PK
+adpk - auto đánh ai bật PK
+uppk - mở bảng cài đặt PK âm
+pkb - PK Thần Thú
+pkk - PK Thần Thú
+nw - auto lôi đài thắng
+nl - auto lôi đài thua
+
+-- GIAO DỊCH, SHINWA --
+gd - mời giao dịch (chỉ vào người kia)
+dg - đặt giá
+asw - thêm vào ds bán Shinwa
+rsw - bỏ khỏi ds bán Shinwa
+yenxu - xem yên, xu, lượng
+checkup - xem đồ hành trang và rương
+
+-- HIỂN THỊ, TỐC ĐỘ --
+s - đặt tốc chạy (nên <= 100)
+rs - reset tốc chạy
+c - fake tầm cao
+n - fake tầm ngang
+m - fake tầm lan
+rsk - reset fake tầm lan
+u - khinh công
+d - độn thổ
+l - dịch trái
+r - dịch phải
+npc - act NPC

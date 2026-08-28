@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(java -cp build/tools OpenChatCommands:*)",
+      "Bash(javap:*)"
+    ]
+  }
+}
