@@ -20,6 +20,8 @@ import com.nsoz.option.SkillOption;
 import com.nsoz.skill.PhaTran;
 import com.nsoz.skill.Skill;
 import com.nsoz.skill.SkillTemplate;
+import com.nsoz.store.ItemStore;
+import com.nsoz.convert.Converter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -1004,23 +1006,44 @@ public final class CharAdmin {
         JSONArray out = new JSONArray();
         try (Connection k = DbManager.getConnection();
              PreparedStatement st = k.prepareStatement(
-                     "SELECT `id`,`name`,`type`,`level`,`icon`,`description`,`fashion` FROM `item` ORDER BY `id`;");
+                     "SELECT `id`,`name`,`type`,`level`,`icon`,`description`,`fashion`,`gender` FROM `item` ORDER BY `id`;");
              ResultSet rs = st.executeQuery()) {
             while (rs.next()) {
-                if (monBiKhoa(rs.getInt("id"), rs.getInt("type"), rs.getInt("fashion"))) {
+                int id = rs.getInt("id");
+                int type = rs.getInt("type");
+                if (monBiKhoa(id, type, rs.getInt("fashion"))) {
                     continue;
                 }
                 JSONObject j = new JSONObject();
-                j.put("id", rs.getInt("id"));
+                j.put("id", id);
                 j.put("name", rs.getString("name"));
-                j.put("type", rs.getInt("type"));
+                j.put("type", type);
                 j.put("level", rs.getInt("level"));
                 j.put("icon", rs.getInt("icon"));
                 j.put("mota", rs.getString("description") == null ? "" : rs.getString("description"));
+                j.put("gt", rs.getInt("gender"));
+                j.put("coCS", coChiSo(id));
                 out.add(j);
             }
         }
         return out;
+    }
+
+    /**
+     * Món có chỉ số thật không -- dùng đúng cách WebExport dùng để xuất trang tra cứu
+     * (GiveItem.storeRows + Converter, phòng khi món không bán ở đâu thì mới rơi về ItemFactory),
+     * nên số hiện ra khớp y hệt lúc phát đồ thật qua themMon().
+     */
+    private static boolean coChiSo(int id) {
+        try {
+            List<ItemStore> rows = GiveItem.storeRows(id);
+            Item item = rows.isEmpty()
+                    ? ItemFactory.getInstance().newItem(id)
+                    : Converter.getInstance().toItem(rows.get(0), Converter.MAX_OPTION);
+            return item != null && item.options != null && !item.options.isEmpty();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**

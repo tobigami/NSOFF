@@ -318,6 +318,19 @@ async function moHopThemMon() {
     </div>
     <div class="loc" id="loc-mon">${NHOMMON.map(([k, t]) =>
       `<button data-loc="${k}" class="${k === "" ? "chon" : ""}">${t}</button>`).join("")}</div>
+    <div class="loc" style="padding-top:0">
+      <select class="oso" id="gt-mon" style="width:auto">
+        <option value="">Mọi giới tính</option>
+        <option value="1">Nam</option>
+        <option value="0">Nữ</option>
+        <option value="2">Cả hai</option>
+      </select>
+      <input class="oso" type="number" id="capmin-mon" placeholder="cấp từ" min="0">
+      <input class="oso" type="number" id="capmax-mon" placeholder="cấp đến" min="0">
+      <label style="font-size:13px;color:var(--nhat);display:flex;align-items:center;gap:5px">
+        <input type="checkbox" id="cocs-mon"> chỉ món có chỉ số
+      </label>
+    </div>
     <div class="than" id="ds-mon"></div>
     <div class="day">
       <label style="font-size:13px;color:var(--nhat)">Số lượng</label>
@@ -332,14 +345,25 @@ async function moHopThemMon() {
   $("#tim-mon").focus();
   // Lọc lúc gõ. Danh mục hơn nghìn dòng nên chỉ vẽ 200 dòng đầu, đủ để chọn mà không giật.
   $("#tim-mon").addEventListener("input", ev => veDanhMuc(ev.target.value));
+  for (const id of ["gt-mon", "capmin-mon", "capmax-mon", "cocs-mon"]) {
+    $("#" + id).addEventListener("input", () => veDanhMuc($("#tim-mon").value));
+  }
 }
 
 function veDanhMuc(tu) {
   const q = khongDau(tu.trim());
   const nhom = NHOMMON.find(n => n[0] === LOCMON);
   const loai = nhom && nhom[2] ? new Set(nhom[2]) : null;
+  const gt = $("#gt-mon").value;
+  const cmin = $("#capmin-mon").value;
+  const cmax = $("#capmax-mon").value;
+  const chics = $("#cocs-mon").checked;
   const loc = DANHMUC.filter(m =>
     (!loai || loai.has(m.type))
+    && (gt === "" || String(m.gt) === gt)
+    && (cmin === "" || m.level >= +cmin)
+    && (cmax === "" || m.level <= +cmax)
+    && (!chics || m.coCS)
     && (!q || khongDau(m.name).includes(q) || String(m.id).includes(q)));
   const cat = loc.slice(0, 200);
   $("#ds-mon").innerHTML = cat.length
@@ -348,19 +372,23 @@ function veDanhMuc(tu) {
         ${m.icon >= 0 ? `<img src="/anh?icon=${m.icon}&co=2" alt="" onerror="this.style.visibility='hidden'">`
                       : '<span style="width:28px"></span>'}
         <span style="flex:1"><b>${esc(m.name)}</b>
-          <span style="color:var(--nhat);font-size:12px"> · mã ${m.id} · cấp ${m.level}</span></span>
+          <span style="color:var(--nhat);font-size:12px"> · mã ${m.id} · cấp ${m.level}</span>
+          ${m.coCS ? '<span class="the-nho on">có chỉ số</span>' : ""}</span>
       </div>`).join("")
       + (loc.length > cat.length
          ? `<div class="trong">còn ${loc.length - cat.length} món nữa, gõ thêm để thu hẹp</div>` : "")
     : '<div class="trong">Không tìm thấy món nào.</div>';
 }
 
+const GTMON = { 0: "Nữ", 1: "Nam", 2: "Cả hai" };
+
 /** Nội dung chú thích cho một dòng trong danh mục. */
 function tipMon(m) {
   const nhom = NHOMMON.find(n => n[2] && n[2].includes(m.type));
   return `<div class="t">${esc(m.name)}</div>`
     + (m.mota ? `<div class="m">${esc(m.mota)}</div>` : "")
-    + `<div class="k">mã ${m.id} · cấp ${m.level} · loại ${m.type}${nhom ? " · " + nhom[1] : ""}</div>`;
+    + `<div class="k">mã ${m.id} · cấp ${m.level} · loại ${m.type}${nhom ? " · " + nhom[1] : ""}`
+    + ` · ${GTMON[m.gt] || m.gt}</div>`;
 }
 
 function dongHopThemMon() {
