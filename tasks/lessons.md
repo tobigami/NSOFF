@@ -4,8 +4,9 @@
 
 **1. Không tự ý kết nối mạng để lấy dữ liệu, kể cả khi kỹ thuật cho phép.**
 Tôi đề xuất "harvest 1 lần từ server thật" để có nội dung gốc. User chọn phương án tự sinh
-từ atlas trong JAR. → Với mục tiêu "offline hoàn toàn", mặc định là **không đụng mạng ở bất kỳ
-khâu nào**, kể cả build time. Nếu thấy một hướng cần mạng, hỏi trước, đừng làm rồi báo.
+từ atlas trong JAR. → Mặc định là **không tự ý nối ra ngoài** để lấy dữ liệu, kể cả lúc build.
+Nếu thấy một hướng cần mạng, hỏi trước, đừng làm rồi báo. (Bài học từ hướng đi đầu — nhét máy chủ
+nội bộ vào jar; hướng đó đã bỏ, xem `todo.md`. Bản thân bài học thì vẫn giữ.)
 
 **2. Khi một hạng mục phụ thuộc thông tin user sẽ cung cấp → dừng đúng hạng mục đó, làm tiếp phần khác.**
 User nói phần ghép hình nhân vật "tạm dựng lại đã, tôi sẽ cung cấp thêm thông tin sau".
@@ -26,6 +27,10 @@ Tôi đã bỏ nhiều công tách sprite từ atlas và tự soạn database it
 server/data nào không?"**, hỏi NGAY, trước khi đầu tư vào phương án tái tạo.
 
 ## Kỹ thuật — tránh làm lại
+
+Vài mục đầu mục này lấy ví dụ từ hướng đi đầu — máy chủ nội bộ nhét trong jar (`nsoff.*`,
+`ProtoTest`, `test.sh`). Hướng đó đã bỏ và các tệp ấy không còn trong cây nguồn (xem `todo.md`),
+nhưng bài học thì không phụ thuộc vào chúng nên giữ nguyên.
 
 **Class ở package có tên không tham chiếu được class ở unnamed package** (Java ≥1.4).
 → Mọi patch phải đi qua default package (`bs`, `w`, `dh`, `dq`, `dc`…). Với `main.*` chỉ còn
@@ -89,7 +94,8 @@ không cứu được, vì tiến trình chết trước khi tick chạy — tes
 fail. Các chỗ gọi đều là hành động rời rạc (giết quái, mặc, ăn, mua, đổi map) và record chỉ vài
 trăm byte, nên throttle là tối ưu hoá vô nghĩa: bỏ đi, ghi thẳng.
 
-**Không test được thì stub cái chặn đường.** `nsoff.Save` không chạy trong `ProtoTest` vì
+**Không test được thì stub cái chặn đường.** (Ví dụ lấy từ hướng đi đầu đã bỏ, cách làm vẫn
+dùng được.) `nsoff.Save` không chạy trong `ProtoTest` vì
 RecordStore của MicroEmulator cần `MIDletBridge` có emulator thật, nên phần lưu chưa từng được
 test. Viết `tools/testrms/.../RecordStore.java` in-memory rồi đặt trước stub jar trên classpath là
 test được vòng lưu/nạp mà không cần boot emulator.

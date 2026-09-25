@@ -21,6 +21,18 @@ Mỗi công cụ đều có phần chú thích đầu tệp nói rõ nó làm g�
 | `share_server.py` | Máy chủ tệp tĩnh (run-share.sh gọi) |
 | `Play.java` | Mở client trong MicroEmulator, đặt cửa sổ đúng màn hình |
 
+## Client PC (bản Unity "pb189")
+
+Client Windows dựng bằng Unity, **không** phải client J2ME mà `mod.sh` vá. Địa chỉ máy chủ nằm
+cứng trong ba chuỗi của `NinjaSchool_189_Data/Managed/Assembly-CSharp.dll` — không có tệp cấu
+hình, không có ô nhập. Sửa được vì `ldstr` trỏ vào heap `#US` bằng offset tuyệt đối, nên **giữ
+nguyên số ký tự** là vá tại chỗ được; hai công cụ dưới đây đều làm đúng thế.
+
+| Công cụ | Việc |
+|---|---|
+| `doi-may-chu-pc.py` | Đổi địa chỉ/cổng, chạy trên máy này (macOS) |
+| `doi-may-chu-pc.ps1` + `DOI-MAY-CHU-PC.bat` | Bản cho Windows, chép sang cạnh `NinjaSchool_189.exe` rồi bấm đúp tệp .bat |
+
 ## Vá client — `mod.sh` gọi theo thứ tự
 
 `ThoiTrangHook` · `AoChoangHook` · `SuaNhan` · `ForceServer` · `HookCommand` · `NoNullTag` ·

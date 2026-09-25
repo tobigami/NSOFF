@@ -1,32 +1,24 @@
-# NSOFF — Ninja School Online → Offline
+# NSOFF — máy chủ Ninja School Online tự dựng
 
-Mục tiêu: biến `NinjaSchool_251.jar` (game online J2ME) thành bản chơi offline hoàn toàn,
-không còn bất kỳ kết nối server nào.
+Mục tiêu: chạy `work/server/NSO_KEM` trên máy nhà làm máy chủ riêng, và vá client
+`NSO_mobile_148.jar` để chơi vào máy chủ đó qua tailnet. Vẫn là chơi mạng, chỉ khác là máy chủ
+của mình. Cách dựng và chạy: xem `README.md`.
 
-## Kiến trúc
+Tên "NSOFF" là di sản của hướng đi đầu tiên — nhét luôn một máy chủ nội bộ vào trong jar để chơi
+một mình không cần mạng. Hướng đó **đã bỏ** sau khi có nguyên source máy chủ thật kèm dump MySQL:
+tự dựng lại nội dung game từ atlas trong jar không bao giờ đuổi kịp bản gốc. Toàn bộ ghi chú của
+hướng cũ (`nsoff.Chan/Srv/World/Save`, `build.sh`, `test.sh`, `out/NinjaSchool_Offline.jar`) đã
+gỡ khỏi tệp này; muốn đọc lại thì xem lịch sử git. Không còn tệp nào trong cây nguồn dùng tới nó.
 
-Không viết lại game. Giữ nguyên toàn bộ class gốc, chỉ **thay lớp vận chuyển** và **nhúng một
-server nội bộ** vào chính file JAR.
-
-```
-main.a (game canvas)  →  dh (Session)  →  bs (connector)
-                                            │
-                            ┌───────────────┴───────────────┐
-                            │  TRƯỚC: Connector.open(       │
-                            │         "socket://host:port") │
-                            │  SAU:   nsoff.Chan (pipe RAM) │
-                            └───────────────┬───────────────┘
-                                            ↓
-                                       nsoff.Srv  ←→  nsoff.World
-                                     (framing +        (logic game)
-                                      handshake)
-```
+Hai mục dưới đây thì **vẫn còn hiệu lực** — chúng nói về chính client đang vá bằng `mod.sh`, chứ
+không phải về máy chủ nội bộ đã bỏ.
 
 ### Vì sao patch được
 
 Class nào ở **default package** đều recompile lại được bằng javac hiện đại (`bs`, `dh`, `w`,
 `dq`, `dc`, …). Class trong package `main` thì **không** — Java ≥1.4 cấm package có tên tham
-chiếu class ở unnamed package. Nên mọi thay đổi đều đi qua default package.
+chiếu class ở unnamed package. Nên mọi thay đổi đều đi qua default package. Đó là lý do
+`mod-src/*.java` (`Dan`, `ThoiTrang`, `TanSat`, `SoNgan`) đều không khai báo package.
 
 ### Chi tiết giao thức (đã dịch ngược)
 
@@ -39,8 +31,7 @@ server → client : [cmd:1][len:2][payload]            khi len ≤ 0xFFFF
 
 Handshake: client gửi `-27` rỗng, server trả `-27` + `[n][key…]`. Client tự XOR luỹ tiến
 `key[i+1] ^= key[i]` rồi bật `dh.l = true`. **Bắt buộc bật** vì thread gửi (`aq.run`) chỉ flush
-khi `l == true`. Ta trả key 1 byte giá trị `0` → XOR thành phép đồng nhất → toàn bộ luồng là
-plaintext, không cần cài mã hoá.
+khi `l == true`.
 
 Nhóm lệnh: `-29` NOT_LOGIN, `-28` NOT_MAP, `-30` SUB_COMMAND (byte sub theo sau), còn lại là
 opcode trực tiếp. Tổng cộng 158 case top-level trong `an.a(ce)`.
@@ -54,6 +45,10 @@ Luồng đăng nhập:
 6. S→C `-28/-126` danh sách nhân vật (3 slot) hoặc vào tạo nhân vật
 7. S→C `-30/-127` thông tin nhân vật → `-18` vào map → payload map (`an.d`)
 
+Đây là chỗ giải thích ba biến `game.data.version` / `game.item.version` / `game.skill.version`
+trong `config.properties`: client chỉ xin lại blob khi số phiên bản ở bước 2 khác bản nó đang
+giữ trong bộ nhớ đệm. Đổi dữ liệu mà quên bump là client dùng bản cũ.
+
 Format bảng sprite (đều nằm trong blob data `-28/-122`, mỗi bảng bọc bởi `[len:4][bytes]`):
 - `nj_image` : `s16 n; n×{u8 atlas, s16 x, s16 y, s16 w, s16 h}`
 - `nj_part`  : `s16 n; n×{u8 type; k×{s16 imgId, s8 dx, s8 dy}}` với k = 8/18/10/2 theo type 0/1/2/3
@@ -61,197 +56,8 @@ Format bảng sprite (đều nằm trong blob data `-28/-122`, mỗi bảng bọ
 - `nj_arrow` : `s16 n; n×{s16 _; s16 a0; s16 a1; s16 a2}`
 - `nj_skill` : `s16 n; n×{s16 id; s16 a; u8 _; u8 b; b×ar; u8 c; c×ar}` (ar = 1 byte + 12 short)
 
-### Nội dung game
-
-Ban đầu phải tự dựng lại nội dung từ atlas trong JAR (không có bảng index). **Sau khi user cung
-cấp `SETUP_LOCAL/` chứa source server private (`SRC_GAME/NSO_KEM.zip`), toàn bộ nội dung đã được
-thay bằng dữ liệu gốc.**
-
-Nguồn: `work/server/NSO_KEM/`
-- `nso_test.sql` — database đầy đủ: `nj_image` (3049), `nj_part` (308), `nj_effect`, `nj_arrow`,
-  `nj_skill`, `item` (1241), `monster` (261), `npc` (48), `map` (179), `skill_template` (91),
-  `clazz` (7), `effect`, `others` (bảng exp), `task`
-- `Data/Img/Mob/1/` — sprite quái thật (JAR không có)
-- `Data/Img/Small/1/` — sprite rời cho các id nằm ngoài atlas
-- `Data/Map/` — tile data cho cả 179 map (JAR chỉ có 60)
-- `src/` — source Java server, dùng để **port đúng từng serializer** thay vì đoán
-
-Đã xác nhận **5 atlas `Big0..Big4.png` trong JAR trùng byte-for-byte** với client của server này,
-nên bảng `nj_image`/`nj_part` áp thẳng vào được.
-
-Build time parse thẳng file `.sql` (không cần MySQL, không chạy server) rồi đóng blob vào JAR.
-
-## Checklist
-
-- [x] Giải nén + decompile JAR (CFR + Vineflower; Vineflower giải được `an.a` mà CFR fail)
-- [x] Dựng harness chạy + chụp màn hình tự động (MicroEmulator + `Component.printAll`)
-- [x] Build script: compile → guard API CLDC → repack JAR
-- [x] Thay `bs`: socket → pipe nội bộ (`nsoff.Chan`), handshake key rỗng
-- [x] Bỏ tải danh sách server qua HTTP (patch `w.a("NJlink")`) — menu hiện "Máy Chủ: Offline"
-- [x] Xác nhận client gửi được login qua pipe (đã thấy `-29/-125`, `-29/-127`)
-- [x] Xoá sạch URL còn sót trong bytecode (`StripUrls`) + guard trong build chặn tái xuất hiện
-- [x] ~~Tự tách sprite từ atlas~~ → **thay bằng dữ liệu gốc từ DB server**
-- [x] Parser dump MySQL + JSON (`SqlDump`, `Json`) — không cần MySQL
-- [x] Port đúng serializer của server cho cả 4 blob + `nj_*` (đối chiếu source, không đoán)
-- [x] Sprite quái thật (260 template, 648 KB) + sprite rời (1831 ảnh) + 119 tile map còn thiếu
-- [x] Blob template: map/npc/mob (`-28/-121`), skill (`-28/-120`), item (`-28/-119`)
-- [x] Đăng nhập → tạo nhân vật → `-30/-127` char info
-- [x] Vào map: `-18` + payload (mob, npc, vị trí spawn dò từ tilemap)
-- [x] Sprite quái: JAR không có → ghép từ part nhân vật, phát qua `-28/-108`
-- [x] Gameplay: di chuyển, đánh (cmd 60), mob AI + aggro, exp/level, drop, nhặt đồ, túi đồ
-- [x] Mặc trang bị (cmd 11) — id loại item đã đánh đúng chuẩn client (1 vũ khí, 2 quần, 6 áo)
-- [x] Nhân vật mới có sẵn kiếm gỗ + thuốc; hồi máu dần; gục thì hồi sinh sau 6s
-- [x] Lưu tiến trình vào RMS (`nsoff.Save`): chỉ số, nhiệm vụ, skill, túi đồ — ghi ngay mỗi hành động
-- [x] Hạ class version về 47 + strip StackMapTable (`Downgrade`)
-- [x] Bộ verify 2 tầng: `ProtoTest` (protocol) + `Harness` (emulator thật)
-- [x] Đi lại giữa map bằng waypoint (`-17`) — cả 179 map tới được
-- [x] Đối chiếu lại serializer với source server: sửa `t` = **tốc độ di chuyển** (đang gửi nhầm level)
-- [x] Tương tác NPC: chạm NPC (40) → menu (63) → chọn (29) → hộp thoại (-26)
-- [x] Trả shortcut thanh skill (`-30/-65`) — client treo thanh skill nếu không trả
-- [x] Nhiệm vụ: giao (47), tiến bước (48), hoàn thành (49); 43 nhiệm vụ gốc từ `task_template`
-- [x] Sửa 2 crash: skill id giả (nhân vật mới chỉ có 1 chiêu), và `bg` index âm
-- [x] Bảng nhiệm vụ trên màn hình — chỉ vẽ khi cờ **isHuman** bật (`dg.java:5342` gate bằng
-      `bp.d().A()`); tôi gửi `false` nên nó không hiện suốt
-- [x] Luồng nhận nhiệm vụ đúng bản gốc: phải tới NPC nhận trước, xong mới hiện; hoàn thành
-      xong KHÔNG tự giao nhiệm vụ kế tiếp
-- [x] Bước giết quái / nhặt đồ (`kill_mob`, `pick_item`, `counts`) + cập nhật tiến độ (lệnh 50)
-- [x] Phần thưởng khi hoàn thành (exp + xu, lệnh 13)
-- [x] Shop NPC (23 cửa hàng, 560 dòng hàng, giá thật) + dùng đồ ăn/thuốc
-- [x] Dùng được bình HP (type 16) và bình MP (type 17), lượng hồi theo đúng từng item id của
-      server; kèm hiệu ứng `-30/-101` để client vẽ icon buff
-- [x] Gộp chồng vật phẩm theo cột `isUpToUp` (đá không stack là luật của game, thuốc/vật liệu có)
-- [x] Sửa mảng trắng đè lên nhân vật mỗi khi bị đánh: trường hiệu ứng trong `-3` phải là **-1**
-      như `Service.npcAttackMe`, tôi tự điền `1` nên client phát hiệu ứng số 1 lên người chơi
-- [x] Ảnh rời: kiểm biên cả hình chữ nhật (`x+w <= 255`) thay vì từng số riêng lẻ
-- [x] Lên cấp: server suy cấp từ bảng exp, tăng maxHP/maxMP, hồi đầy và báo client qua `-30/-109`.
-      Server gốc tính từ điểm tiềm năng người chơi tự cộng (`AbilityFromEquip:198`); bản này chia
-      sẵn theo tỉ lệ cố định vì chưa có màn cộng điểm
-- [ ] Màn cộng điểm tiềm năng / điểm kỹ năng (server: `potentialPoint = level * 10`)
-- [x] Sửa mặc đồ làm tụt tốc độ: lệnh 11 đi qua `bp.a(ce)` = readParam, byte 2 là **speed** chứ
-      không phải level (`an.java:789` → `bp.java:446`)
-- [x] Sửa mất tiến trình khi vào lại: túi đồ/skill chưa được lưu, và nhánh "chọn nhân vật cũ"
-      cấp lại đồ khởi đầu đè lên; thêm test reconnect so túi đồ trước/sau
-- [x] Bỏ 2 nhiệm vụ nói chuyện mở đầu — nhân vật mới bắt đầu thẳng ở task 2 "NV Lần đầu dùng kiếm"
-- [x] Sửa `-2` trong bảng `task` bị đọc thành 254 (ghi/đọc bằng byte không dấu). Đây là gốc của
-      cái fallback "NPC không tồn tại thì ai cũng được", vốn khiến nói chuyện với NPC bất kỳ là
-      xong bước "Sử dụng vũ khí". Nay ghi bằng short có dấu trong `world.bin`
-- [x] Nới ô waypoint gửi cho client thêm 1 tile: `bp.G()` so khít nên ô 24px sát rìa map rất khó
-      chạm; server chọn waypoint gần nhất thay vì cái đầu tiên khớp
-- [x] Chặn nhảy map vô hạn do việc nới ô gây ra: điểm đáp được đẩy ra khỏi mọi ô lối ra của map
-      đích (gốc rễ), và nếu client vẫn xin đi thì server gửi lại map đang đứng (có throttle 1s) để
-      màn "Đang tải…" không bao giờ treo
-- [x] Sửa AI quái theo đúng server: bù nhìn/mộc nhân/thảo dược không bao giờ tấn công; aggro cần
-      cùng cao độ + `rangeMove + 20` (quái bay `type==4` mới đuổi cả hai trục)
-- [x] Sửa **quái không hiện hình**: byte trạng thái trong bản tin map phải là **5 = sống** /
-      0 = chết (`Mob.java:167`,`:331`); tôi gửi `1` = *vừa chết* nên `ci.d()` không vẽ
-- [x] Sửa **mặc đồ làm mất đồ**: `equip()` xoá món khỏi túi mà không lưu đi đâu. Nay theo dõi
-      `Player.equipped` (chỉ số = type của item, đúng cách client đánh chỉ số), món đang mặc rơi
-      ngược về ô túi, char info phát lại đồ đang mặc, save v6 lưu kèm
-- [x] Chỉ số tính lại từ base + đồ đang mặc thay vì cộng dồn mỗi lần equip
-- [x] Sửa exp bù nhìn 25.000 → hợp lý: kẹp HP về một chỗ duy nhất (lúc build) để exp dẫn xuất đúng
-- [x] Port đúng bảng rơi đồ của server (`RandomItem.ITEM` + `Mob.randomItemID`): có trọng số và
-      quy đổi theo cấp quái, thay cho danh sách 4 item tự chọn theo tên khiến bù nhìn rơi đồ lv70
-- [x] Yên (item type 19) nhặt được cộng vào ô tiền thay vì nằm trong túi; char info + lệnh 13 phát
-      đủ cả Xu/Yên/Lượng. Bộ đồ khởi đầu cũng không cấp Yên dạng vật phẩm nữa
-- [x] Sửa dòng chữ chạy bị bóp còn 6px: `ae` chừa chỗ cho nút cảm ứng theo `main.a.g`, không theo
-      kích thước màn thật; đồng thời nâng nó lên trên panel Lv/HP/MP thay vì đè lên
-- [ ] Bán đồ, nâng cấp đồ
-- [x] Bỏ UI online lúc khởi động — recompile `co` (màn menu), vào thẳng game bằng guest login
-- [ ] PvP. Chat/guild: user không cần.
-
-## Cách dùng
-
-```bash
-./build.sh     # → out/NinjaSchool_Offline.jar
-./test.sh      # protocol test + boot test + kiểm tra không còn URL mạng
-```
-
-## Review
-
-### Kết quả
-
-`out/NinjaSchool_Offline.jar` (2.2 MB) — chạy hoàn toàn offline, **không mở socket, không gọi
-HTTP**, dùng **dữ liệu gốc** của game.
-
-`./test.sh` pass toàn bộ (exit 0):
-- 33 check protocol: login → 4 blob → tạo nhân vật → vào "Trường Hirosaki" (4 quái, 17 NPC) →
-  **đi waypoint sang map 16 quái** → đánh chết → exp → rơi đồ → nhặt → mặc đủ 3 món trang bị →
-  đồ tiêu hao bị từ chối mặc → quái hồi sinh
-- Boot thật trong MicroEmulator: menu → tạo nhân vật → vào map, ảnh trong `build/shots/`
-- Quét JAR: không còn URL mạng nào
-
-Nội dung thật: 179 map, 261 quái (sprite gốc), 48 NPC, 1241 item, 91 skill template, 3049 sprite
-index, 308 part nhân vật.
-
-### Việc đã làm, theo lớp
-
-| Lớp | Thay đổi |
-|-----|----------|
-| Vận chuyển | `bs` mở `nsoff.Chan` (pipe RAM) thay `Connector.open("socket://…")` |
-| Handshake | Trả key 1 byte `0` → XOR thành phép đồng nhất, luồng plaintext, `dh.l=true` để thread gửi chịu flush |
-| Danh sách server | `w.a("NJlink")` trả list nội bộ 1 entry → `GameMidlet.d()` không bao giờ gọi `c()` (HTTP) |
-| URL còn sót | `StripUrls` blank 20 hằng chuỗi trong `main/GameMidlet`, `dc`, `an`, `at`, `main/a` |
-| Nội dung | `SqlDump`+`Json` parse `nso_test.sql`; `Content` port đúng serializer server cho 4 blob + `nj_*` |
-| Sprite quái | 260 template lấy thẳng `Data/Img/Mob/1`, phát qua `-28/-108` |
-| Sprite rời | 1831 ảnh ngoài atlas, phát qua `-28/-115` |
-| Map | 179 map từ DB; bổ sung 119 tile map JAR thiếu; đi lại giữa map qua waypoint (`-17`) |
-| Server | `nsoff.Srv` (framing) + `nsoff.World` (logic) + tick 600ms cho respawn/aggro/hồi máu |
-| Item | Loại item đánh số theo đúng chuẩn client (1/2/6 = vũ khí/quần/áo, 18 thuốc, 19 xu), part id của trang bị khớp số phần tử từng slot nên mặc đồ không crash |
-| Lưu | `nsoff.Save` → RecordStore: chỉ số, nhiệm vụ, skill **và túi đồ**; ghi ngay mỗi hành động, không throttle |
-| Tương thích | Class hạ về major 47, strip StackMapTable; guard chặn API ngoài CLDC |
-
-### Giới hạn đã biết
-
-1. **Chưa có**: bán đồ (mới chỉ mua được), nâng cấp trang bị, PvP. Chat và guild nằm ngoài phạm
-   vi theo yêu cầu. Server gốc còn khoá shop tới khi xong nhiệm vụ "Diệt sên trừ cóc" — tôi bỏ
-   khoá đó cho dễ chơi.
-2. **7 dòng `nj_skill` bị bỏ** vì trỏ tới skill template mà bản dump này không có (id 91..99 trong
-   khi chỉ có 91 template). Client dùng số template để cấp phát mảng nên giữ lại sẽ crash.
-3. **Sát thương quái** suy ra từ level (bảng `monster` không có cột damage).
-4. **Bug của client, đã né chứ chưa vá**: `dg.d()` kẹp cận trên nhưng không kẹp cận dưới khi
-   tính ô thanh skill (`ez[this.eJ]`), chỉ kích hoạt khi nhân vật biết **≥2 skill**. Nhân vật
-   mới chỉ có 1 chiêu nên chưa chạm tới. Khi làm hệ thống học skill phải vá bytecode `dg`.
-5. **`dg.class` không recompile được** (nó tham chiếu class tên `do`, là từ khoá Java). Muốn đổi
-   gì trong đó — như vị trí dòng chữ nhiệm vụ — phải vá bytecode; xem `tools/MoveQuestText.java`.
-6. **Message của client hay parse qua helper.** Trước khi định dạng payload phải mở helper ra
-   xem, đừng đoán theo tên message — xem lesson về `readParam` trong `tasks/lessons.md`.
-5. **Mảng NPC của nhiệm vụ lệch 1**: phần tử 0 là NPC *giao* nhiệm vụ, nên bước `i` nhắm tới
-   `npcs[i+1]`. Chính client cũng cộng `+1` (`dg.F()`, dg.java:13774). Lúc đầu tôi quên bước dịch
-   này nên nói chuyện NPC nào cũng qua bước.
-6. **Map khởi đầu là 22 "Làng Tone", toạ độ (1741, 264)** — lấy thẳng từ `players.map`
-   DEFAULT `'[22,1741,264]'`. Điểm spawn nằm ngay cạnh Tajima (NPC giao nhiệm vụ), và làng này
-   có đủ cả 7 NPC mà nhiệm vụ mở đầu gọi tên.
-7. **Lệnh 40 mang TEMPLATE ID chứ không phải chỉ số NPC trên map** (`dg.java:3293` gửi
-   `bp.d().aU.cm.a`). Ban đầu tôi tra nhầm vào mảng NPC của map → hiện sai NPC, và với
-   Okanechan (template 24 > số NPC trên map) thì không hiện gì → treo.
-8. **Luồng NPC theo đúng server** (`Char.initMenu`, model/Char.java:15732): NPC của bước nhiệm
-   vụ hiện tại được chèn thêm mục "Làm nhiệm vụ" / "Hoàn thành nhiệm vụ" lên đầu menu; chỉ mục
-   đó mới nhích bước. Kèm lời thoại NPC qua lệnh 38 (`OPEN_UI_SAY`) để nhiệm vụ mở đầu đúng ý
-   nghĩa "đi hỏi xem NPC nào làm gì".
-9. **NPC 13 "Khu vực"** không đi qua lệnh 40 — client tự xử lý bằng lệnh 36 (đổi khu).
-10. **Cờ `isHuman` (trường `b` trong char info) điều khiển nhiều thứ hơn tên gọi**: bảng nhiệm
-    vụ trên màn hình chỉ vẽ khi nó bật, và client đọc bảng skill từ `skill` thay vì
-    `skillnhanban`. Gửi `false` làm mất bảng nhiệm vụ mà không báo lỗi gì.
-11. **HP quái cấp thấp bị thổi phồng trong dump**: bù nhìn cấp 1 có 500.000 HP, trong khi nhiệm
-    vụ tutorial đòi giết 10 con. Đã kẹp lại HP khi nó lệch quá xa so với level.
-4. **Máy CLDC thật (KVM)** cần preverify; toolchain preverify không có trên macOS ARM. Chạy tốt
-   trên emulator (MicroEmulator đã verify; KEmulator/J2ME Loader theo class version 47 thì hợp lệ).
-
-## Hướng khác: chạy server thật (SETUP_LOCAL)
-
-`work/server/NSO_KEM/` là server Java thật, Maven, target 1.8, **fat jar dựng sẵn**
-`target/Nso-jar-with-dependencies.jar`. Chạy trên macOS khả thi:
-
-- DB: MySQL/MariaDB, `nso_test`, root/không mật khẩu, port 3306. Dump `nso_test.sql` 2.8 MB.
-- **MongoDB không cần** — `DbManager` chỉ dùng Hikari + JDBC MySQL; `mongodb.bat=false`.
-- Client localhost: `SETUP_LOCAL/PB/Jar_local.zip`, chạy bằng MicroEmulator có sẵn.
-- Bỏ qua toàn bộ mục mở port Firewall trong hướng dẫn (chỉ áp dụng cho Windows).
-
-Rủi ro đã lường: `joor`/Netty/log4j cũ có thể vỡ trên JDK 17 (module system) → dự phòng cài
-Temurin 8/11; `main()` mở một cửa sổ Swing.
-
-Đã dọn `SETUP_LOCAL` từ 2.5 GB xuống 438 MB (bỏ các bộ cài Windows), giữ lại emulator và bản PC
-theo yêu cầu.
+Cả năm bảng đều **truyền theo vị trí, không mang id**, nên id phải liên tục — đây là gốc của cảnh
+báo trong `README.md` về `tools/idanh.py`.
 
 ## Máy chủ đang chạy — những thay đổi đã áp dụng
 
@@ -1816,3 +1622,80 @@ Còn lại
   chỉ số phải xoá đi phát lại.
 - Biểu ngữ mới là chữ trên tấm nền có tia sáng; biểu ngữ vẽ tay của game (hiệu ứng 12-20) có cánh
   và hào quang, đẹp hơn hẳn. Muốn ngang ngửa thì phải vẽ tay từng cái.
+
+## 25/09/2026 — client PC (bản Unity "pb189"): trỏ được về máy chủ nhà
+
+Bản Windows tải về ngoài (`nso.zip`, 130 MB) là game Unity 2017 + Mono, **không** phải client
+J2ME mà `mod.sh` vá. Mục này ghi lại chỗ sửa được và chỗ chưa biết.
+
+### Địa chỉ máy chủ nằm ở đâu
+
+Ba chuỗi trong `NinjaSchool_189_Data/Managed/Assembly-CSharp.dll`, định dạng
+`TÊN:MÁYCHỦ:CỔNG:cờ:cờ` nối nhau bằng dấu phẩy:
+
+| offset | nội dung |
+|---|---|
+| 921808 | 3 mục, đang trỏ `103.28.32.204` — **cái client dùng** |
+| 922001 | 7 mục IP teamobi gốc — đường lui |
+| 922446 | 7 mục `nj*.teamobi.com` — đường lui |
+
+Không có tệp cấu hình nào chứa địa chỉ, cũng không có ô cho người chơi tự gõ: `PlayerPrefs` chỉ
+nhớ *chỉ số* máy chủ đã chọn (`lastServer`, `indServer`). Các asset Unity (`level0`,
+`globalgamemanagers`, `sharedassets0`) không chứa địa chỉ nào — đã dò.
+
+Vá cả ba chứ đừng vá mỗi chuỗi đang dùng: client còn một đường `NJlink` tải danh sách máy chủ qua
+HTTP, để nguyên hai danh sách teamobi là có lúc nó lại nối ra ngoài.
+
+### Vì sao sửa được, và ràng buộc
+
+String literal của .NET nằm trong heap `#US`: `[độ dài nén][UTF-16LE][1 byte cuối]`, và `ldstr`
+trỏ tới chuỗi bằng **offset tuyệt đối**. Nên đổi nội dung thì được, đổi **độ dài** thì không —
+dài hơn là đè lên chuỗi kế tiếp, ngắn hơn rồi dịch phần sau lên là mọi offset phía sau lệch hết.
+Cách vá: giữ y nguyên số ký tự, đệm/cắt phần TÊN cho vừa (tên chỉ để hiện ở màn chọn máy chủ).
+
+Không phải suy đoán. Gói tải về có sẵn `Assembly-CSharp.dll.bak`: bản `.bak` ghi `vps.nso.id.vn`,
+bản đang dùng ghi `103.28.32.204` — **cùng 13 ký tự**, hai tệp **cùng 1.025.024 byte**, khác đúng
+36 byte. Người trước đã vá tại chỗ đúng kiểu này và nó chạy được.
+
+### Công cụ
+
+| Tệp | Chạy ở đâu |
+|---|---|
+| `tools/doi-may-chu-pc.py` | máy này |
+| `tools/doi-may-chu-pc.ps1` | Windows, máy bạn bè |
+| `tools/DOI-MAY-CHU-PC.bat` | Windows — vỏ bọc gọi tệp `.ps1` |
+
+Tệp `.bat` cần `-ExecutionPolicy Bypass` (Windows chặn chạy `.ps1`, bấm đúp chỉ mở Notepad) và
+`chcp 65001` (khỏi bóp méo chữ có dấu). Tệp `.ps1` lưu **UTF-8 có BOM**: thiếu BOM thì
+PowerShell 5.1 đọc theo codepage ANSI và tiếng Việt trong script vỡ.
+
+Dòng `set "MAYCHU="` đầu tệp `.bat` để trống thì script hỏi tương tác; điền sẵn trước khi gửi thì
+bạn bè chỉ việc bấm đúp. Cùng lối với `set "TEN=ban-be"` trong `CHAY.bat`.
+
+`tools/doi-may-chu-pc.ps1` tự dò DLL ở cả ba chỗ, nên để cạnh thư mục `pb189` là đủ, không phải
+chui vào `NinjaSchool_189_Data\Managed\`. Điểm khôi phục là `.dll.goc` do chính script tạo —
+KHÔNG đụng tới `.bak` của người phát hành.
+
+### Phát cho bạn bè
+
+Chép `nso.zip` (nguyên bản, không đụng byte nào) + hai tệp Windows vào `dist/share`, rồi
+`run-share.sh` như mọi khi. Không đóng gói lại: giải nén 491 MB rồi nén lại chỉ để vá 1 MB là
+công cốc, mà bạn bè chạy `.bat` một lần là xong. Hướng dẫn cho bạn bè: `dist/share/DOC-TRUOC-PC.txt`.
+
+### Chưa biết — phải chạy thật mới rõ
+
+**Client này chưa từng nối thành công vào `NSO_KEM` của mình.** Chưa thử được vì máy chủ chưa
+dựng (thiếu Java/MySQL), và `.exe` thì cần máy Windows.
+
+Dấu hiệu tốt, đọc từ mã máy chủ:
+- Không chặn theo phiên bản. `Session.login()` parse `"1.8.9"` → `189` rồi chỉ dùng để bật/tắt
+  tính năng. `setClientType()` đọc rồi cất, không từ chối ai.
+- Máy chủ phân nhánh theo đúng dải: `≤179`, `180–199`, `200`, `211`, `239`. Ví dụ khối mob
+  template ở `Service.java:2996` chỉ gửi cho client ≥200, khối trang bị ở `Service.java:3181`
+  chỉ gửi cho client ≤179. Client 1.8.9 rơi đúng vào dải 180–199 mà tác giả đã lường trước.
+
+Chỗ nhiều khả năng hỏng: **trang phục custom sẽ không hiện hình**. Client PC gói sẵn art trong
+`resources.assets` (466 MB), không tải ảnh từ máy chủ theo kiểu `nj_image`/`nj_part` như client
+J2ME. Bộ Hokage/Akatsuki/Madara thêm vào DB sẽ chỉ cộng chỉ số.
+
+Thử một máy Windows trước rồi hãy phát cho cả nhóm.
