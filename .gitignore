@@ -30,6 +30,8 @@
 # ra từ mod.sh. Đều sinh lại được.
 /dist/share/orther-version/
 /dist/share/*.jar
+# Gói client PC (~130 MB) chép vào đây để phát cho bạn bè. Tải lại được, không phải mã nguồn.
+/dist/share/*.zip
 /dist/win/*.jar
 /test/*.jar
 /mod/**/*.jar

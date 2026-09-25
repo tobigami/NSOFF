@@ -1,0 +1,89 @@
+CHƠI NSO BẢN MÁY TÍNH (Windows)
+================================
+
+Bản này chạy thẳng trên Windows, không cần Java, không cần emulator. Khác hẳn
+bản điện thoại (NSO-*.jar) -- hai bản dùng chung một máy chủ nên nhân vật là
+một, nhưng cách cài thì không giống nhau chút nào.
+
+
+TẢI VỀ BA TỆP
+=============
+
+    NSO-PC.zip              cả game, khoảng 130 MB
+    DOI-MAY-CHU-PC.bat      dùng để trỏ game về đúng máy chủ
+    doi-may-chu-pc.ps1      phần việc thật, tệp .bat ở trên gọi nó
+
+Thiếu tệp .ps1 thì tệp .bat không làm được gì. Tải cả ba.
+
+
+CÀI
+===
+
+1. Giải nén NSO-PC.zip ra Desktop hoặc ổ D.
+   Đừng để trong "Program Files" -- Windows chặn ghi ở đó.
+
+   Giải nén xong sẽ thấy một thư mục tên pb189.
+
+2. Chép DOI-MAY-CHU-PC.bat và doi-may-chu-pc.ps1 vào NẰM CẠNH thư mục pb189
+   (cạnh thôi, không cần chui vào trong).
+
+3. Bật Tailscale và vào cùng mạng với máy chủ. Chưa vào được thì hỏi người
+   dựng game -- đừng tự cài lung tung.
+
+4. Bấm đúp DOI-MAY-CHU-PC.bat. Nó hiện địa chỉ hiện tại rồi hỏi địa chỉ mới.
+   Người dựng game đưa địa chỉ nào thì gõ địa chỉ đó. Ô "Cổng" cứ Enter.
+
+   Làm đúng một lần. Lần sau chỉ chạy lại khi được báo là địa chỉ đã đổi.
+
+5. Bấm đúp pb189\NinjaSchool_189.exe, chọn máy chủ tên "NSO".
+
+
+WINDOWS BÁO CHẶN
+================
+
+Bình thường, không phải virus.
+
+Tệp .exe tải từ mạng và không có chữ ký số nên SmartScreen hiện bảng xanh
+"Windows protected your PC" -- bấm "More info" rồi "Run anyway".
+
+Tệp .bat cũng có thể bị hỏi lại. Vài phần mềm diệt virus cằn nhằn vì cùng lý
+do: tệp không chữ ký. Cả ba tệp đều tải từ máy chủ của nhóm, không lấy ở đâu
+khác.
+
+
+VÀO KHÔNG ĐƯỢC
+==============
+
+Theo thứ tự, đừng nhảy cóc:
+
+1. Tailscale đang bật chưa? Biểu tượng ở khay hệ thống phải sáng.
+
+2. Chạy DOI-MAY-CHU-PC.bat lần nữa. Nó in ra địa chỉ game đang trỏ tới -- đọc
+   xem có đúng địa chỉ người dựng game đưa không.
+
+3. Đúng địa chỉ mà vẫn không vào được thì máy chủ đang tắt hoặc đang sửa.
+   Nhắn hỏi, đừng gỡ ra cài lại.
+
+
+ĐỔI LẠI NHƯ LÚC MỚI TẢI
+=======================
+
+Mở PowerShell trong thư mục chứa hai tệp script rồi chạy:
+
+    .\doi-may-chu-pc.ps1 -KhoiPhuc
+
+Script sửa thẳng vào tệp Assembly-CSharp.dll của game, và trước khi sửa lần
+đầu nó tự lưu một bản cũ thành Assembly-CSharp.dll.goc. ĐỪNG XOÁ tệp .goc đó
+-- mất nó là không quay lại được, phải tải lại cả gói 130 MB.
+
+
+KHÁC GÌ BẢN ĐIỆN THOẠI
+======================
+
+Cùng một máy chủ, cùng nhân vật, cùng tài khoản.
+
+Nhưng bản máy tính dùng bộ hình riêng đóng sẵn trong máy, không tải hình từ
+máy chủ như bản điện thoại. Nên những trang phục và danh hiệu mới thêm gần
+đây có thể không hiện hình, hoặc hiện ra hình khác -- chỉ số vẫn ăn đủ.
+
+Muốn thấy đúng hình thì chơi bản điện thoại (NSO-*.jar).
